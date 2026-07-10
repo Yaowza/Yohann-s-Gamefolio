@@ -1,8 +1,6 @@
 name: Build and deploy
 on:
   push:
-    branches:
-      - master
     tags:
       - 'v*'
   workflow_dispatch:
@@ -19,6 +17,7 @@ defaults:
 jobs:
   build:
     runs-on: ubuntu-latest
+    if: github.event.base_ref == 'refs/heads/main'
     env:
       # Define tool versions
       DART_SASS_VERSION: 1.101.0
