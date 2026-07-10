@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://Yohann's_Gamefolio.com/sitemap.xml
