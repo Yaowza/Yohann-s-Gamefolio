@@ -4,7 +4,7 @@
 
 timeout = "10m"
 theme = "blowfish"
-baseURL = "https://Yohann's_Gamefolio.com/"
+baseURL = "https://yaowza.github.io/Yohann-s-Gamefolio/"
 defaultContentLanguage = "en"
 
 enableRobotsTXT = true
