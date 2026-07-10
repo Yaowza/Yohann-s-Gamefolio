@@ -21,6 +21,8 @@ buildFuture = false
 
 enableEmoji = true
 
+canonifyURLs = false
+ relativeURLs = true
 
 # googleAnalytics = "G-XXXXXXXXX"
 
