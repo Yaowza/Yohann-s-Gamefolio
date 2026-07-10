@@ -24,6 +24,9 @@ enableEmoji = true
 canonifyURLs = false
  relativeURLs = true
 
+[params]
+  disableFingerprinting = true  # Force Blowfish à charger le CSS normalement
+
 # googleAnalytics = "G-XXXXXXXXX"
 
 #[taxonomies]

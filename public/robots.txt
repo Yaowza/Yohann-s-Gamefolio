@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://yaowza.github.io/Yohann-s-Gamefolio/sitemap.xml
