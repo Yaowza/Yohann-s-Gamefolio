@@ -1,0 +1,215 @@
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        function replaceJamBadges() {
+            // 1. On cherche tous les liens vers jam (tags ou catégories)
+            const badges = document.querySelectorAll('a[href*="/tags/jam/"], a[href*="/categories/jam/"]');
+            
+            badges.forEach(oldBadge => {
+                // Si on l'a déjà remplacé, on passe au suivant
+                if (oldBadge.getAttribute('data-replaced') === 'true') return;
+
+                // 2. On crée un tout nouvel élément <a> tout neuf
+                const newBadge = document.createElement('a');
+                newBadge.href = oldBadge.href;
+                newBadge.textContent = "Jam";
+                newBadge.setAttribute('data-replaced', 'true');
+                
+                // 3. On lui applique notre style en ligne strict (Inattaquable par Tailwind)
+                newBadge.style.display = "inline-block";
+                newBadge.style.verticalAlign = "middle";
+                newBadge.style.margin = "0.5rem 0rem";
+                newBadge.style.padding = "0.125rem 0.5rem";
+                newBadge.style.fontSize = "0.75rem";
+                newBadge.style.fontWeight = "600";
+                newBadge.style.borderRadius = "0.25rem";
+                newBadge.style.textDecoration = "none";
+                newBadge.style.boxShadow = "none";
+                newBadge.style.outline = "none";
+                
+                // Gestion des couleurs jour / nuit
+                const isDark = document.documentElement.classList.contains('dark') || document.body.classList.contains('dark');
+                if (isDark) {
+                    /*newBadge.style.backgroundColor = "#713f12";*/
+                    newBadge.style.color = "#ff00d4";
+                    newBadge.style.border = "1px solid #ff00d4";
+                } else {
+                    newBadge.style.backgroundColor = "#ff00d4";
+                    newBadge.style.color = "#ff00d4";
+                    newBadge.style.border = "1px solid #ff00d4";
+                }
+
+                // 4. On remplace l'ancien badge par le nouveau dans la page
+                oldBadge.parentNode.replaceChild(newBadge, oldBadge);
+            });
+        }
+
+        // On l'exécute immédiatement
+        replaceJamBadges();
+        
+        // On le réexécute un tout petit peu après au cas où Blowfish charge ses scripts en décalé
+        setTimeout(replaceJamBadges, 100);
+        setTimeout(replaceJamBadges, 500);
+    });
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        function replaceVFXBadges() {
+            // 1. On cherche tous les liens vers vfx (tags ou catégories)
+            const badges = document.querySelectorAll('a[href*="/tags/vfx/"], a[href*="/categories/vfx/"]');
+            
+            badges.forEach(oldBadge => {
+                // Si on l'a déjà remplacé, on passe au suivant
+                if (oldBadge.getAttribute('data-replaced') === 'true') return;
+
+                // 2. On crée un tout nouvel élément <a> tout neuf
+                const newBadge = document.createElement('a');
+                newBadge.href = oldBadge.href;
+                newBadge.textContent = "VFX";
+                newBadge.setAttribute('data-replaced', 'true');
+                
+                // 3. On lui applique notre style en ligne strict (Inattaquable par Tailwind)
+                newBadge.style.display = "inline-block";
+                newBadge.style.verticalAlign = "middle";
+                newBadge.style.margin = "0.5rem 0rem";
+                newBadge.style.padding = "0.125rem 0.5rem";
+                newBadge.style.fontSize = "0.75rem";
+                newBadge.style.fontWeight = "600";
+                newBadge.style.borderRadius = "0.25rem";
+                newBadge.style.textDecoration = "none";
+                newBadge.style.boxShadow = "none";
+                newBadge.style.outline = "none";
+                
+                // Gestion des couleurs jour / nuit
+                const isDark = document.documentElement.classList.contains('dark') || document.body.classList.contains('dark');
+                if (isDark) {
+                    /*newBadge.style.backgroundColor = "#713f12";*/
+                    newBadge.style.color = "#8c03fc";
+                    newBadge.style.border = "1px solid #8c03fc";
+                } else {
+                    newBadge.style.backgroundColor = "#8c03fc";
+                    newBadge.style.color = "#8c03fc";
+                    newBadge.style.border = "1px solid #8c03fc";
+                }
+
+                // 4. On remplace l'ancien badge par le nouveau dans la page
+                oldBadge.parentNode.replaceChild(newBadge, oldBadge);
+            });
+        }
+
+        // On l'exécute immédiatement
+        replaceVFXBadges();
+        
+        // On le réexécute un tout petit peu après au cas où Blowfish charge ses scripts en décalé
+        setTimeout(replaceVFXBadges, 100);
+        setTimeout(replaceVFXBadges, 500);
+    });
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        function replaceprojectsBadges() {
+            // 1. On cherche tous les liens vers projects (tags ou catégories)
+            const badges = document.querySelectorAll('a[href*="/tags/projects/"], a[href*="/categories/projects/"]');
+            
+            badges.forEach(oldBadge => {
+                // Si on l'a déjà remplacé, on passe au suivant
+                if (oldBadge.getAttribute('data-replaced') === 'true') return;
+
+                // 2. On crée un tout nouvel élément <a> tout neuf
+                const newBadge = document.createElement('a');
+                newBadge.href = oldBadge.href;
+                newBadge.textContent = "Project";
+                newBadge.setAttribute('data-replaced', 'true');
+                
+                // 3. On lui applique notre style en ligne strict (Inattaquable par Tailwind)
+                newBadge.style.display = "inline-block";
+                newBadge.style.verticalAlign = "middle";
+                newBadge.style.margin = "0.5rem 0rem";
+                newBadge.style.padding = "0.125rem 0.5rem";
+                newBadge.style.fontSize = "0.75rem";
+                newBadge.style.fontWeight = "600";
+                newBadge.style.borderRadius = "0.25rem";
+                newBadge.style.textDecoration = "none";
+                newBadge.style.boxShadow = "none";
+                newBadge.style.outline = "none";
+                
+                // Gestion des couleurs jour / nuit
+                const isDark = document.documentElement.classList.contains('dark') || document.body.classList.contains('dark');
+                if (isDark) {
+                    /*newBadge.style.backgroundColor = "#713f12";*/
+                    newBadge.style.color = "#03fcdb";
+                    newBadge.style.border = "1px solid #03fcdb";
+                } else {
+                    newBadge.style.backgroundColor = "#03fcdb";
+                    newBadge.style.color = "#03fcdb";
+                    newBadge.style.border = "1px solid #03fcdb";
+                }
+
+                // 4. On remplace l'ancien badge par le nouveau dans la page
+                oldBadge.parentNode.replaceChild(newBadge, oldBadge);
+            });
+        }
+
+        // On l'exécute immédiatement
+        replaceprojectsBadges();
+        
+        // On le réexécute un tout petit peu après au cas où Blowfish charge ses scripts en décalé
+        setTimeout(replaceprojectsBadges, 100);
+        setTimeout(replaceprojectsBadges, 500);
+    });
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        function replaceschoolprojectBadges() {
+            // 1. On cherche tous les liens vers schoolprojects (tags ou catégories)
+            const badges = document.querySelectorAll('a[href*="/tags/schoolproject/"], a[href*="/categories/schoolproject/"]');
+            
+            badges.forEach(oldBadge => {
+                // Si on l'a déjà remplacé, on passe au suivant
+                if (oldBadge.getAttribute('data-replaced') === 'true') return;
+
+                // 2. On crée un tout nouvel élément <a> tout neuf
+                const newBadge = document.createElement('a');
+                newBadge.href = oldBadge.href;
+                newBadge.textContent = "School Project";
+                newBadge.setAttribute('data-replaced', 'true');
+                
+                // 3. On lui applique notre style en ligne strict (Inattaquable par Tailwind)
+                newBadge.style.display = "inline-block";
+                newBadge.style.verticalAlign = "middle";
+                newBadge.style.margin = "0.5rem 0.5rem";
+                newBadge.style.padding = "0.125rem 0.5rem";
+                newBadge.style.fontSize = "0.75rem";
+                newBadge.style.fontWeight = "600";
+                newBadge.style.borderRadius = "0.25rem";
+                newBadge.style.textDecoration = "none";
+                newBadge.style.boxShadow = "none";
+                newBadge.style.outline = "none";
+                
+                // Gestion des couleurs jour / nuit
+                const isDark = document.documentElement.classList.contains('dark') || document.body.classList.contains('dark');
+                if (isDark) {
+                    /*newBadge.style.backgroundColor = "#713f12";*/
+                    newBadge.style.color = "#03fc62";
+                    newBadge.style.border = "1px solid #03fc62";
+                } else {
+                    newBadge.style.backgroundColor = "#03fc62";
+                    newBadge.style.color = "#03fc62";
+                    newBadge.style.border = "1px solid #03fc62";
+                }
+
+                // 4. On remplace l'ancien badge par le nouveau dans la page
+                oldBadge.parentNode.replaceChild(newBadge, oldBadge);
+            });
+        }
+
+        // On l'exécute immédiatement
+        replaceschoolprojectBadges();
+        
+        // On le réexécute un tout petit peu après au cas où Blowfish charge ses scripts en décalé
+        setTimeout(replaceschoolprojectBadges, 100);
+        setTimeout(replaceschoolprojectBadges, 500);
+    });
+</script>

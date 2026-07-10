@@ -1,0 +1,32 @@
+locale = "en"
+label = "English"
+weight = 1
+title = "Yohann's Gamefolio"
+
+[params]
+displayName = "EN"
+isoCode = "en"
+rtl = false
+description = "My GameFolio"
+dateFormat = "2 January 2006"
+
+  [params.author]
+  name = "Yohann Perrette"
+  image = "PDP.png"
+  headline = "Welcome to my Gamefolio !"
+  bio = "A Game Designer and VFX Lover."
+
+#    [[params.author.links]]
+#    link = "https://nunocoracao.github.io/blowfish/"
+
+#    [[params.author.links]]
+#    github = "https://github.com/nunocoracao/blowfish"
+
+#    [[params.author.links]]
+#    x-twitter = "https://twitter.com/burufugu"
+
+["params.author"]
+name = "Yohann Perrette"
+email = "yo.perrette@gmail.com"
+image = "PDP.png"
+headline = "Welcome to my Gamefolio !"

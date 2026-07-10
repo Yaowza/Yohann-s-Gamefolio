@@ -1,0 +1,12 @@
+/* Modifie l'intensité du flou sur le hero background */
+.backdrop-blur-md {
+    backdrop-filter: blur(1px) !important; /* Ajuste les pixels (ex: 2px pour un flou léger, 12px pour un flou très fort) */
+    -webkit-backdrop-filter: blur(1px) !important; /* Pour la compatibilité Safari */
+}
+
+
+.max-w-7xl {
+    max-width: 1500px !important;
+    width: 100% !important;
+}
+
