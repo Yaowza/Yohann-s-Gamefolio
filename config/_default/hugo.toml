@@ -8,6 +8,8 @@ baseURL = "https://yaowza.github.io/Yohann-s-Gamefolio/"
 defaultContentLanguage = "en"
 publishDir = "docs"
 
+
+
 enableRobotsTXT = true
 [pagination]
   pagerSize = 20
@@ -26,7 +28,8 @@ canonifyURLs = false
  relativeURLs = true
 
 [params]
-  disableFingerprinting = true  # Force Blowfish à charger le CSS normalement
+  fingerprint = false
+  disableFingerprinting = true
 
 # googleAnalytics = "G-XXXXXXXXX"
 
