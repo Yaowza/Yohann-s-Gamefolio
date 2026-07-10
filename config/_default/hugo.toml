@@ -8,7 +8,13 @@ baseURL = "https://yaowza.github.io/Yohann-s-Gamefolio/"
 defaultContentLanguage = "en"
 publishDir = "docs"
 
+[build]
+  useResourceCacheWhen = "never"
 
+[deployment]
+  [[deployment.targets]]
+    name = "github"
+    URL = "https://yaowza.github.io/Yohann-s-Gamefolio/"
 
 enableRobotsTXT = true
 [pagination]
