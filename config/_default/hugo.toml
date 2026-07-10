@@ -6,6 +6,7 @@ timeout = "10m"
 theme = "blowfish"
 baseURL = "https://yaowza.github.io/Yohann-s-Gamefolio/"
 defaultContentLanguage = "en"
+publishDir = "docs"
 
 enableRobotsTXT = true
 [pagination]

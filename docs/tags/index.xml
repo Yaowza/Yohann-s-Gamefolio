@@ -1,1 +1,15 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Tags on Yohann's Gamefolio</title><link>https://yaowza.github.io/Yohann-s-Gamefolio/tags/</link><description>Recent content in Tags on Yohann's Gamefolio</description><generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>yo.perrette@gmail.com (Yohann Perrette)</managingEditor><webMaster>yo.perrette@gmail.com (Yohann Perrette)</webMaster><copyright>© 2026 Yohann Perrette</copyright><atom:link href="https://yaowza.github.io/Yohann-s-Gamefolio/tags/index.xml" rel="self" type="application/rss+xml"/></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tags on Yohann&#39;s Gamefolio</title>
+    <link>https://yaowza.github.io/Yohann-s-Gamefolio/tags/</link>
+    <description>Recent content in Tags on Yohann&#39;s Gamefolio</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <managingEditor>yo.perrette@gmail.com (Yohann Perrette)</managingEditor>
+    <webMaster>yo.perrette@gmail.com (Yohann Perrette)</webMaster>
+    <copyright>© 2026 Yohann Perrette</copyright>
+    <atom:link href="https://yaowza.github.io/Yohann-s-Gamefolio/tags/index.xml" rel="self" type="application/rss+xml" />
+    
+  </channel>
+</rss>

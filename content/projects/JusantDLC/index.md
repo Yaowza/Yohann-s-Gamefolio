@@ -18,7 +18,7 @@ thumbnail: "cover.png"     # image de la carte
 _________________________________________
 
 # Trailer
-{{< youtubeLite id="P9CIuK5e5Mo" label="Jusant Abyss and Embrun Trailer" >}}
+ lien youtube
 
 
 
@@ -40,7 +40,7 @@ BlablablaBlabla
 
 ## <h1>Gameplay</h1>
 
- {{< youtubeLite id="6PFvjuGW7SQ" label="Jusant Abyss Gameplay Video" >}}
+ lien youtube
 
 BlaBla
 ### <h2><i>Level Design</i></h2>
@@ -53,7 +53,7 @@ BlaBla
 
 BlaBla.
 
-{{< carousel images="img/*" aspectRatio="16-10" interval="2500" >}}
+
 
 
 ### <h2><i>VFX</i></h2>
