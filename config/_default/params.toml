@@ -79,7 +79,7 @@ excludedKinds = [ ]
 [taxonomy]
 showTermCount = true
 
-[params.assets]
+[assets]
 customCSS = ["css/custom.css"]
 
 [markup]

@@ -22,3 +22,13 @@
     height: auto !important;
     aspect-ratio: 16/9; /* Garde le bon ratio pour ton trailer */
 }
+
+/* Force l'image de profil de la page d'accueil à garder sa taille normale */
+.homepage-avatar, img[alt="Yohann Perrette"], .profile-avatar img {
+    width: 8rem !important;      /* Équivalent à w-48 (192px) */
+    height: 8rem !important;     /* Équivalent à h-48 */
+    max-width: 192px !important;
+    object-fit: cover !important;
+    border-radius: 9999px !important; /* Pour la garder bien ronde/ovale selon le style de base */
+}
+
