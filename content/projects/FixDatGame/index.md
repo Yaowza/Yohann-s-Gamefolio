@@ -13,18 +13,38 @@ thumbnail: "cover.png"     # image de la carte
 ---
 <span style="opacity:0">aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</span>
 
+ {{< youtubeLite id="wlgu1v7E2go" label="FixDatGame" >}}
 
-## Lorem ipsum dolor sit amet
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean in eleifend justo, vestibulum congue lacus. Quisque est libero, lacinia sed placerat ac, interdum id urna. Nulla venenatis volutpat libero, in laoreet leo fringilla eget. Etiam consequat sed nisi sit amet interdum. Pellentesque ullamcorper at turpis in ultrices. Pellentesque et elit mauris. Aenean eu augue sit amet nunc interdum ultricies. Aenean eleifend consectetur sapien vitae consectetur. Donec risus mauris, finibus at condimentum at, lacinia sit amet neque. Nulla facilisi. Suspendisse sollicitudin dolor quis eros tempor, a tempus ex varius.
 
-## Nunc non leo non magna
-Nunc non leo non magna ornare condimentum. Phasellus consequat nunc ut tellus porttitor bibendum. In pharetra ullamcorper metus quis mollis. Mauris bibendum, est in commodo hendrerit, dolor purus hendrerit dolor, at pharetra sapien erat sit amet ante. Etiam aliquet euismod libero, vel tincidunt felis mollis at. Sed scelerisque, tortor in convallis auctor, elit quam consectetur lacus, quis posuere risus libero non sem. Mauris sagittis nisi id aliquam lacinia. Vivamus finibus velit sed condimentum aliquet. Nullam in ante a erat lacinia semper. Curabitur pretium justo at leo maximus, quis dignissim nulla posuere. Donec eget consectetur neque, et mattis dui. Vivamus at mi enim. Nullam et nisi est. Nullam eget eros blandit, convallis odio eget, ornare enim.
+## What is Fix Dat Game ?
+This was a project assigned by our prototyping teacher to be completed over a few weeks.
 
-## Quisque ultricies
-Quisque ultricies tincidunt sem nec tincidunt. Aenean nibh diam, dapibus varius ornare nec, suscipit ut arcu. Integer ut elit sollicitudin, fermentum ipsum nec, tempus eros. Donec hendrerit facilisis maximus. Pellentesque eu mi ipsum. Vivamus diam tellus, varius sed dolor at, finibus tempus lorem. Morbi sed mauris quis enim vehicula hendrerit. Sed et sollicitudin est. Maecenas scelerisque ligula ac purus gravida, et feugiat nibh blandit. Integer id quam ac arcu convallis interdum eget sed libero. Aliquam varius est quis efficitur efficitur. Cras id turpis magna. Aenean cursus, libero auctor ullamcorper vestibulum, nisl risus consectetur nisi, ut molestie enim libero sed ipsum.
+First, we had to debug the existing project, fixing deliberately implemented issues such as collision and VFX bugs. After that, we implemented several new features to transform the game:
 
-## Etiam sollicitudin
-Etiam sollicitudin, ante ac fermentum varius, lorem ante congue mi, auctor dictum magna sem sed nibh. In et est id neque gravida aliquet quis a felis. Mauris tempor lectus ut gravida ornare. Curabitur at elementum tortor, in feugiat elit. Aenean auctor diam ut egestas rhoncus. Quisque tristique venenatis risus vitae suscipit. Nunc feugiat purus sed dolor gravida, non ullamcorper metus suscipit. Sed et tortor odio. Pellentesque at scelerisque nulla. In ut aliquam metus. Vivamus congue augue at pellentesque rhoncus. Donec a lectus tincidunt, aliquet libero sit amet, commodo arcu. Vivamus hendrerit quis augue eu lacinia. Sed sodales velit condimentum eros varius vulputate.
+- Gameplay & Mechanics: Created a new core gameplay loop focused on exploration and objective-based progression, added collectible potions, and integrated full controller support.
 
-## Proin tempor lorem
-Proin tempor lorem quam, ac maximus lectus sodales et. Sed laoreet orci vel metus luctus lobortis. Nam ex velit, vehicula id tristique sed, blandit eu nisi. Quisque semper libero nec massa malesuada congue. In faucibus lorem at diam fringilla, vel viverra magna lobortis. Ut commodo est urna, ut aliquet enim sagittis ut. Nulla posuere arcu sed lobortis accumsan. Phasellus fringilla dolor id est lobortis feugiat. Quisque enim elit, faucibus a mauris non, mattis aliquet orci. Nunc sagittis viverra erat, id condimentum lacus suscipit quis.
+- Audio & Visuals: Designed a creepy atmosphere, added custom cinematics, implemented dynamic VFX, and integrated responsive SFX tailored to character actions (footsteps, running, jumping, voice, etc.).
+
+- UI & Navigation: Added a main menu and a functional minimap.
+
+Sur ce projet nous étions en groupe de 2. 
+
+## I took care of :
+
+- <b> Core Gameplay & Mechanics : </b> Designed and implemented the core loop around the main mechanic, the "Black Hole Grapple." Developed a two-step objective system: collecting fuses and repairing the rocket.
+
+- <b>Player Systems & UI :</b> Created a drone companion that dynamically displays health and grapple charges, integrated 50% of the UI, and implemented a functional minimap with custom fuse trackers.
+
+- <b>Health & Hazard Systems :</b> Built the health system, featuring collectible healing potions and multiple damage types (fall, fire, and electrical damage).
+
+- <b>Atmosphere, VFX & Cinematics:</b> Scripted the in-game cinematics and designed a creepy aesthetic using custom VFX, fog, lighting, and a specialized Post-Process volume.
+
+- <b>Audio Integration :</b> Set up the game's audio design, integrating eerie ambient sounds (inspired by Minecraft), a dynamic soundtrack (using themes from Zelda: BOTW and Undertale), and custom damage sound effects edited via Audacity and external sources.
+
+
+{{< gallery >}}
+    {{< figure src="img/1.png" alt="Gallery image 1"  figureClass="grid-w50" >}}
+    {{< figure src="img/2.png" alt="Gallery image 1"  figureClass="grid-w50" >}}
+    {{< figure src="img/3.png" alt="Gallery image 1"  figureClass="grid-w50" >}}
+    {{< figure src="img/4.png" alt="Gallery image 1"  figureClass="grid-w50" >}}
+{{< /gallery >}}

@@ -109,7 +109,7 @@ thumbnail: "cover.png"     # image de la carte
 <span style="opacity:0">aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</span>
 _________________________________________
 
-# Trailer
+# Trailer :
 
 <div class="video-centree">
     {{< youtubeLite id="bgnM90MWV-c" label="Pierre Qui Roule TRAILER" >}}
@@ -199,7 +199,7 @@ I also made some <b>VFX</b> since I personally love doing them.
 _________________________________________
 ## <h1><b>Gameplay</b></h1>
 
- {{< youtubeLite id="5bzi0w5omNY" label="Pierre Qui Roule TRAILER" >}}
+ {{< youtubeLite id="5bzi0w5omNY" label="Pierre Qui Roule Gameplay Video" >}}
 
 
 The movements of the characters are all physic based, wich allows us a nice boulder physics feeling.
@@ -392,11 +392,6 @@ The demo features three different levels.
 
     {{< /gallery >}}
 
-
-<!--{{< gallery >}}
-  {{< figure src="Ruins/ruinfight.gif" alt="Gallery image 1" caption="Tower Fight" figureClass="grid-w100" >}}
-  {{< figure src="Ruins/ruinplanes.gif" alt="Gallery image 1" caption="Last Cannons" figureClass="grid-w100" >}}
-{{< /gallery >}}-->
 
 <div style="height: 70px;"></div> 
 

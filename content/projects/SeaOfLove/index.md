@@ -14,17 +14,35 @@ thumbnail: "cover.png"     # image de la carte
 <span style="opacity:0">aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</span>
 
 
-## Lorem ipsum dolor sit amet
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean in eleifend justo, vestibulum congue lacus. Quisque est libero, lacinia sed placerat ac, interdum id urna. Nulla venenatis volutpat libero, in laoreet leo fringilla eget. Etiam consequat sed nisi sit amet interdum. Pellentesque ullamcorper at turpis in ultrices. Pellentesque et elit mauris. Aenean eu augue sit amet nunc interdum ultricies. Aenean eleifend consectetur sapien vitae consectetur. Donec risus mauris, finibus at condimentum at, lacinia sit amet neque. Nulla facilisi. Suspendisse sollicitudin dolor quis eros tempor, a tempus ex varius.
+ {{< youtubeLite id="CPHNIxMcoUw" label="FixDatGame" >}}
 
-## Nunc non leo non magna
-Nunc non leo non magna ornare condimentum. Phasellus consequat nunc ut tellus porttitor bibendum. In pharetra ullamcorper metus quis mollis. Mauris bibendum, est in commodo hendrerit, dolor purus hendrerit dolor, at pharetra sapien erat sit amet ante. Etiam aliquet euismod libero, vel tincidunt felis mollis at. Sed scelerisque, tortor in convallis auctor, elit quam consectetur lacus, quis posuere risus libero non sem. Mauris sagittis nisi id aliquam lacinia. Vivamus finibus velit sed condimentum aliquet. Nullam in ante a erat lacinia semper. Curabitur pretium justo at leo maximus, quis dignissim nulla posuere. Donec eget consectetur neque, et mattis dui. Vivamus at mi enim. Nullam et nisi est. Nullam eget eros blandit, convallis odio eget, ornare enim.
 
-## Quisque ultricies
-Quisque ultricies tincidunt sem nec tincidunt. Aenean nibh diam, dapibus varius ornare nec, suscipit ut arcu. Integer ut elit sollicitudin, fermentum ipsum nec, tempus eros. Donec hendrerit facilisis maximus. Pellentesque eu mi ipsum. Vivamus diam tellus, varius sed dolor at, finibus tempus lorem. Morbi sed mauris quis enim vehicula hendrerit. Sed et sollicitudin est. Maecenas scelerisque ligula ac purus gravida, et feugiat nibh blandit. Integer id quam ac arcu convallis interdum eget sed libero. Aliquam varius est quis efficitur efficitur. Cras id turpis magna. Aenean cursus, libero auctor ullamcorper vestibulum, nisl risus consectetur nisi, ut molestie enim libero sed ipsum.
+## What is Sea of love ?
 
-## Etiam sollicitudin
-Etiam sollicitudin, ante ac fermentum varius, lorem ante congue mi, auctor dictum magna sem sed nibh. In et est id neque gravida aliquet quis a felis. Mauris tempor lectus ut gravida ornare. Curabitur at elementum tortor, in feugiat elit. Aenean auctor diam ut egestas rhoncus. Quisque tristique venenatis risus vitae suscipit. Nunc feugiat purus sed dolor gravida, non ullamcorper metus suscipit. Sed et tortor odio. Pellentesque at scelerisque nulla. In ut aliquam metus. Vivamus congue augue at pellentesque rhoncus. Donec a lectus tincidunt, aliquet libero sit amet, commodo arcu. Vivamus hendrerit quis augue eu lacinia. Sed sodales velit condimentum eros varius vulputate.
+<b> Sea of Love</b> is a short project made by a team of two. While we had a few constraints to respect, we were given total creative freedom for the rest. The guidelines required the game to be narrative-driven, feature heavy game feel and feedback, use an interaction system, and incorporate UI-based point-and-click mechanics.
 
-## Proin tempor lorem
-Proin tempor lorem quam, ac maximus lectus sodales et. Sed laoreet orci vel metus luctus lobortis. Nam ex velit, vehicula id tristique sed, blandit eu nisi. Quisque semper libero nec massa malesuada congue. In faucibus lorem at diam fringilla, vel viverra magna lobortis. Ut commodo est urna, ut aliquet enim sagittis ut. Nulla posuere arcu sed lobortis accumsan. Phasellus fringilla dolor id est lobortis feugiat. Quisque enim elit, faucibus a mauris non, mattis aliquet orci. Nunc sagittis viverra erat, id condimentum lacus suscipit quis.
+My teammate and I decided to create a horror game where the player must escape an abandoned laboratory. To win, you must explore and find scattered notes containing the keycodes needed to unlock the laboratory's doors.
+
+However, you are not alone. A monster roams freely through the facility, hunting you down. If he catches you, it's game over. Fortunately, you are equipped with a special mask. When worn, it makes you invisible to the monster, allowing you to interact with him and temporarily disable him. But use it wisely: the mask's battery drains very quickly.
+
+As a team of two, we divided the project into two roles. Although we focused on different areas, we collaborated closely, met frequently to help each other, and smoothly merged our work.
+
+
+## My responsibilities :
+
+- <b>3C & Character Mechanics :</b> Developed the character's movement, controls, stamina system, camera, flashlight, and the core mask mechanic.
+
+- <b>AI & Monster Systems :</b> Integrated the monster's mesh and Mixamo animations, implemented the stun mechanics, and set up its dedicated sound effects and lighting.
+
+- <b>Interactions & Level Hazards :</b> Created the full interaction system, including interactive objects, readable paper notes, doors, the elevator, and functional landmines.
+
+- <b>UI & Minigames :</b> Designed and scripted the UI, as well as the point-and-click minigames (digicodes and a Simon Says puzzle on a Freddy plush).
+
+- <b>Audio, Visuals & Integration :</b> Wrote the entire narrative lore, set up the general environment lighting, and integrated all external assets (animations, music, sound effects, and YouTube video screamers).
+
+{{< gallery >}}
+    {{< figure src="img/1.png" alt="Gallery image 1"  figureClass="grid-w50" >}}
+    {{< figure src="img/2.png" alt="Gallery image 1"  figureClass="grid-w50" >}}
+    {{< figure src="img/3.png" alt="Gallery image 1"  figureClass="grid-w50" >}}
+    {{< figure src="img/4.png" alt="Gallery image 1"  figureClass="grid-w50" >}}
+{{< /gallery >}} 
