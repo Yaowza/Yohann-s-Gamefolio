@@ -10,3 +10,15 @@
     width: 100% !important;
 }
 
+/* Force le conteneur de l'article à prendre beaucoup plus de place */
+.prose, .dark\:prose-invert {
+    max-width: 1200px !important; /* Ajuste cette valeur selon tes goûts */
+    width: 100% !important;
+}
+/* Force les vidéos (iframes) et les images à s'étaler dans ce nouvel espace */
+.prose iframe, .prose img, .prose video {
+    width: 100% !important;
+    max-width: 100% !important;
+    height: auto !important;
+    aspect-ratio: 16/9; /* Garde le bon ratio pour ton trailer */
+}

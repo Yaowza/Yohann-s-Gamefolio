@@ -37,6 +37,9 @@ canonifyURLs = false
   fingerprint = false
   disableFingerprinting = true
 
+[params.article]
+  constrainWidth = false
+
 # googleAnalytics = "G-XXXXXXXXX"
 
 #[taxonomies]

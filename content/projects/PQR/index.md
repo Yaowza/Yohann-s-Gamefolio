@@ -3,7 +3,7 @@ title: "Pierre Qui Roule"
 summary: "PierreQuiRoule is a third-person platformer physic-based game developed on UE5. You play as a rock tax collector gathering moss from the other rolling stones in the kingdom of Rouleroche."
 categories: ["projects","schoolproject"]
 #tags: ["projects"]
-
+extendedWidth: true
 
 #externalUrl: ""
 #showSummary: true
@@ -110,16 +110,71 @@ thumbnail: "cover.png"     # image de la carte
 _________________________________________
 
 # Trailer
-{{< youtubeLite id="bgnM90MWV-c" label="Pierre Qui Roule TRAILER" >}}
+
+<div class="video-centree">
+    {{< youtubeLite id="bgnM90MWV-c" label="Pierre Qui Roule TRAILER" >}}
+</div>
+
+<style>
+  .video-centree > * {
+    margin: 0 auto !important;
+    display: block !important;
+  }
+</style>
 
 {{< lead >}}
 {{< /lead >}}
 
+
+
+
+
+
+<style>
+  /* Le "div a.btn-itch" rend la règle ultra-prioritaire sur le thème */
+  div a.btn-itch {
+    display: inline-block !important;
+    background: #82c702 !important;       /* Ta couleur par défaut (Bleu) */
+    color: #ffffff !important;            
+    padding: 12px 24px !important;                   
+    font-weight: bold !important;
+    border-radius: 15px !important;        /* Bords moins ronds (6px) */
+    text-decoration: none !important;     
+    transition: background 0.2s ease !important; 
+  }
+
+  div a.btn-itch:hover {
+    background: #fab05c !important;       /* Ta couleur au survol (Rouge Itch.io) */
+    color: #ffffff !important;
+  }
+</style>
+
 <div class="text-center w-full">
-    {{< button href="https://colorivine.itch.io/pierre-qui-roule" >}}
-    Play it now on Itch.io
-    {{< /button >}}
+  <a href="https://colorivine.itch.io/pierre-qui-roule" class="btn-itch">
+    Play it now on Itch.io !
+  </a>
 </div>
+
+
+
+<div style="height: 20px;"></div> 
+
+
+
+
+
+<style>
+  .mon-keyword * {
+    background-color: #ef4444 !important; /* Couleur de fond */
+    color: #ffffff !important;            /* Couleur de texte */
+    border-radius: 8px !important;        /* Arrondit les bords (ex: 8px ou 9999px pour un effet pilule) */
+  }
+</style>
+
+<div class="flex justify-center mon-keyword">
+  {{< keyword >}} Controller Highly recomended {{< /keyword >}}
+</div>
+
 
 
 _________________________________________
@@ -401,7 +456,7 @@ Hidden throughout the levels are jokes and mini-games. Discovering these secrets
         <figure class="grid-w33">
             <!-- Ta vidéo avec la classe personnalisée et l'action au clic -->
             <video autoplay loop muted playsinline class="zoomable-video" onclick="toggleZoom(this)">
-            <source src="secrets/blk.mp4" type="video/mp4">
+            <source src="/static/trounoirpqr.mp4" type="video/mp4">
             </video>
             <figcaption><h4>Black Hole Secret</h4></figcaption>
         </figure>
@@ -586,7 +641,7 @@ _________________________________________
     <figure class="grid-w33">
         <!-- Ta vidéo avec la classe personnalisée et l'action au clic -->
         <video autoplay loop muted playsinline class="zoomable-video" onclick="toggleZoom(this)">
-        <source src="secrets/blk.mp4" type="video/mp4">
+        <source src="vfx/trounoirpqr.mp4" type="video/mp4">
         </video>
         <figcaption><h4>BlackHole Secret*</h4></figcaption>
     </figure>

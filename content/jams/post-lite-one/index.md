@@ -1,6 +1,6 @@
 ---
 title: "Spooder Dance"
-summary: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean in eleifend justo, vestibulum congue lacus. Quisque est libero, lacinia sed placerat ac, interdum id urna."
+summary: "You control a spider who has to take breaks on a dance floor and keep the rhythm with a breathtaking pyrothecnic spectacle."
 categories: ["jam"]
 #tags: ["jam"]
 #externalUrl: ""
@@ -12,17 +12,80 @@ featureimage: "card.png"
 thumbnail: "cover.png"
 ---
 
-## Lorem ipsum dolor sit amet
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean in eleifend justo, vestibulum congue lacus. Quisque est libero, lacinia sed placerat ac, interdum id urna. Nulla venenatis volutpat libero, in laoreet leo fringilla eget. Etiam consequat sed nisi sit amet interdum. Pellentesque ullamcorper at turpis in ultrices. Pellentesque et elit mauris. Aenean eu augue sit amet nunc interdum ultricies. Aenean eleifend consectetur sapien vitae consectetur. Donec risus mauris, finibus at condimentum at, lacinia sit amet neque. Nulla facilisi. Suspendisse sollicitudin dolor quis eros tempor, a tempus ex varius.
+<div class="video-centree">
+    {{< youtubeLite id="GzO2GyEzXUg" label="Pierre Qui Roule TRAILER" >}}
+</div>
 
-## Nunc non leo non magna
-Nunc non leo non magna ornare condimentum. Phasellus consequat nunc ut tellus porttitor bibendum. In pharetra ullamcorper metus quis mollis. Mauris bibendum, est in commodo hendrerit, dolor purus hendrerit dolor, at pharetra sapien erat sit amet ante. Etiam aliquet euismod libero, vel tincidunt felis mollis at. Sed scelerisque, tortor in convallis auctor, elit quam consectetur lacus, quis posuere risus libero non sem. Mauris sagittis nisi id aliquam lacinia. Vivamus finibus velit sed condimentum aliquet. Nullam in ante a erat lacinia semper. Curabitur pretium justo at leo maximus, quis dignissim nulla posuere. Donec eget consectetur neque, et mattis dui. Vivamus at mi enim. Nullam et nisi est. Nullam eget eros blandit, convallis odio eget, ornare enim.
+<style>
+  .video-centree > * {
+    margin: 0 auto !important;
+    display: block !important;
+  }
+</style>
 
-## Quisque ultricies
-Quisque ultricies tincidunt sem nec tincidunt. Aenean nibh diam, dapibus varius ornare nec, suscipit ut arcu. Integer ut elit sollicitudin, fermentum ipsum nec, tempus eros. Donec hendrerit facilisis maximus. Pellentesque eu mi ipsum. Vivamus diam tellus, varius sed dolor at, finibus tempus lorem. Morbi sed mauris quis enim vehicula hendrerit. Sed et sollicitudin est. Maecenas scelerisque ligula ac purus gravida, et feugiat nibh blandit. Integer id quam ac arcu convallis interdum eget sed libero. Aliquam varius est quis efficitur efficitur. Cras id turpis magna. Aenean cursus, libero auctor ullamcorper vestibulum, nisl risus consectetur nisi, ut molestie enim libero sed ipsum.
+{{< lead >}}
+{{< /lead >}}
 
-## Etiam sollicitudin
-Etiam sollicitudin, ante ac fermentum varius, lorem ante congue mi, auctor dictum magna sem sed nibh. In et est id neque gravida aliquet quis a felis. Mauris tempor lectus ut gravida ornare. Curabitur at elementum tortor, in feugiat elit. Aenean auctor diam ut egestas rhoncus. Quisque tristique venenatis risus vitae suscipit. Nunc feugiat purus sed dolor gravida, non ullamcorper metus suscipit. Sed et tortor odio. Pellentesque at scelerisque nulla. In ut aliquam metus. Vivamus congue augue at pellentesque rhoncus. Donec a lectus tincidunt, aliquet libero sit amet, commodo arcu. Vivamus hendrerit quis augue eu lacinia. Sed sodales velit condimentum eros varius vulputate.
 
-## Proin tempor lorem
-Proin tempor lorem quam, ac maximus lectus sodales et. Sed laoreet orci vel metus luctus lobortis. Nam ex velit, vehicula id tristique sed, blandit eu nisi. Quisque semper libero nec massa malesuada congue. In faucibus lorem at diam fringilla, vel viverra magna lobortis. Ut commodo est urna, ut aliquet enim sagittis ut. Nulla posuere arcu sed lobortis accumsan. Phasellus fringilla dolor id est lobortis feugiat. Quisque enim elit, faucibus a mauris non, mattis aliquet orci. Nunc sagittis viverra erat, id condimentum lacus suscipit quis.
+
+
+
+
+
+<style>
+  /* Le "div a.btn-itch" rend la règle ultra-prioritaire sur le thème */
+  div a.btn-itch {
+    display: inline-block !important;
+    background: #82c702 !important;       /* Ta couleur par défaut (Bleu) */
+    color: #ffffff !important;            
+    padding: 12px 24px !important;                   
+    font-weight: bold !important;
+    border-radius: 15px !important;        /* Bords moins ronds (6px) */
+    text-decoration: none !important;     
+    transition: background 0.2s ease !important; 
+  }
+
+  div a.btn-itch:hover {
+    background: #fab05c !important;       /* Ta couleur au survol (Rouge Itch.io) */
+    color: #ffffff !important;
+  }
+</style>
+
+<div class="text-center w-full">
+  <a href="https://ultimateyaowza.itch.io/spooder-dance" class="btn-itch">
+    Play it now on Itch.io !
+  </a>
+</div>
+
+
+
+
+
+
+
+<div style="height: 20px;"></div> 
+
+<style>
+  .mon-keyword * {
+    background-color: #ef4444 !important; /* Couleur de fond */
+    color: #ffffff !important;            /* Couleur de texte */
+    border-radius: 8px !important;        /* Arrondit les bords (ex: 8px ou 9999px pour un effet pilule) */
+  }
+</style>
+
+<div class="flex justify-center mon-keyword">
+  {{< keyword >}} Controller Only !!! {{< /keyword >}}
+</div>
+
+
+## What is Spooder Dance ?
+
+Spooder Dance is a game we made during a 48-hour game jam. You control a spider who has to take breaks on a dance floor and keep the rhythm with a breathtaking pyrotechnic spectacle.
+
+The gameplay is a mix of Dance Dance Revolution (DDR) and those games where you have to strike a pose to fit through a hole in a moving wall.
+
+To control the legs, you press either the triggers or the bumpers of the controller (bumpers for the front legs and triggers for the back legs). Then, you just have to move the legs using the joysticks. The left side of the controller controls the left legs, and the right side controls the right legs.
+
+*Spooder Dance was developed in 48 hours by a team of 5 people.*
+
+For this project, I mostly worked on the VFX, light effects, and camera effects.

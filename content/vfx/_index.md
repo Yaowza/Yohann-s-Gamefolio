@@ -4,6 +4,8 @@ class: "vfx-page"
 date: 2022-06-13T20:55:37+01:00
 draft: false
 
+featureimage: "https://static.wikitide.net/rainworldwiki/d/d3/Looks_to_the_Moon_region_screen.png" 
+
 
 showDate : false
 showDateUpdated : false
