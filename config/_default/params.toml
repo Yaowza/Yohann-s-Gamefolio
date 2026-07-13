@@ -12,6 +12,7 @@ defaultBackgroundImage = "BG.png"
 
 [header]
 layout = "fixed"
+showLogo = false
 
 [footer]
 showCopyright = true
