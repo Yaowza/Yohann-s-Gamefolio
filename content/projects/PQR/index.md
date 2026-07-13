@@ -451,7 +451,7 @@ Hidden throughout the levels are jokes and mini-games. Discovering these secrets
         <figure class="grid-w33">
             <!-- Ta vidéo avec la classe personnalisée et l'action au clic -->
             <video autoplay loop muted playsinline class="zoomable-video" onclick="toggleZoom(this)">
-            <source src="/static/trounoirpqr.mp4" type="video/mp4">
+            <source src="vfx/trounoirpqr.mp4" type="video/mp4">
             </video>
             <figcaption><h4>Black Hole Secret</h4></figcaption>
         </figure>
@@ -570,21 +570,21 @@ The VFX with a "*" at the end of their name are the VFX I worked on.
         </video>
         <figcaption><h4>Wind</h4></figcaption>
     </figure>
-    <figure class="grid-w33">
+    <figure class="grid-w33 format-carre">
         <!-- Ta vidéo avec la classe personnalisée et l'action au clic -->
         <video autoplay loop muted playsinline class="zoomable-video" onclick="toggleZoom(this)">
         <source src="vfx/lucioles.mp4" type="video/mp4">
         </video>
         <figcaption><h4>Fireflies</h4></figcaption>
     </figure>
-    <figure class="grid-w33">
+    <figure class="grid-w33 format-rect">
         <!-- Ta vidéo avec la classe personnalisée et l'action au clic -->
         <video autoplay loop muted playsinline class="zoomable-video" onclick="toggleZoom(this)">
         <source src="vfx/thunder.mp4" type="video/mp4">
         </video>
         <figcaption><h4>Thunder*</h4></figcaption>
     </figure>
-    <figure class="grid-w33">
+    <figure class="grid-w33 ">
         <!-- Ta vidéo avec la classe personnalisée et l'action au clic -->
         <video autoplay loop muted playsinline class="zoomable-video" onclick="toggleZoom(this)">
         <source src="vfx/bee.mp4" type="video/mp4">
@@ -592,6 +592,24 @@ The VFX with a "*" at the end of their name are the VFX I worked on.
         <figcaption><h4>Bees</h4></figcaption>
     </figure>
 {{< /gallery >}}
+
+<style>
+    
+    .format-carre video {
+        aspect-ratio: 1 / 1.5 !important;
+    }
+
+    .format-rect video {
+        aspect-ratio: 1 / 1 !important;
+    }
+     
+    .gallery video {
+        width: 100% !important;
+        height: auto !important; /* Laisse le CSS gérer la hauteur via le ratio */
+        object-fit: cover !important; 
+    }
+</style>
+
 
 _________________________________________
 #### Characters :
