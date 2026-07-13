@@ -13,6 +13,7 @@ defaultBackgroundImage = "BG.png"
 [header]
 layout = "fixed"
 showLogo = false
+favicon = "favicon.ico"
 
 [footer]
 showCopyright = true
