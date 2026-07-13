@@ -109,7 +109,7 @@ thumbnail: "cover.png"     # image de la carte
 <span style="opacity:0">aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</span>
 _________________________________________
 
-# Trailer :
+# Trailer 
 
 <div class="video-centree">
     {{< youtubeLite id="bgnM90MWV-c" label="Pierre Qui Roule TRAILER" >}}

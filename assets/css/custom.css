@@ -32,3 +32,31 @@
     border-radius: 9999px !important; /* Pour la garder bien ronde/ovale selon le style de base */
 }
 
+/* --- Fix des marges de l'article pour la production --- */
+
+/* 1. Force la section principale à ignorer le bridage par défaut de Blowfish */
+article section.prose {
+    max-width: none !important;
+    width: 100% !important;
+}
+
+/* 2. Applique la largeur personnalisée de 50rem sur le header et le contenu */
+#single_header, 
+.article-content, 
+article footer {
+    max-width: 50rem !important;
+    width: 100% !important;
+}
+
+
+
+/* Version force brute pour Blowfish et youtubeLite */
+lite-youtube,
+.lite-youtube,
+iframe[src*="youtube"],
+.video-wrapper,
+.prose iframe {
+    border-radius: 8px !important;
+    overflow: hidden !important;
+    transform: translateZ(0); /* Correction bug Safari/Chrome sur les arrondis d'iframes */
+}
