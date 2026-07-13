@@ -1,21 +1,52 @@
 /* Modifie l'intensité du flou sur le hero background */
 .backdrop-blur-md {
-    backdrop-filter: blur(1px) !important; /* Ajuste les pixels (ex: 2px pour un flou léger, 12px pour un flou très fort) */
-    -webkit-backdrop-filter: blur(1px) !important; /* Pour la compatibilité Safari */
+    backdrop-filter: blur(1px) !important;
+    -webkit-backdrop-filter: blur(1px) !important;
 }
 
+/* --- LE FIX MOBILE : On applique ces grandes largeurs UNIQUEMENT sur Ordinateur --- */
+@media (min-width: 768px) {
+    .max-w-7xl {
+        max-width: 1500px !important;
+        width: 100% !important;
+    }
 
-.max-w-7xl {
-    max-width: 1500px !important;
-    width: 100% !important;
+    /* Force le conteneur de l'article à prendre beaucoup plus de place */
+    .prose, .dark\:prose-invert {
+        max-width: 1200px !important;
+        width: 100% !important;
+    }
+
+    /* Force la section principale à ignorer le bridage par défaut de Blowfish */
+    article section.prose {
+        max-width: none !important;
+        width: 100% !important;
+    }
+
+    /* Applique la largeur personnalisée de 50rem sur le header, le contenu et le footer */
+    #single_header, 
+    .article-content, 
+    article footer {
+        max-width: 50rem !important;
+        width: 100% !important;
+    }
 }
 
-/* Force le conteneur de l'article à prendre beaucoup plus de place */
-.prose, .dark\:prose-invert {
-    max-width: 1200px !important; /* Ajuste cette valeur selon tes goûts */
-    width: 100% !important;
+/* --- Pour le téléphone (écrans de moins de 768px), on force la fluidité --- */
+@media (max-width: 767px) {
+    #single_header, 
+    .article-content, 
+    article footer,
+    .prose, 
+    .max-w-7xl {
+        width: 100% !important;
+        max-width: 100% !important;
+        padding-left: 1rem !important;  /* Ajoute une petite marge propre sur les côtés */
+        padding-right: 1rem !important;
+    }
 }
-/* Force les vidéos (iframes) et les images à s'étaler dans ce nouvel espace */
+
+/* Force les vidéos (iframes) et les images à s'étaler proprement */
 .prose iframe, .prose img, .prose video {
     width: 100% !important;
     max-width: 100% !important;
@@ -25,30 +56,12 @@
 
 /* Force l'image de profil de la page d'accueil à garder sa taille normale */
 .homepage-avatar, img[alt="Yohann Perrette"], .profile-avatar img {
-    width: 8rem !important;      /* Équivalent à w-48 (192px) */
-    height: 8rem !important;     /* Équivalent à h-48 */
+    width: 8rem !important;
+    height: 8rem !important;
     max-width: 192px !important;
     object-fit: cover !important;
-    border-radius: 9999px !important; /* Pour la garder bien ronde/ovale selon le style de base */
+    border-radius: 9999px !important;
 }
-
-/* --- Fix des marges de l'article pour la production --- */
-
-/* 1. Force la section principale à ignorer le bridage par défaut de Blowfish */
-article section.prose {
-    max-width: none !important;
-    width: 100% !important;
-}
-
-/* 2. Applique la largeur personnalisée de 50rem sur le header et le contenu */
-#single_header, 
-.article-content, 
-article footer {
-    max-width: 50rem !important;
-    width: 100% !important;
-}
-
-
 
 /* Version force brute pour Blowfish et youtubeLite */
 lite-youtube,
@@ -58,5 +71,5 @@ iframe[src*="youtube"],
 .prose iframe {
     border-radius: 8px !important;
     overflow: hidden !important;
-    transform: translateZ(0); /* Correction bug Safari/Chrome sur les arrondis d'iframes */
+    transform: translateZ(0);
 }
