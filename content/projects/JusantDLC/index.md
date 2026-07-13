@@ -199,7 +199,7 @@ Players embody a survivor of a forgotten, subterranean civilization. Generations
     The ascension takes place through a butifull underworld where the eerie glow of the underground flora illuminates the wall just like you where underwater.
     However be carefull the beasts here are curious and won't miss the opportuniy to taste the new arrivant.
 
-- Chapter 2 (DLC "Embrun") : This chapter start when the player finaly get out of the depth back to his abondonned village. And tells the story of our protagonist climbing back to the surface with his lost friend.
+- Chapter 2 (DLC "Embrun") : This chapter start when the player finaly get out of the depth back to his abondonned village. And tells the story of our protagonist climbing back to the surface with his lost friend "Raak".
 
 *I will not explain it further as I have not worked on this chapter.*
 
