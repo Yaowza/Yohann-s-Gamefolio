@@ -11,10 +11,6 @@ date: 2026-07-02
 draft: false
 featureimage: "card.png"   # fond de la page
 thumbnail: "cover.png"     # image de la carte
-
-
-
-
 ---
 
 <style>
@@ -52,6 +48,50 @@ thumbnail: "cover.png"     # image de la carte
   .video-bg-overlay.is-active {
     opacity: 1;
     pointer-events: auto;
+  }
+
+  /* --- FIX RADICAL DES ARRONDIS DU CARROUSEL --- */
+  /* On force l'arrondi sur absolument toute la structure du carrousel, de ses enfants et de ses images */
+  .gallery-carousel, 
+  .carousel,
+  [id^="carousel-"],
+  .glide,
+  .glide__track,
+  .glide__slides,
+  .glide__slide {
+    border-radius: 8px !important;
+    overflow: hidden !important;
+    transform: translate3d(0, 0, 0) !important; /* Force le clip de l'overflow */
+    -webkit-transform: translate3d(0, 0, 0) !important;
+    -webkit-backface-visibility: hidden !important;
+    -webkit-perspective: 1000 !important;
+  }
+  
+  /* On applique l'arrondi chirurgicalement à tout élément interne (div, figure, img) qui pourrait dépasser en bas */
+  .gallery-carousel *, 
+  .carousel *,
+  [id^="carousel-"] * {
+    border-radius: 8px !important;
+  }
+
+  /* Protection spécifique pour les images */
+  .gallery-carousel img,
+  .carousel img,
+  [id^="carousel-"] img,
+  .glide__slide img,
+  .carousel-item img {
+    border-radius: 8px !important;
+    overflow: hidden !important;
+    object-fit: cover !important;
+  }
+
+  /* Si le thème utilise des boutons de navigation ou des points en bas (dots) qui sont enfants du carrousel,
+     on leur retire l'arrondi de 8px pour qu'ils gardent leur forme d'origine (souvent ronds ou ovales). */
+  .glide__bullets,
+  .glide__bullets *,
+  .glide__arrows,
+  .glide__arrows * {
+    border-radius: 9999px !important; /* Garde les ronds de navigation intacts */
   }
 </style>
 
@@ -136,7 +176,7 @@ _________________________________________
     display: inline-block !important;
     background: #82c702 !important;       /* Ta couleur par défaut (Bleu) */
     color: #ffffff !important;            
-    padding: 12px 24px !important;                   
+    padding: 12px 24px !important;                    
     font-weight: bold !important;
     border-radius: 15px !important;        /* Bords moins ronds (6px) */
     text-decoration: none !important;     
@@ -208,19 +248,19 @@ The main gameplay mechanics are simple, you can <b>roll</b>, <b>jump</b> and jum
 
 {{< gallery >}}
         <figure class="grid-w33">
-            <video autoplay loop muted playsinline class="zoomable-video" onclick="toggleZoom(this)">
+            <video autoplay loop muted playsinline preload="metadata" class="zoomable-video" onclick="toggleZoom(this)">
             <source src="Gameplay/rolling.mp4" type="video/mp4">
             </video>
             <figcaption><h4>Rolling</h4></figcaption>
         </figure>
         <figure class="grid-w33">
-            <video autoplay loop muted playsinline class="zoomable-video" onclick="toggleZoom(this)">
+            <video autoplay loop muted playsinline preload="metadata" class="zoomable-video" onclick="toggleZoom(this)">
             <source src="Gameplay/jump.mp4" type="video/mp4">
             </video>
             <figcaption><h4>Jumping</h4></figcaption>
         </figure>
         <figure class="grid-w33">
-            <video autoplay loop muted playsinline class="zoomable-video" onclick="toggleZoom(this)">
+            <video autoplay loop muted playsinline preload="metadata" class="zoomable-video" onclick="toggleZoom(this)">
             <source src="Gameplay/meteor.mp4" type="video/mp4">
             </video>
             <figcaption><h4>Meteor Strike</h4></figcaption>
@@ -239,7 +279,7 @@ The main objective ot our game is th "Gather moss". To do so you have several me
 
     {{< gallery >}}
         <figure class="grid-w80">
-            <video autoplay loop muted playsinline class="zoomable-video" onclick="toggleZoom(this)">
+            <video autoplay loop muted playsinline preload="metadata" class="zoomable-video" onclick="toggleZoom(this)">
             <source src="Gameplay/fight.mp4" type="video/mp4">
             </video>
             <figcaption><h4>Fight</h4></figcaption>
@@ -265,13 +305,13 @@ The demo features three different levels.
      This is where the player spawns and returns between each level to deposit their moss (similar to Super Mario 64). 
      It’s a small zone that players can freely explore, featuring a few secrets and NPCs to talk to.
 
-     This area also hosts the 'Cannon Lighthouse', the hub's primary landmark that connects it to every level.
+     It also hosts the 'Cannon Lighthouse', the hub's primary landmark that connects it to every level.
      It allows the player to select and launch each level.
 
      {{< gallery >}}
         {{< figure src="Hub/Screen_MAIN.0110.jpeg" alt="Gallery image 1"  figureClass="grid-w50" >}}
         <figure class="grid-w50">
-            <video autoplay loop muted playsinline class="zoomable-video" onclick="toggleZoom(this)">
+            <video autoplay loop muted playsinline preload="metadata" class="zoomable-video" onclick="toggleZoom(this)">
             <source src="Hub/ptp.mp4" type="video/mp4">
             </video>
             <figcaption><h4> </h4></figcaption>
@@ -284,7 +324,7 @@ The demo features three different levels.
 
     {{< gallery >}}
         <figure class="grid-w100">
-            <video autoplay loop muted playsinline class="zoomable-video" onclick="toggleZoom(this)">
+            <video autoplay loop muted playsinline preload="metadata" class="zoomable-video" onclick="toggleZoom(this)">
             <source src="Hub/Hubhg.mp4" type="video/mp4">
             </video>
             <figcaption><h4>Hub Peak</h4></figcaption>
@@ -306,13 +346,13 @@ The demo features three different levels.
 
     {{< gallery >}}
         <figure class="grid-w50">
-            <video autoplay loop muted playsinline class="zoomable-video" onclick="toggleZoom(this)">
+            <video autoplay loop muted playsinline preload="metadata" class="zoomable-video" onclick="toggleZoom(this)">
             <source src="Gameplay/booster.mp4" type="video/mp4">
             </video>
             <figcaption><h4>Boosters</h4></figcaption>
         </figure>
         <figure class="grid-w50">
-            <video autoplay loop muted playsinline class="zoomable-video" onclick="toggleZoom(this)">
+            <video autoplay loop muted playsinline preload="metadata" class="zoomable-video" onclick="toggleZoom(this)">
             <source src="Gameplay/meteorparkour.mp4" type="video/mp4">
             </video>
             <figcaption><h4>Meteor Strike Platforming</h4></figcaption>
@@ -327,13 +367,13 @@ The demo features three different levels.
 
 {{< gallery >}}
     <figure class="grid-w100">
-        <video autoplay loop muted playsinline class="zoomable-video" onclick="toggleZoom(this)">
+        <video autoplay loop muted playsinline preload="metadata" class="zoomable-video" onclick="toggleZoom(this)">
         <source src="Shrooms/boosterss.mp4" type="video/mp4">
         </video>
         <figcaption><h4>Boosters road</h4></figcaption>
     </figure>
     <figure class="grid-w100">
-        <video autoplay loop muted playsinline class="zoomable-video" onclick="toggleZoom(this)">
+        <video autoplay loop muted playsinline preload="metadata" class="zoomable-video" onclick="toggleZoom(this)">
         <source src="Shrooms/village.mp4" type="video/mp4">
         </video>
         <figcaption><h4>Village of Pierrequiroule</h4></figcaption>
@@ -355,14 +395,14 @@ The demo features three different levels.
     
     {{< gallery >}}
         <figure class="grid-w50">
-            <video autoplay loop muted playsinline class="zoomable-video" onclick="toggleZoom(this)">
+            <video autoplay loop muted playsinline preload="metadata" class="zoomable-video" onclick="toggleZoom(this)">
             <source src="Gameplay/tub.mp4" type="video/mp4">
             </video>
             <figcaption><h4>Tubes</h4></figcaption>
         </figure>
         <figure class="grid-w50">
             <!-- Ta vidéo avec la classe personnalisée et l'action au clic -->
-            <video autoplay loop muted playsinline class="zoomable-video" onclick="toggleZoom(this)">
+            <video autoplay loop muted playsinline preload="metadata" class="zoomable-video" onclick="toggleZoom(this)">
             <source src="Gameplay/cannon.mp4" type="video/mp4">
             </video>
             <figcaption><h4>Cannon</h4></figcaption>
@@ -377,14 +417,14 @@ The demo features three different levels.
 
     {{< gallery >}}
         <figure class="grid-w100">
-            <video autoplay loop muted playsinline class="zoomable-video" onclick="toggleZoom(this)">
+            <video autoplay loop muted playsinline preload="metadata" class="zoomable-video" onclick="toggleZoom(this)">
             <source src="Ruins/ruinfight.mp4" type="video/mp4">
             </video>
             <figcaption><h4>Tower Fight</h4></figcaption>
         </figure>
         <figure class="grid-w100">
             <!-- Ta vidéo avec la classe personnalisée et l'action au clic -->
-            <video autoplay loop muted playsinline class="zoomable-video" onclick="toggleZoom(this)">
+            <video autoplay loop muted playsinline preload="metadata" class="zoomable-video" onclick="toggleZoom(this)">
             <source src="Ruins/ruinplanes.mp4" type="video/mp4">
             </video>
             <figcaption><h4>Last Cannons</h4></figcaption>
@@ -408,14 +448,14 @@ The demo features three different levels.
     {{< gallery >}}
         <figure class="grid-w50">
             <!-- Ta vidéo avec la classe personnalisée et l'action au clic -->
-            <video autoplay loop muted playsinline class="zoomable-video" onclick="toggleZoom(this)">
+            <video autoplay loop muted playsinline preload="metadata" class="zoomable-video" onclick="toggleZoom(this)">
             <source src="boss/bossattack.mp4" type="video/mp4">
             </video>
             <figcaption><h4>Boss choc wave</h4></figcaption>
         </figure>
         <figure class="grid-w50">
             <!-- Ta vidéo avec la classe personnalisée et l'action au clic -->
-            <video autoplay loop muted playsinline class="zoomable-video" onclick="toggleZoom(this)">
+            <video autoplay loop muted playsinline preload="metadata" class="zoomable-video" onclick="toggleZoom(this)">
             <source src="boss/phase11.mp4" type="video/mp4">
             </video>
             <figcaption><h4>Boss Damage</h4></figcaption>
@@ -427,14 +467,14 @@ The demo features three different levels.
     {{< gallery >}}
         <figure class="grid-w50">
             <!-- Ta vidéo avec la classe personnalisée et l'action au clic -->
-            <video autoplay loop muted playsinline class="zoomable-video" onclick="toggleZoom(this)">
+            <video autoplay loop muted playsinline preload="metadata" class="zoomable-video" onclick="toggleZoom(this)">
             <source src="boss/phase22.mp4" type="video/mp4">
             </video>
             <figcaption><h4>Normal</h4></figcaption>
         </figure>
         <figure class="grid-w50">
             <!-- Ta vidéo avec la classe personnalisée et l'action au clic -->
-            <video autoplay loop muted playsinline class="zoomable-video" onclick="toggleZoom(this)">
+            <video autoplay loop muted playsinline preload="metadata" class="zoomable-video" onclick="toggleZoom(this)">
             <source src="boss/phase21.mp4" type="video/mp4">
             </video>
             <figcaption><h4>Finth</h4></figcaption>
@@ -450,21 +490,21 @@ Hidden throughout the levels are jokes and mini-games. Discovering these secrets
     {{< figure src="secrets/secrets.png" alt="Gallery image 2" caption="Stickers Menu" figureClass="grid-w75" >}}
         <figure class="grid-w33">
             <!-- Ta vidéo avec la classe personnalisée et l'action au clic -->
-            <video autoplay loop muted playsinline class="zoomable-video" onclick="toggleZoom(this)">
+            <video autoplay loop muted playsinline preload="metadata" class="zoomable-video" onclick="toggleZoom(this)">
             <source src="vfx/trounoirpqr.mp4" type="video/mp4">
             </video>
             <figcaption><h4>Black Hole Secret</h4></figcaption>
         </figure>
         <figure class="grid-w33">
             <!-- Ta vidéo avec la classe personnalisée et l'action au clic -->
-            <video autoplay loop muted playsinline class="zoomable-video" onclick="toggleZoom(this)">
+            <video autoplay loop muted playsinline preload="metadata" class="zoomable-video" onclick="toggleZoom(this)">
             <source src="secrets/dunk.mp4" type="video/mp4">
             </video>
             <figcaption><h4>Basket Secret</h4></figcaption>
         </figure>
         <figure class="grid-w33">
             <!-- Ta vidéo avec la classe personnalisée et l'action au clic -->
-            <video autoplay loop muted playsinline class="zoomable-video" onclick="toggleZoom(this)">
+            <video autoplay loop muted playsinline preload="metadata" class="zoomable-video" onclick="toggleZoom(this)">
             <source src="secrets/billard.mp4" type="video/mp4">
             </video>
             <figcaption><h4>Billard secret</h4></figcaption>
@@ -481,21 +521,21 @@ We have :
     {{< gallery >}}
         <figure class="grid-w33">
             <!-- Ta vidéo avec la classe personnalisée et l'action au clic -->
-            <video autoplay loop muted playsinline class="zoomable-video" onclick="toggleZoom(this)">
+            <video autoplay loop muted playsinline preload="metadata" class="zoomable-video" onclick="toggleZoom(this)">
             <source src="ux/sh0.mp4" type="video/mp4">
             </video>
             <figcaption><h4>Boing Shroom</h4></figcaption>
         </figure>
         <figure class="grid-w33">
             <!-- Ta vidéo avec la classe personnalisée et l'action au clic -->
-            <video autoplay loop muted playsinline class="zoomable-video" onclick="toggleZoom(this)">
+            <video autoplay loop muted playsinline preload="metadata" class="zoomable-video" onclick="toggleZoom(this)">
             <source src="ux/sh1.mp4" type="video/mp4">
             </video>
             <figcaption><h4>Splat Shroom</h4></figcaption>
         </figure>
         <figure class="grid-w33">
             <!-- Ta vidéo avec la classe personnalisée et l'action au clic -->
-            <video autoplay loop muted playsinline class="zoomable-video" onclick="toggleZoom(this)">
+            <video autoplay loop muted playsinline preload="metadata" class="zoomable-video" onclick="toggleZoom(this)">
             <source src="ux/sh.mp4" type="video/mp4">
             </video>
             <figcaption><h4>Puff Shrooms</h4></figcaption>
@@ -508,14 +548,14 @@ We have :
     {{< gallery >}}
         <figure class="grid-w50">
             <!-- Ta vidéo avec la classe personnalisée et l'action au clic -->
-            <video autoplay loop muted playsinline class="zoomable-video" onclick="toggleZoom(this)">
+            <video autoplay loop muted playsinline preload="metadata" class="zoomable-video" onclick="toggleZoom(this)">
             <source src="ux/pl1.mp4" type="video/mp4">
             </video>
             <figcaption><h4>Small Fences</h4></figcaption>
         </figure>
         <figure class="grid-w50">
             <!-- Ta vidéo avec la classe personnalisée et l'action au clic -->
-            <video autoplay loop muted playsinline class="zoomable-video" onclick="toggleZoom(this)">
+            <video autoplay loop muted playsinline preload="metadata" class="zoomable-video" onclick="toggleZoom(this)">
             <source src="ux/pl.mp4" type="video/mp4">
             </video>
             <figcaption><h4>Bigger Barriers</h4></figcaption>
@@ -565,28 +605,28 @@ The VFX with a "*" at the end of their name are the VFX I worked on.
 {{< gallery >}}
     <figure class="grid-w100">
         <!-- Ta vidéo avec la classe personnalisée et l'action au clic -->
-        <video autoplay loop muted playsinline class="zoomable-video" onclick="toggleZoom(this)">
+        <video autoplay loop muted playsinline preload="metadata" class="zoomable-video" onclick="toggleZoom(this)">
         <source src="vfx/wind.mp4" type="video/mp4">
         </video>
         <figcaption><h4>Wind</h4></figcaption>
     </figure>
     <figure class="grid-w33 format-carre">
         <!-- Ta vidéo avec la classe personnalisée et l'action au clic -->
-        <video autoplay loop muted playsinline class="zoomable-video" onclick="toggleZoom(this)">
+        <video autoplay loop muted playsinline preload="metadata" class="zoomable-video" onclick="toggleZoom(this)">
         <source src="vfx/lucioles.mp4" type="video/mp4">
         </video>
         <figcaption><h4>Fireflies</h4></figcaption>
     </figure>
     <figure class="grid-w33 format-rect">
         <!-- Ta vidéo avec la classe personnalisée et l'action au clic -->
-        <video autoplay loop muted playsinline class="zoomable-video" onclick="toggleZoom(this)">
+        <video autoplay loop muted playsinline preload="metadata" class="zoomable-video" onclick="toggleZoom(this)">
         <source src="vfx/thunder.mp4" type="video/mp4">
         </video>
         <figcaption><h4>Thunder*</h4></figcaption>
     </figure>
     <figure class="grid-w33 ">
         <!-- Ta vidéo avec la classe personnalisée et l'action au clic -->
-        <video autoplay loop muted playsinline class="zoomable-video" onclick="toggleZoom(this)">
+        <video autoplay loop muted playsinline preload="metadata" class="zoomable-video" onclick="toggleZoom(this)">
         <source src="vfx/bee.mp4" type="video/mp4">
         </video>
         <figcaption><h4>Bees</h4></figcaption>
@@ -618,14 +658,14 @@ _________________________________________
     <div class="text-center w-full">
         <figure class="grid-w100">
         <!-- Ta vidéo avec la classe personnalisée et l'action au clic -->
-        <video autoplay loop muted playsinline class="zoomable-video" onclick="toggleZoom(this)">
+        <video autoplay loop muted playsinline preload="metadata" class="zoomable-video" onclick="toggleZoom(this)">
         <source src="Gameplay/meteor.mp4" type="video/mp4">
         </video>
         <figcaption><h4>Meteor Strike*</h4></figcaption>
     </figure>
     <figure class="grid-w75">
         <!-- Ta vidéo avec la classe personnalisée et l'action au clic -->
-        <video autoplay loop muted playsinline class="zoomable-video" onclick="toggleZoom(this)">
+        <video autoplay loop muted playsinline preload="metadata" class="zoomable-video" onclick="toggleZoom(this)">
         <source src="vfx/boss.mp4" type="video/mp4">
         </video>
         <figcaption><h4>Boss Attack*</h4></figcaption>
@@ -633,14 +673,14 @@ _________________________________________
     </div>
     <figure class="grid-w50">
         <!-- Ta vidéo avec la classe personnalisée et l'action au clic -->
-        <video autoplay loop muted playsinline class="zoomable-video" onclick="toggleZoom(this)">
+        <video autoplay loop muted playsinline preload="metadata" class="zoomable-video" onclick="toggleZoom(this)">
         <source src="vfx/ennemideath.mp4" type="video/mp4">
         </video>
         <figcaption><h4>Ennemies Death</h4></figcaption>
     </figure>
     <figure class="grid-w50">
         <!-- Ta vidéo avec la classe personnalisée et l'action au clic -->
-        <video autoplay loop muted playsinline class="zoomable-video" onclick="toggleZoom(this)">
+        <video autoplay loop muted playsinline preload="metadata" class="zoomable-video" onclick="toggleZoom(this)">
         <source src="vfx/trail.mp4" type="video/mp4">
         </video>
         <figcaption><h4>Player Trail*</h4></figcaption>
@@ -653,21 +693,21 @@ _________________________________________
 {{< gallery >}}
     <figure class="grid-w33">
         <!-- Ta vidéo avec la classe personnalisée et l'action au clic -->
-        <video autoplay loop muted playsinline class="zoomable-video" onclick="toggleZoom(this)">
+        <video autoplay loop muted playsinline preload="metadata" class="zoomable-video" onclick="toggleZoom(this)">
         <source src="vfx/trounoirpqr.mp4" type="video/mp4">
         </video>
         <figcaption><h4>BlackHole Secret*</h4></figcaption>
     </figure>
     <figure class="grid-w33">
         <!-- Ta vidéo avec la classe personnalisée et l'action au clic -->
-        <video autoplay loop muted playsinline class="zoomable-video" onclick="toggleZoom(this)">
+        <video autoplay loop muted playsinline preload="metadata" class="zoomable-video" onclick="toggleZoom(this)">
         <source src="secrets/dunk.mp4" type="video/mp4">
         </video>
         <figcaption><h4>Basket Secret*</h4></figcaption>
     </figure>
     <figure class="grid-w33">
         <!-- Ta vidéo avec la classe personnalisée et l'action au clic -->
-        <video autoplay loop muted playsinline class="zoomable-video" onclick="toggleZoom(this)">
+        <video autoplay loop muted playsinline preload="metadata" class="zoomable-video" onclick="toggleZoom(this)">
         <source src="vfx/confetti.mp4" type="video/mp4">
         </video>
         <figcaption><h4>Confettis</h4></figcaption>
