@@ -289,7 +289,7 @@ figure.decal-droite {
     color: #fad045; /* Devient un rouge vif */
     
     /* Tu peux aussi changer le fond au survol si tu veux : */
-    /* background-color: #e0e0e0; */
+    /* background-color: #e0e0e000; */
   }
 
   /* --- Style pour le texte caché --- */
@@ -298,7 +298,7 @@ figure.decal-droite {
     border: 1px solid #e0e0e000;
     border-top: none;
     background-color: #ffffff00;
-    color: #d4d4d4; /* Gris foncé pour le texte intérieur */
+    color: #d4d4d400; /* Gris foncé pour le texte intérieur */gi
   }
 </style>  
   

@@ -86,6 +86,6 @@ The gameplay is a mix of Dance Dance Revolution (DDR) and those games where you 
 
 To control the legs, you press either the triggers or the bumpers of the controller (bumpers for the front legs and triggers for the back legs). Then, you just have to move the legs using the joysticks. The left side of the controller controls the left legs, and the right side controls the right legs.
 
-*Spooder Dance was developed in 48 hours by a team of 5 people.*
+*Spooder Dance was developed in 48 hours by a team of 7 people.*
 
 For this project, I mostly worked on the VFX, light effects, and camera effects.
