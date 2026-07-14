@@ -213,9 +213,9 @@ The demo features three different levels.
 
     This is the first level of the vertical slice. It allows the player to experience platforming with our unique movement style. This level introduces moss harvesting and combat, along with two new mechanics :
 
-    - Boosters: which grant a temporary, Mario Kart-style speed boost.
+    - Boosters : They grant a temporary, Mario Kart-style speed boost.
 
-    - Meteor Strike: which serves here as both a platforming and combat tool.
+    - Meteor Strike : They serves here as both a platforming and combat tool.
 
     {{< gallery >}}
         <figure class="grid-w50">
@@ -267,9 +267,9 @@ The demo features three different levels.
 
     This is the final level of our vertical slice. It is longer than the others and culminates in a boss fight. While it reuses previously learned mechanics, the level is much more linear and stretched out, allowing the player to build up massive speed on straightaways packed with boosters. This level also introduces two new mechanics:
 
-    - Cannons: Once inside, they automatically launch the player in the direction they are facing after a short delay.
+    - Cannons : Once inside, they automatically launch the player in the direction they are facing after a short delay.
 
-    - Pipes: Which act as ramps and slides.
+    - Pipes : They act as ramps and slides.
     
     {{< gallery >}}
         <figure class="grid-w50">
@@ -323,7 +323,7 @@ The demo features three different levels.
 
     To close out the vertical slice, we created a boss fight. The boss is a massive rolling rock located in a unique, half-ruined structure. The fight is split into two major phases:
 
-    - Phase 1: The boss stays in the center of the arena, periodically sending out shockwaves to push the player into the void. Meanwhile, the player must climb up two paths wrapping around the arena to reach a cannon. This cannon launches the player into the air above the boss, allowing them to execute a Meteor Strike to deal damage.
+    - Phase 1 : The boss stays in the center of the arena, periodically sending out shockwaves to push the player into the void. Meanwhile, the player must climb up two paths wrapping around the arena to reach a cannon. This cannon launches the player into the air above the boss, allowing them to execute a Meteor Strike to deal damage.
 
     {{< gallery >}}
         <figure class="grid-w50">
@@ -344,7 +344,7 @@ The demo features three different levels.
 
      <div style="height: 20px;"></div> 
 
-    - Phase 2: This phase takes place right below the first area after the player breaks through the floor. It plays out like a classic "Whack-a-Mole" game, where the boss emerges from various molehills. The player must perform a Meteor Strike directly onto its head to deal damage. Repeating this process three times defeats the boss for good. To spice things up, the boss will start using feints after the player lands their first successful hit.
+    - Phase 2 : This phase takes place right below the first area after the player breaks through the floor. It plays out like a classic "Whack-a-Mole" game, where the boss emerges from various molehills. The player must perform a Meteor Strike directly onto its head to deal damage. Repeating this process three times defeats the boss for good. To spice things up, the boss will start using feints after the player lands their first successful hit.
 
     {{< gallery >}}
         <figure class="grid-w50">
@@ -480,7 +480,7 @@ Our post-processing shader enables the addition of outlines, cel shading, and st
 _________________________________________
 ## <h2><b>VFX</b></h2>
 
-The VFX with a "*" at the end of their name are the VFX I worked on.
+The VFX in *turquoise* are the VFX I worked on.
 
 ### Environment :
 
@@ -509,7 +509,7 @@ The VFX with a "*" at the end of their name are the VFX I worked on.
         <video loop muted playsinline preload="none" class="zoomable-video" onclick="toggleZoom(this)">
         <source src="vfx/thunder.mp4" type="video/mp4">
         </video>
-        <figcaption><h4>Thunder*</h4></figcaption>
+        <figcaption><h4><i>Thunder</i></h4></figcaption>
     </figure>
     <figure class="grid-w33 ">
         <!-- Ta vidéo avec la classe personnalisée et l'action au clic -->
@@ -533,14 +533,14 @@ _________________________________________
         <video loop muted playsinline preload="none" class="zoomable-video" onclick="toggleZoom(this)">
         <source src="Gameplay/meteor.mp4" type="video/mp4">
         </video>
-        <figcaption><h4>Meteor Strike*</h4></figcaption>
+        <figcaption><h4><i>Meteor Strike</i></h4></figcaption>
     </figure>
     <figure class="grid-w75">
         <!-- Ta vidéo avec la classe personnalisée et l'action au clic -->
         <video loop muted playsinline preload="none" class="zoomable-video" onclick="toggleZoom(this)">
         <source src="vfx/boss.mp4" type="video/mp4">
         </video>
-        <figcaption><h4>Boss Attack*</h4></figcaption>
+        <figcaption><h4><i>Boss Attack</i></h4></figcaption>
     </figure>
     </div>
 {{< /gallery >}}
@@ -562,7 +562,7 @@ _________________________________________
         <video loop muted playsinline preload="none" class="zoomable-video" onclick="toggleZoom(this)">
         <source src="vfx/trail.mp4" type="video/mp4">
         </video>
-        <figcaption><h4>Player Trail*</h4></figcaption>
+        <figcaption><h4><i>Player Trail</i></h4></figcaption>
     </figure>
 {{< /gallery >}}
 
@@ -575,14 +575,14 @@ _________________________________________
         <video loop muted playsinline preload="none" class="zoomable-video" onclick="toggleZoom(this)">
         <source src="vfx/trounoirpqr.mp4" type="video/mp4">
         </video>
-        <figcaption><h4>BlackHole Secret*</h4></figcaption>
+        <figcaption><h4><i>BlackHole Secret</i></h4></figcaption>
     </figure>
     <figure class="grid-w33">
         <!-- Ta vidéo avec la classe personnalisée et l'action au clic -->
         <video loop muted playsinline preload="none" class="zoomable-video" onclick="toggleZoom(this)">
         <source src="secrets/dunk.mp4" type="video/mp4">
         </video>
-        <figcaption><h4>Basket Secret*</h4></figcaption>
+        <figcaption><h4><i>Basket Secret</i></h4></figcaption>
     </figure>
     <figure class="grid-w33">
         <!-- Ta vidéo avec la classe personnalisée et l'action au clic -->
