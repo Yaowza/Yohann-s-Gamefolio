@@ -15,13 +15,32 @@
     max-width: 1200px !important; /* Ajuste cette valeur selon tes goûts */
     width: 100% !important;
 }
-/* Force les vidéos (iframes) et les images à s'étaler dans ce nouvel espace */
-.prose iframe, .prose img, .prose video {
-    width: 100% !important;
-    max-width: 100% !important;
-    height: auto !important;
-    aspect-ratio: 16/9; /* Garde le bon ratio pour ton trailer */
+
+
+
+
+
+
+
+.prose img, .prose video {
+width: 100% !important;
+max-width: 100% !important;
+height: auto !important;
 }
+
+.prose iframe,
+lite-youtube,
+.lite-youtube {
+width: 100% !important;
+max-width: 100% !important;
+aspect-ratio: 16 / 9 !important;
+}
+
+
+
+
+
+
 
 /* Force l'image de profil de la page d'accueil à garder sa taille normale */
 .homepage-avatar, img[alt="Yohann Perrette"], .profile-avatar img {
@@ -41,11 +60,17 @@ article section.prose {
 }
 
 /* 2. Applique la largeur personnalisée de 50rem sur le header et le contenu */
-#single_header, 
-.article-content, 
+
+
+
+
+#single_header,
+.article-content,
 article footer {
-    max-width: 50rem !important;
-    width: 100% !important;
+max-width: 50rem !important;
+width: 100% !important;
+margin-left: auto !important;
+margin-right: auto !important;
 }
 
 
@@ -59,4 +84,73 @@ iframe[src*="youtube"],
     border-radius: 8px !important;
     overflow: hidden !important;
     transform: translateZ(0); /* Correction bug Safari/Chrome sur les arrondis d'iframes */
+}
+
+
+
+/* Garde le blur fonctionnel: ne pas bloquer le scroll global */
+html,
+body {
+  max-width: 100%;
+}
+
+/* Anti-debordement sans casser le zoom image */
+article,
+.article-content,
+.prose,
+.gallery,
+.gallery-carousel,
+.carousel {
+min-width: 0;
+max-width: 100%;
+overflow-x: visible;
+}
+
+/* On protege le texte plutot que de clipper les conteneurs */
+.prose p,
+.prose li,
+.prose span,
+.prose a,
+.prose figcaption {
+overflow-wrap: anywhere;
+word-break: break-word;
+}
+
+/* Optionnel: securise l'image zoomee au-dessus des conteneurs */
+.medium-zoom-overlay,
+.medium-zoom-image--opened {
+z-index: 9999 !important;
+}
+
+/* Evite qu'un mot/chaine longue force la largeur */
+.prose p,
+.prose li,
+.prose span,
+.prose a,
+.prose figcaption {
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+/* Securite media */
+.prose img,
+.prose video,
+.prose iframe {
+  max-width: 100%;
+  height: auto;
+}
+
+
+
+/*custom spacer*/
+.spacer-70 {
+  height: clamp(24px, 6vw, 70px);
+}
+
+.gallery-spacer {
+  width: calc(100% - 5px);
+  height: clamp(20px, 5vw, 20px);
+  margin: 0 !important;
+  padding: 0 !important;
+  pointer-events: none;
 }

@@ -99,54 +99,128 @@ thumbnail: "cover.png"     # image de la carte
 <!-- Le fond noir invisible par défaut -->
 <div id="videoOverlay" class="video-bg-overlay" onclick="closeVideo()"></div>
 
+
+
+<!-- Toggle Zoom -->
 <script>
-  function toggleZoom(video) {
-    const overlay = document.getElementById('videoOverlay');
-    
-    if (!video.classList.contains('is-zoomed')) {
-      // 1. Taille et position initiales de la vidéo
-      const first = video.getBoundingClientRect();
-      
-      video.classList.add('is-zoomed');
-      overlay.classList.add('is-active');
-      
-      // 2. Calcul du centre de l'écran
-      const centerX = window.innerWidth / 2;
-      const centerY = window.innerHeight / 2;
-      
-      const videoCenterX = first.left + first.width / 2;
-      const videoCenterY = first.top + first.height / 2;
-      
-      const moveX = centerX - videoCenterX;
-      const moveY = centerY - videoCenterY;
-      
-      // 3. LE CALCUL MAGIQUE POUR LA TAILLE UNIQUE :
-      // On veut que la vidéo zoomée occupe 70% de la largeur de la fenêtre (0.7).
-      // Tu peux changer 0.7 par 0.8 (80%) ou 0.6 (60%) selon tes préférences.
-      const targetWidth = window.innerWidth * 0.5;
-      const dynamicScale = targetWidth / first.width; 
-      
-      // On applique le déplacement et le scale sur-mesure
-      video.style.transform = `translate(${moveX}px, ${moveY}px) scale(${dynamicScale})`;
-    } else {
-      video.style.transform = '';
-      overlay.classList.remove('is-active');
-      
-      setTimeout(() => {
-        video.classList.remove('is-zoomed');
-      }, 400);
-    }
+const isMobileLike = window.matchMedia("(max-width: 768px), (pointer: coarse)").matches;
+
+function getScale(firstRect) {
+  // Mobile: zoom plus doux pour éviter de dépasser l'écran
+  const targetWidthRatio = isMobileLike ? 0.92 : 0.50;
+  const targetWidth = window.innerWidth * targetWidthRatio;
+  return targetWidth / firstRect.width;
+}
+
+function toggleZoom(video) {
+  const overlay = document.getElementById("videoOverlay");
+  if (!overlay) return;
+
+  const alreadyZoomed = video.classList.contains("is-zoomed");
+  const otherZoomed = document.querySelector(".zoomable-video.is-zoomed");
+
+  // Si une autre vidéo est déjà zoomée, on la ferme d'abord
+  if (otherZoomed && otherZoomed !== video) {
+    otherZoomed.style.transform = "";
+    otherZoomed.classList.remove("is-zoomed");
   }
 
-  function closeVideo() {
-    const zoomedVideo = document.querySelector('.zoomable-video.is-zoomed');
-    if (zoomedVideo) toggleZoom(zoomedVideo);
+  // 2e tap sur la même vidéo => dézoom
+  if (alreadyZoomed) {
+    video.style.transform = "";
+    overlay.classList.remove("is-active");
+    setTimeout(function () {
+      video.classList.remove("is-zoomed");
+    }, 300);
+    return;
   }
+
+  // Zoom
+  const first = video.getBoundingClientRect();
+  video.classList.add("is-zoomed");
+  overlay.classList.add("is-active");
+
+  const centerX = window.innerWidth / 2;
+  const centerY = window.innerHeight / 2;
+
+  const videoCenterX = first.left + first.width / 2;
+  const videoCenterY = first.top + first.height / 2;
+
+  const moveX = centerX - videoCenterX;
+  const moveY = centerY - videoCenterY;
+  const dynamicScale = getScale(first);
+
+  video.style.transform =
+    "translate(" + moveX + "px, " + moveY + "px) scale(" + dynamicScale + ")";
+}
+
+function closeVideo() {
+  const overlay = document.getElementById("videoOverlay");
+  const zoomedVideo = document.querySelector(".zoomable-video.is-zoomed");
+  if (!zoomedVideo) return;
+
+  zoomedVideo.style.transform = "";
+  zoomedVideo.classList.remove("is-zoomed");
+  if (overlay) overlay.classList.remove("is-active");
+}
 </script>
 
 
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  var videos = Array.prototype.slice.call(
+    document.querySelectorAll(".article-content video")
+  );
+  if (!videos.length) return;
 
-<span style="opacity:0">aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</span>
+  function prime(video) {
+    if (video.dataset.primed === "1") return;
+    video.dataset.primed = "1";
+    video.preload = "metadata";
+    video.load();
+  }
+
+  videos.forEach(function (video) {
+    video.muted = true;
+    video.playsInline = true;
+    video.loop = true;
+    video.controls = false;
+    video.preload = "none";
+  });
+
+  if (!("IntersectionObserver" in window)) {
+    videos.forEach(function (video) {
+      prime(video);
+      var p = video.play();
+      if (p && typeof p.catch === "function") p.catch(function () {});
+    });
+    return;
+  }
+
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      var video = entry.target;
+
+      if (entry.isIntersecting) {
+        prime(video);
+        var p = video.play();
+        if (p && typeof p.catch === "function") p.catch(function () {});
+      } else {
+        video.pause();
+      }
+    });
+  }, {
+    threshold: 0.35,
+    rootMargin: "150px 0px"
+  });
+
+  videos.forEach(function (video) {
+    io.observe(video);
+  });
+});
+</script>
+
+
 _________________________________________
 
 # Trailer 
@@ -160,6 +234,11 @@ _________________________________________
     margin: 0 auto !important;
     display: block !important;
   }
+  @media (max-width: 768px) {
+.gallery video {
+object-fit: contain !important;
+}
+}
 </style>
 
 {{< lead >}}
@@ -248,19 +327,19 @@ The main gameplay mechanics are simple, you can <b>roll</b>, <b>jump</b> and jum
 
 {{< gallery >}}
         <figure class="grid-w33">
-            <video autoplay loop muted playsinline preload="metadata" class="zoomable-video" onclick="toggleZoom(this)">
+            <video loop muted playsinline preload="none" class="zoomable-video" onclick="toggleZoom(this)">
             <source src="Gameplay/rolling.mp4" type="video/mp4">
             </video>
             <figcaption><h4>Rolling</h4></figcaption>
         </figure>
         <figure class="grid-w33">
-            <video autoplay loop muted playsinline preload="metadata" class="zoomable-video" onclick="toggleZoom(this)">
+            <video loop muted playsinline preload="none" class="zoomable-video" onclick="toggleZoom(this)">
             <source src="Gameplay/jump.mp4" type="video/mp4">
             </video>
             <figcaption><h4>Jumping</h4></figcaption>
         </figure>
         <figure class="grid-w33">
-            <video autoplay loop muted playsinline preload="metadata" class="zoomable-video" onclick="toggleZoom(this)">
+            <video loop muted playsinline preload="none" class="zoomable-video" onclick="toggleZoom(this)">
             <source src="Gameplay/meteor.mp4" type="video/mp4">
             </video>
             <figcaption><h4>Meteor Strike</h4></figcaption>
@@ -268,7 +347,7 @@ The main gameplay mechanics are simple, you can <b>roll</b>, <b>jump</b> and jum
     {{< /gallery >}}
 
 
-<div style="height: 70px;"></div> 
+<div style="height: 30px;"></div> 
 
 
 The main objective ot our game is th "Gather moss". To do so you have several methods: 
@@ -279,14 +358,14 @@ The main objective ot our game is th "Gather moss". To do so you have several me
 
     {{< gallery >}}
         <figure class="grid-w80">
-            <video autoplay loop muted playsinline preload="metadata" class="zoomable-video" onclick="toggleZoom(this)">
+            <video loop muted playsinline preload="none" class="zoomable-video" onclick="toggleZoom(this)">
             <source src="Gameplay/fight.mp4" type="video/mp4">
             </video>
             <figcaption><h4>Fight</h4></figcaption>
         </figure>
     {{< /gallery >}}
 
-    <div style="height: 70px;"></div>
+    <div style="height: 30px;"></div>
 
 That's all for the Character's mechanics. We wanted simple and player gameplay to make the game more accessible as the player already have a new "movement" mechanic to learn. 
 Our goal was to let the gameplay breathe and avoid overloading the player with mechanics.
@@ -311,7 +390,7 @@ The demo features three different levels.
      {{< gallery >}}
         {{< figure src="Hub/Screen_MAIN.0110.jpeg" alt="Gallery image 1"  figureClass="grid-w50" >}}
         <figure class="grid-w50">
-            <video autoplay loop muted playsinline preload="metadata" class="zoomable-video" onclick="toggleZoom(this)">
+            <video loop muted playsinline preload="none" class="zoomable-video" onclick="toggleZoom(this)">
             <source src="Hub/ptp.mp4" type="video/mp4">
             </video>
             <figcaption><h4> </h4></figcaption>
@@ -324,14 +403,14 @@ The demo features three different levels.
 
     {{< gallery >}}
         <figure class="grid-w100">
-            <video autoplay loop muted playsinline preload="metadata" class="zoomable-video" onclick="toggleZoom(this)">
+            <video loop muted playsinline preload="none" class="zoomable-video" onclick="toggleZoom(this)">
             <source src="Hub/Hubhg.mp4" type="video/mp4">
             </video>
             <figcaption><h4>Hub Peak</h4></figcaption>
         </figure>
     {{< /gallery >}}
 
-<div style="height: 70px;"></div>
+<div style="height: 30px;"></div>
 
 - ### The Level "Shrooms" :
     {{< gallery >}}
@@ -346,13 +425,13 @@ The demo features three different levels.
 
     {{< gallery >}}
         <figure class="grid-w50">
-            <video autoplay loop muted playsinline preload="metadata" class="zoomable-video" onclick="toggleZoom(this)">
+            <video loop muted playsinline preload="none" class="zoomable-video" onclick="toggleZoom(this)">
             <source src="Gameplay/booster.mp4" type="video/mp4">
             </video>
             <figcaption><h4>Boosters</h4></figcaption>
         </figure>
         <figure class="grid-w50">
-            <video autoplay loop muted playsinline preload="metadata" class="zoomable-video" onclick="toggleZoom(this)">
+            <video loop muted playsinline preload="none" class="zoomable-video" onclick="toggleZoom(this)">
             <source src="Gameplay/meteorparkour.mp4" type="video/mp4">
             </video>
             <figcaption><h4>Meteor Strike Platforming</h4></figcaption>
@@ -367,13 +446,14 @@ The demo features three different levels.
 
 {{< gallery >}}
     <figure class="grid-w100">
-        <video autoplay loop muted playsinline preload="metadata" class="zoomable-video" onclick="toggleZoom(this)">
+        <video loop muted playsinline preload="none" class="zoomable-video" onclick="toggleZoom(this)">
         <source src="Shrooms/boosterss.mp4" type="video/mp4">
         </video>
         <figcaption><h4>Boosters road</h4></figcaption>
     </figure>
+    <figure class="gallery-spacer" aria-hidden="true"></figure>
     <figure class="grid-w100">
-        <video autoplay loop muted playsinline preload="metadata" class="zoomable-video" onclick="toggleZoom(this)">
+        <video loop muted playsinline preload="none" class="zoomable-video" onclick="toggleZoom(this)">
         <source src="Shrooms/village.mp4" type="video/mp4">
         </video>
         <figcaption><h4>Village of Pierrequiroule</h4></figcaption>
@@ -395,14 +475,14 @@ The demo features three different levels.
     
     {{< gallery >}}
         <figure class="grid-w50">
-            <video autoplay loop muted playsinline preload="metadata" class="zoomable-video" onclick="toggleZoom(this)">
+            <video loop muted playsinline preload="none" class="zoomable-video" onclick="toggleZoom(this)">
             <source src="Gameplay/tub.mp4" type="video/mp4">
             </video>
             <figcaption><h4>Tubes</h4></figcaption>
         </figure>
         <figure class="grid-w50">
             <!-- Ta vidéo avec la classe personnalisée et l'action au clic -->
-            <video autoplay loop muted playsinline preload="metadata" class="zoomable-video" onclick="toggleZoom(this)">
+            <video loop muted playsinline preload="none" class="zoomable-video" onclick="toggleZoom(this)">
             <source src="Gameplay/cannon.mp4" type="video/mp4">
             </video>
             <figcaption><h4>Cannon</h4></figcaption>
@@ -417,14 +497,15 @@ The demo features three different levels.
 
     {{< gallery >}}
         <figure class="grid-w100">
-            <video autoplay loop muted playsinline preload="metadata" class="zoomable-video" onclick="toggleZoom(this)">
+            <video loop muted playsinline preload="none" class="zoomable-video" onclick="toggleZoom(this)">
             <source src="Ruins/ruinfight.mp4" type="video/mp4">
             </video>
             <figcaption><h4>Tower Fight</h4></figcaption>
         </figure>
+        <figure class="gallery-spacer" aria-hidden="true"></figure>
         <figure class="grid-w100">
             <!-- Ta vidéo avec la classe personnalisée et l'action au clic -->
-            <video autoplay loop muted playsinline preload="metadata" class="zoomable-video" onclick="toggleZoom(this)">
+            <video loop muted playsinline preload="none" class="zoomable-video" onclick="toggleZoom(this)">
             <source src="Ruins/ruinplanes.mp4" type="video/mp4">
             </video>
             <figcaption><h4>Last Cannons</h4></figcaption>
@@ -448,14 +529,14 @@ The demo features three different levels.
     {{< gallery >}}
         <figure class="grid-w50">
             <!-- Ta vidéo avec la classe personnalisée et l'action au clic -->
-            <video autoplay loop muted playsinline preload="metadata" class="zoomable-video" onclick="toggleZoom(this)">
+            <video loop muted playsinline preload="none" class="zoomable-video" onclick="toggleZoom(this)">
             <source src="boss/bossattack.mp4" type="video/mp4">
             </video>
             <figcaption><h4>Boss choc wave</h4></figcaption>
         </figure>
         <figure class="grid-w50">
             <!-- Ta vidéo avec la classe personnalisée et l'action au clic -->
-            <video autoplay loop muted playsinline preload="metadata" class="zoomable-video" onclick="toggleZoom(this)">
+            <video loop muted playsinline preload="none" class="zoomable-video" onclick="toggleZoom(this)">
             <source src="boss/phase11.mp4" type="video/mp4">
             </video>
             <figcaption><h4>Boss Damage</h4></figcaption>
@@ -467,21 +548,21 @@ The demo features three different levels.
     {{< gallery >}}
         <figure class="grid-w50">
             <!-- Ta vidéo avec la classe personnalisée et l'action au clic -->
-            <video autoplay loop muted playsinline preload="metadata" class="zoomable-video" onclick="toggleZoom(this)">
+            <video loop muted playsinline preload="none" class="zoomable-video" onclick="toggleZoom(this)">
             <source src="boss/phase22.mp4" type="video/mp4">
             </video>
             <figcaption><h4>Normal</h4></figcaption>
         </figure>
         <figure class="grid-w50">
             <!-- Ta vidéo avec la classe personnalisée et l'action au clic -->
-            <video autoplay loop muted playsinline preload="metadata" class="zoomable-video" onclick="toggleZoom(this)">
+            <video loop muted playsinline preload="none" class="zoomable-video" onclick="toggleZoom(this)">
             <source src="boss/phase21.mp4" type="video/mp4">
             </video>
             <figcaption><h4>Finth</h4></figcaption>
         </figure>
     {{< /gallery >}}
  
- <div style="height: 70px;"></div> 
+ <div style="height: 10px;"></div> 
 
 - ### Secrets :
 Hidden throughout the levels are jokes and mini-games. Discovering these secrets rewards the player with achievements, which can be tracked on the 'Stickers' page in the pause menu.
@@ -490,21 +571,21 @@ Hidden throughout the levels are jokes and mini-games. Discovering these secrets
     {{< figure src="secrets/secrets.png" alt="Gallery image 2" caption="Stickers Menu" figureClass="grid-w75" >}}
         <figure class="grid-w33">
             <!-- Ta vidéo avec la classe personnalisée et l'action au clic -->
-            <video autoplay loop muted playsinline preload="metadata" class="zoomable-video" onclick="toggleZoom(this)">
+            <video loop muted playsinline preload="none" class="zoomable-video" onclick="toggleZoom(this)">
             <source src="vfx/trounoirpqr.mp4" type="video/mp4">
             </video>
             <figcaption><h4>Black Hole Secret</h4></figcaption>
         </figure>
         <figure class="grid-w33">
             <!-- Ta vidéo avec la classe personnalisée et l'action au clic -->
-            <video autoplay loop muted playsinline preload="metadata" class="zoomable-video" onclick="toggleZoom(this)">
+            <video loop muted playsinline preload="none" class="zoomable-video" onclick="toggleZoom(this)">
             <source src="secrets/dunk.mp4" type="video/mp4">
             </video>
             <figcaption><h4>Basket Secret</h4></figcaption>
         </figure>
         <figure class="grid-w33">
             <!-- Ta vidéo avec la classe personnalisée et l'action au clic -->
-            <video autoplay loop muted playsinline preload="metadata" class="zoomable-video" onclick="toggleZoom(this)">
+            <video loop muted playsinline preload="none" class="zoomable-video" onclick="toggleZoom(this)">
             <source src="secrets/billard.mp4" type="video/mp4">
             </video>
             <figcaption><h4>Billard secret</h4></figcaption>
@@ -521,21 +602,21 @@ We have :
     {{< gallery >}}
         <figure class="grid-w33">
             <!-- Ta vidéo avec la classe personnalisée et l'action au clic -->
-            <video autoplay loop muted playsinline preload="metadata" class="zoomable-video" onclick="toggleZoom(this)">
+            <video loop muted playsinline preload="none" class="zoomable-video" onclick="toggleZoom(this)">
             <source src="ux/sh0.mp4" type="video/mp4">
             </video>
             <figcaption><h4>Boing Shroom</h4></figcaption>
         </figure>
         <figure class="grid-w33">
             <!-- Ta vidéo avec la classe personnalisée et l'action au clic -->
-            <video autoplay loop muted playsinline preload="metadata" class="zoomable-video" onclick="toggleZoom(this)">
+            <video loop muted playsinline preload="none" class="zoomable-video" onclick="toggleZoom(this)">
             <source src="ux/sh1.mp4" type="video/mp4">
             </video>
             <figcaption><h4>Splat Shroom</h4></figcaption>
         </figure>
         <figure class="grid-w33">
             <!-- Ta vidéo avec la classe personnalisée et l'action au clic -->
-            <video autoplay loop muted playsinline preload="metadata" class="zoomable-video" onclick="toggleZoom(this)">
+            <video loop muted playsinline preload="none" class="zoomable-video" onclick="toggleZoom(this)">
             <source src="ux/sh.mp4" type="video/mp4">
             </video>
             <figcaption><h4>Puff Shrooms</h4></figcaption>
@@ -548,14 +629,14 @@ We have :
     {{< gallery >}}
         <figure class="grid-w50">
             <!-- Ta vidéo avec la classe personnalisée et l'action au clic -->
-            <video autoplay loop muted playsinline preload="metadata" class="zoomable-video" onclick="toggleZoom(this)">
+            <video loop muted playsinline preload="none" class="zoomable-video" onclick="toggleZoom(this)">
             <source src="ux/pl1.mp4" type="video/mp4">
             </video>
             <figcaption><h4>Small Fences</h4></figcaption>
         </figure>
         <figure class="grid-w50">
             <!-- Ta vidéo avec la classe personnalisée et l'action au clic -->
-            <video autoplay loop muted playsinline preload="metadata" class="zoomable-video" onclick="toggleZoom(this)">
+            <video loop muted playsinline preload="none" class="zoomable-video" onclick="toggleZoom(this)">
             <source src="ux/pl.mp4" type="video/mp4">
             </video>
             <figcaption><h4>Bigger Barriers</h4></figcaption>
@@ -605,50 +686,36 @@ The VFX with a "*" at the end of their name are the VFX I worked on.
 {{< gallery >}}
     <figure class="grid-w100">
         <!-- Ta vidéo avec la classe personnalisée et l'action au clic -->
-        <video autoplay loop muted playsinline preload="metadata" class="zoomable-video" onclick="toggleZoom(this)">
+        <video loop muted playsinline preload="none" class="zoomable-video" onclick="toggleZoom(this)">
         <source src="vfx/wind.mp4" type="video/mp4">
         </video>
         <figcaption><h4>Wind</h4></figcaption>
     </figure>
+    <figure class="gallery-spacer" aria-hidden="true"></figure>
     <figure class="grid-w33 format-carre">
         <!-- Ta vidéo avec la classe personnalisée et l'action au clic -->
-        <video autoplay loop muted playsinline preload="metadata" class="zoomable-video" onclick="toggleZoom(this)">
+        <video loop muted playsinline preload="none" class="zoomable-video" onclick="toggleZoom(this)">
         <source src="vfx/lucioles.mp4" type="video/mp4">
         </video>
         <figcaption><h4>Fireflies</h4></figcaption>
     </figure>
     <figure class="grid-w33 format-rect">
         <!-- Ta vidéo avec la classe personnalisée et l'action au clic -->
-        <video autoplay loop muted playsinline preload="metadata" class="zoomable-video" onclick="toggleZoom(this)">
+        <video loop muted playsinline preload="none" class="zoomable-video" onclick="toggleZoom(this)">
         <source src="vfx/thunder.mp4" type="video/mp4">
         </video>
         <figcaption><h4>Thunder*</h4></figcaption>
     </figure>
     <figure class="grid-w33 ">
         <!-- Ta vidéo avec la classe personnalisée et l'action au clic -->
-        <video autoplay loop muted playsinline preload="metadata" class="zoomable-video" onclick="toggleZoom(this)">
+        <video loop muted playsinline preload="none" class="zoomable-video" onclick="toggleZoom(this)">
         <source src="vfx/bee.mp4" type="video/mp4">
         </video>
         <figcaption><h4>Bees</h4></figcaption>
     </figure>
 {{< /gallery >}}
 
-<style>
-    
-    .format-carre video {
-        aspect-ratio: 1 / 1.5 !important;
-    }
-
-    .format-rect video {
-        aspect-ratio: 1 / 1 !important;
-    }
-     
-    .gallery video {
-        width: 100% !important;
-        height: auto !important; /* Laisse le CSS gérer la hauteur via le ratio */
-        object-fit: cover !important; 
-    }
-</style>
+<style> .format-carre video { aspect-ratio: 1 / 1.5 !important; } .format-rect video { aspect-ratio: 1 / 1 !important; } .gallery video { width: 100% !important; height: auto !important; object-fit: cover !important; } @media (max-width: 768px) { .gallery video { object-fit: contain !important; } } </style>
 
 
 _________________________________________
@@ -658,29 +725,30 @@ _________________________________________
     <div class="text-center w-full">
         <figure class="grid-w100">
         <!-- Ta vidéo avec la classe personnalisée et l'action au clic -->
-        <video autoplay loop muted playsinline preload="metadata" class="zoomable-video" onclick="toggleZoom(this)">
+        <video loop muted playsinline preload="none" class="zoomable-video" onclick="toggleZoom(this)">
         <source src="Gameplay/meteor.mp4" type="video/mp4">
         </video>
         <figcaption><h4>Meteor Strike*</h4></figcaption>
     </figure>
     <figure class="grid-w75">
         <!-- Ta vidéo avec la classe personnalisée et l'action au clic -->
-        <video autoplay loop muted playsinline preload="metadata" class="zoomable-video" onclick="toggleZoom(this)">
+        <video loop muted playsinline preload="none" class="zoomable-video" onclick="toggleZoom(this)">
         <source src="vfx/boss.mp4" type="video/mp4">
         </video>
         <figcaption><h4>Boss Attack*</h4></figcaption>
     </figure>
     </div>
+    <figure class="gallery-spacer" aria-hidden="true"></figure>
     <figure class="grid-w50">
         <!-- Ta vidéo avec la classe personnalisée et l'action au clic -->
-        <video autoplay loop muted playsinline preload="metadata" class="zoomable-video" onclick="toggleZoom(this)">
+        <video loop muted playsinline preload="none" class="zoomable-video" onclick="toggleZoom(this)">
         <source src="vfx/ennemideath.mp4" type="video/mp4">
         </video>
         <figcaption><h4>Ennemies Death</h4></figcaption>
     </figure>
     <figure class="grid-w50">
         <!-- Ta vidéo avec la classe personnalisée et l'action au clic -->
-        <video autoplay loop muted playsinline preload="metadata" class="zoomable-video" onclick="toggleZoom(this)">
+        <video loop muted playsinline preload="none" class="zoomable-video" onclick="toggleZoom(this)">
         <source src="vfx/trail.mp4" type="video/mp4">
         </video>
         <figcaption><h4>Player Trail*</h4></figcaption>
@@ -693,21 +761,21 @@ _________________________________________
 {{< gallery >}}
     <figure class="grid-w33">
         <!-- Ta vidéo avec la classe personnalisée et l'action au clic -->
-        <video autoplay loop muted playsinline preload="metadata" class="zoomable-video" onclick="toggleZoom(this)">
+        <video loop muted playsinline preload="none" class="zoomable-video" onclick="toggleZoom(this)">
         <source src="vfx/trounoirpqr.mp4" type="video/mp4">
         </video>
         <figcaption><h4>BlackHole Secret*</h4></figcaption>
     </figure>
     <figure class="grid-w33">
         <!-- Ta vidéo avec la classe personnalisée et l'action au clic -->
-        <video autoplay loop muted playsinline preload="metadata" class="zoomable-video" onclick="toggleZoom(this)">
+        <video loop muted playsinline preload="none" class="zoomable-video" onclick="toggleZoom(this)">
         <source src="secrets/dunk.mp4" type="video/mp4">
         </video>
         <figcaption><h4>Basket Secret*</h4></figcaption>
     </figure>
     <figure class="grid-w33">
         <!-- Ta vidéo avec la classe personnalisée et l'action au clic -->
-        <video autoplay loop muted playsinline preload="metadata" class="zoomable-video" onclick="toggleZoom(this)">
+        <video loop muted playsinline preload="none" class="zoomable-video" onclick="toggleZoom(this)">
         <source src="vfx/confetti.mp4" type="video/mp4">
         </video>
         <figcaption><h4>Confettis</h4></figcaption>

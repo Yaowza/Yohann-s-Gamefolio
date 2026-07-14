@@ -11,7 +11,6 @@ draft: false
 featureimage: "card.png"   # fond de la page
 thumbnail: "cover.png"     # image de la carte
 ---
-<span style="opacity:0">aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</span>
 
 <div class="video-centree">
     {{< youtubeLite id="ECWTTe_egTc" label="Tockar Tournament TRAILER" >}}

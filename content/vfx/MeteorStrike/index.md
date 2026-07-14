@@ -13,7 +13,7 @@ draft: false
 featureimage: "card.png"  
 thumbnail: "card.png"
 ---
-<span style="opacity:0">aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</span>
+
 
 {{< youtubeLite id="ogQy-tnRXng" label="  Clair Obscur inspired VFX " >}}
 

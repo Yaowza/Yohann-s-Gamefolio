@@ -56,54 +56,67 @@ thumbnail: "card.png"
 <div id="videoOverlay" class="video-bg-overlay" onclick="closeVideo()"></div>
 
 <script>
-  function toggleZoom(video) {
-    const overlay = document.getElementById('videoOverlay');
-    
-    if (!video.classList.contains('is-zoomed')) {
-      // 1. Taille et position initiales de la vidéo
-      const first = video.getBoundingClientRect();
-      
-      video.classList.add('is-zoomed');
-      overlay.classList.add('is-active');
-      
-      // 2. Calcul du centre de l'écran
-      const centerX = window.innerWidth / 2;
-      const centerY = window.innerHeight / 2;
-      
-      const videoCenterX = first.left + first.width / 2;
-      const videoCenterY = first.top + first.height / 2;
-      
-      const moveX = centerX - videoCenterX;
-      const moveY = centerY - videoCenterY;
-      
-      // 3. LE CALCUL MAGIQUE POUR LA TAILLE UNIQUE :
-      // On veut que la vidéo zoomée occupe 70% de la largeur de la fenêtre (0.7).
-      // Tu peux changer 0.7 par 0.8 (80%) ou 0.6 (60%) selon tes préférences.
-      const targetWidth = window.innerWidth * 0.5;
-      const dynamicScale = targetWidth / first.width; 
-      
-      // On applique le déplacement et le scale sur-mesure
-      video.style.transform = `translate(${moveX}px, ${moveY}px) scale(${dynamicScale})`;
-    } else {
-      video.style.transform = '';
-      overlay.classList.remove('is-active');
-      
-      setTimeout(() => {
-        video.classList.remove('is-zoomed');
-      }, 400);
-    }
+const isMobileLike = window.matchMedia("(max-width: 768px), (pointer: coarse)").matches;
+
+function getScale(firstRect) {
+  // Mobile: zoom plus doux pour éviter de dépasser l'écran
+  const targetWidthRatio = isMobileLike ? 0.92 : 0.50;
+  const targetWidth = window.innerWidth * targetWidthRatio;
+  return targetWidth / firstRect.width;
+}
+
+function toggleZoom(video) {
+  const overlay = document.getElementById("videoOverlay");
+  if (!overlay) return;
+
+  const alreadyZoomed = video.classList.contains("is-zoomed");
+  const otherZoomed = document.querySelector(".zoomable-video.is-zoomed");
+
+  // Si une autre vidéo est déjà zoomée, on la ferme d'abord
+  if (otherZoomed && otherZoomed !== video) {
+    otherZoomed.style.transform = "";
+    otherZoomed.classList.remove("is-zoomed");
   }
 
-  function closeVideo() {
-    const zoomedVideo = document.querySelector('.zoomable-video.is-zoomed');
-    if (zoomedVideo) toggleZoom(zoomedVideo);
+  // 2e tap sur la même vidéo => dézoom
+  if (alreadyZoomed) {
+    video.style.transform = "";
+    overlay.classList.remove("is-active");
+    setTimeout(function () {
+      video.classList.remove("is-zoomed");
+    }, 300);
+    return;
   }
+
+  // Zoom
+  const first = video.getBoundingClientRect();
+  video.classList.add("is-zoomed");
+  overlay.classList.add("is-active");
+
+  const centerX = window.innerWidth / 2;
+  const centerY = window.innerHeight / 2;
+
+  const videoCenterX = first.left + first.width / 2;
+  const videoCenterY = first.top + first.height / 2;
+
+  const moveX = centerX - videoCenterX;
+  const moveY = centerY - videoCenterY;
+  const dynamicScale = getScale(first);
+
+  video.style.transform =
+    "translate(" + moveX + "px, " + moveY + "px) scale(" + dynamicScale + ")";
+}
+
+function closeVideo() {
+  const overlay = document.getElementById("videoOverlay");
+  const zoomedVideo = document.querySelector(".zoomable-video.is-zoomed");
+  if (!zoomedVideo) return;
+
+  zoomedVideo.style.transform = "";
+  zoomedVideo.classList.remove("is-zoomed");
+  if (overlay) overlay.classList.remove("is-active");
+}
 </script>
-
-
-
-<span style="opacity:0">aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</span>
-
 
 
 {{< youtubeLite id="ksPjLYkzHdE" label="  Clair Obscur inspired VFX " >}}

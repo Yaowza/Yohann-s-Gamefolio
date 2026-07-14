@@ -11,7 +11,7 @@ draft: false
 featureimage: "card.png"   # fond de la page
 thumbnail: "cover.png"     # image de la carte
 ---
-<span style="opacity:0">aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</span>
+
 
 
  {{< youtubeLite id="CPHNIxMcoUw" label="FixDatGame" >}}
