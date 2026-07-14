@@ -259,7 +259,7 @@ object-fit: contain !important;
 The animations depends on the player's actions.
 - To rotate it uses the spiral wing
 - To mover forward or backward it uses the small propeller
-- The flame burns more when to go upwards
+- The flame burns more to go upwards
 - The small flap opens to let it down
 
 *I used subsurface scattering on the balloon material to show the flame's glow through the white part.*
