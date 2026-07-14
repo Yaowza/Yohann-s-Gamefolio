@@ -451,7 +451,11 @@ The demo features three different levels.
         </video>
         <figcaption><h4>Boosters road</h4></figcaption>
     </figure>
-    <figure class="gallery-spacer" aria-hidden="true"></figure>
+{{< /gallery >}}
+
+<div style="height: 70px;"></div>
+
+{{< gallery >}}
     <figure class="grid-w100">
         <video loop muted playsinline preload="none" class="zoomable-video" onclick="toggleZoom(this)">
         <source src="Shrooms/village.mp4" type="video/mp4">
@@ -502,7 +506,9 @@ The demo features three different levels.
             </video>
             <figcaption><h4>Tower Fight</h4></figcaption>
         </figure>
-        <figure class="gallery-spacer" aria-hidden="true"></figure>
+    {{< /gallery >}}
+    <div style="height: 70px;"></div>
+    {{< gallery >}}
         <figure class="grid-w100">
             <!-- Ta vidéo avec la classe personnalisée et l'action au clic -->
             <video loop muted playsinline preload="none" class="zoomable-video" onclick="toggleZoom(this)">
@@ -510,7 +516,6 @@ The demo features three different levels.
             </video>
             <figcaption><h4>Last Cannons</h4></figcaption>
         </figure>
-
     {{< /gallery >}}
 
 
@@ -691,7 +696,11 @@ The VFX with a "*" at the end of their name are the VFX I worked on.
         </video>
         <figcaption><h4>Wind</h4></figcaption>
     </figure>
-    <figure class="gallery-spacer" aria-hidden="true"></figure>
+{{< /gallery >}}
+
+<div style="height: 70px;"></div>
+
+{{< gallery >}}
     <figure class="grid-w33 format-carre">
         <!-- Ta vidéo avec la classe personnalisée et l'action au clic -->
         <video loop muted playsinline preload="none" class="zoomable-video" onclick="toggleZoom(this)">
@@ -738,7 +747,13 @@ _________________________________________
         <figcaption><h4>Boss Attack*</h4></figcaption>
     </figure>
     </div>
-    <figure class="gallery-spacer" aria-hidden="true"></figure>
+{{< /gallery >}}
+
+
+<div style="height: 60px;"></div>
+
+
+{{< gallery >}}
     <figure class="grid-w50">
         <!-- Ta vidéo avec la classe personnalisée et l'action au clic -->
         <video loop muted playsinline preload="none" class="zoomable-video" onclick="toggleZoom(this)">
