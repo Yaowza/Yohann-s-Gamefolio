@@ -17,7 +17,7 @@ _________________________________________
 
 {{< youtubeLite id="ogQy-tnRXng" label="  Meteor Strike " >}}
 
-This is the Meteor Strike effect from "Pierre Qui Roule". 
+This is the Meteor Strike effect from "**Pierre Qui Roule**". 
 
 This VFX is divided in 3 parts. 
 
@@ -25,4 +25,4 @@ This VFX is divided in 3 parts.
 - The Dash : The rock is propelled downwards leaving a light sparky trail
 - The Impact : The rock slams the ground in a Fiery and rocky explosion releasing all the enery accumulated.
 
-**PS : The vfx scales with how much moss quantity the player have.**
+*PS : The vfx scales with how much moss quantity the player have.*
