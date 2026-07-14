@@ -15,6 +15,7 @@ thumbnail: "cover.png"     # image de la carte
 
 ---
 
+_________________________________________
 
 <div class="video-centree">
     {{< youtubeLite id="A5o6ORmt3hc" label="The Cube" >}}

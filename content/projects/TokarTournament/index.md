@@ -12,6 +12,9 @@ featureimage: "card.png"   # fond de la page
 thumbnail: "cover.png"     # image de la carte
 ---
 
+_________________________________________
+
+
 <div class="video-centree">
     {{< youtubeLite id="ECWTTe_egTc" label="Tockar Tournament TRAILER" >}}
 </div>
