@@ -213,7 +213,7 @@ figure.decal-droite {
 
     - CONTROLLED Mode: When grounded, the player can manually pilot the drone to reposition it. This allows the player to fly the drone over obstacles or high ledges, lock it into place, and then use it as a custom anchor point to swing across otherwise impassable terrain.
 
-    *Note : All Drone movements are physic based.*
+    *Note : All Drone movements are physic based. I was the one in charge to code this mechanic. I also did the 3D modellisation*
 
 {{< gallery >}}
     <figure class="grid-w33">
