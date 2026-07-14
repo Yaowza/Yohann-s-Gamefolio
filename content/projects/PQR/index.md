@@ -494,17 +494,17 @@ The VFX in *turquoise* are the VFX I worked on.
     </figure>
 {{< /gallery >}}
 
-<div style="height: 70px;"></div>
+<div style="height: 20px;"></div>
 
 {{< gallery >}}
-    <figure class="grid-w33 format-carre">
+    <figure class="grid-w33">
         <!-- Ta vidéo avec la classe personnalisée et l'action au clic -->
         <video loop muted playsinline preload="none" class="zoomable-video" onclick="toggleZoom(this)">
         <source src="vfx/lucioles.mp4" type="video/mp4">
         </video>
         <figcaption><h4>Fireflies</h4></figcaption>
     </figure>
-    <figure class="grid-w33 format-rect">
+    <figure class="grid-w33">
         <!-- Ta vidéo avec la classe personnalisée et l'action au clic -->
         <video loop muted playsinline preload="none" class="zoomable-video" onclick="toggleZoom(this)">
         <source src="vfx/thunder.mp4" type="video/mp4">
