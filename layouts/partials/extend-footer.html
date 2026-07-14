@@ -1,0 +1,393 @@
+<script>
+(function () {
+  if (window.__globalVideoZoomInit) return;
+  window.__globalVideoZoomInit = true;
+
+  // -----------------------------
+  // Config
+  // -----------------------------
+  var videoZoomStartY = 0;
+  var suppressVideoClickUntil = 0;
+  var scrollCloseThresholdMobile = 220;
+  var scrollCloseThresholdDesktop = 220;
+
+  // -----------------------------
+  // Utils
+  // -----------------------------
+  function isMobileLikeNow() {
+    return window.matchMedia("(max-width: 768px), (pointer: coarse)").matches;
+  }
+
+  function getVideoScrollThreshold() {
+    return isMobileLikeNow()
+      ? scrollCloseThresholdMobile
+      : scrollCloseThresholdDesktop;
+  }
+
+  function getUnzoomDurationMs(el) {
+    try {
+      var t = window.getComputedStyle(el).transitionDuration || "0s";
+      var first = t.split(",")[0].trim();
+      if (first.endsWith("ms")) return parseFloat(first);
+      if (first.endsWith("s")) return parseFloat(first) * 1000;
+    } catch (e) {}
+    return 400;
+  }
+
+  function getScale(firstRect) {
+    var targetWidthRatio = isMobileLikeNow() ? 0.92 : 0.5;
+    var targetWidth = window.innerWidth * targetWidthRatio;
+    return targetWidth / firstRect.width;
+  }
+
+  function freezeVideo(video) {
+    if (!isMobileLikeNow()) return;
+    video.pause();
+    try {
+      video.currentTime = 0.01;
+    } catch (e) {}
+  }
+
+  function ensureOverlay() {
+    var overlay = document.getElementById("videoOverlay");
+    if (overlay) return overlay;
+
+    overlay = document.createElement("div");
+    overlay.id = "videoOverlay";
+    overlay.className = "video-bg-overlay";
+    overlay.addEventListener("click", function () {
+      window.closeVideo();
+    });
+
+    document.body.appendChild(overlay);
+    return overlay;
+  }
+
+  function unzoomWithAnimation(video, overlay) {
+    var ms = getUnzoomDurationMs(video) + 20;
+
+    if (isMobileLikeNow()) {
+      video.pause();
+      video.classList.add("is-unzooming");
+      video.style.transform = "";
+
+      window.setTimeout(function () {
+        freezeVideo(video);
+        video.classList.remove("is-unzooming");
+        video.classList.remove("is-zoomed");
+        if (overlay) overlay.classList.remove("is-active");
+      }, ms);
+      return;
+    }
+
+    video.style.transform = "";
+    if (overlay) overlay.classList.remove("is-active");
+
+    window.setTimeout(function () {
+      video.classList.remove("is-zoomed");
+    }, ms);
+  }
+
+  // -----------------------------
+  // Public API
+  // -----------------------------
+  window.toggleZoom = function (video) {
+    if (Date.now() < suppressVideoClickUntil) return;
+
+    var overlay = ensureOverlay();
+    if (!video) return;
+
+    var alreadyZoomed = video.classList.contains("is-zoomed");
+    var otherZoomed = document.querySelector(".zoomable-video.is-zoomed");
+
+    if (otherZoomed && otherZoomed !== video) {
+      unzoomWithAnimation(otherZoomed, overlay);
+    }
+
+    if (alreadyZoomed) {
+      unzoomWithAnimation(video, overlay);
+      return;
+    }
+
+    var first = video.getBoundingClientRect();
+    video.classList.add("is-zoomed");
+    overlay.classList.add("is-active");
+    videoZoomStartY = window.scrollY || window.pageYOffset || 0;
+
+    var centerX = window.innerWidth / 2;
+    var centerY = window.innerHeight / 2;
+    var videoCenterX = first.left + first.width / 2;
+    var videoCenterY = first.top + first.height / 2;
+    var moveX = centerX - videoCenterX;
+    var moveY = centerY - videoCenterY;
+    var dynamicScale = getScale(first);
+
+    video.style.transform =
+      "translate(" + moveX + "px, " + moveY + "px) scale(" + dynamicScale + ")";
+
+    var p = video.play();
+    if (p && typeof p.catch === "function") p.catch(function () {});
+  };
+
+  window.closeVideo = function () {
+    var overlay = ensureOverlay();
+    var zoomedVideo = document.querySelector(".zoomable-video.is-zoomed");
+    if (!zoomedVideo) return;
+    unzoomWithAnimation(zoomedVideo, overlay);
+  };
+
+  // -----------------------------
+  // Gesture / scroll guards
+  // -----------------------------
+  document.addEventListener(
+    "touchmove",
+    function (e) {
+      var t = e.target;
+      if (t && t.closest && t.closest(".zoomable-video.is-zoomed")) {
+        suppressVideoClickUntil = Date.now() + 260;
+      }
+    },
+    { passive: true, capture: true }
+  );
+
+  window.addEventListener(
+    "scroll",
+    function () {
+      var zoomed = document.querySelector(".zoomable-video.is-zoomed");
+      if (!zoomed) return;
+
+      var y = window.scrollY || window.pageYOffset || 0;
+      var delta = Math.abs(y - videoZoomStartY);
+
+      if (delta > getVideoScrollThreshold()) {
+        window.closeVideo();
+      }
+    },
+    { passive: true }
+  );
+
+  // -----------------------------
+  // Init videos
+  // -----------------------------
+  document.addEventListener("DOMContentLoaded", function () {
+    ensureOverlay();
+
+    var videos = Array.prototype.slice.call(
+      document.querySelectorAll(".article-content video")
+    );
+    if (!videos.length) return;
+
+    function prime(video) {
+      if (video.dataset.primed === "1") return;
+      video.dataset.primed = "1";
+      video.preload = "metadata";
+      video.load();
+    }
+
+    function freezeOnFirstFrame(video) {
+      if (!isMobileLikeNow()) return;
+
+      var apply = function () {
+        video.pause();
+        try {
+          video.currentTime = 0.01;
+        } catch (e) {}
+      };
+
+      if (video.readyState >= 1) {
+        apply();
+      } else {
+        video.addEventListener("loadedmetadata", apply, { once: true });
+      }
+    }
+
+    function safePlay(video) {
+      var p = video.play();
+      if (p && typeof p.catch === "function") p.catch(function () {});
+    }
+
+    videos.forEach(function (video) {
+      video.muted = true;
+      video.playsInline = true;
+      video.loop = true;
+      video.controls = false;
+      video.preload = "none";
+
+      if (!video.classList.contains("zoomable-video")) {
+        video.classList.add("zoomable-video");
+      }
+
+      // Evite le double déclenchement si onclick existe déjà dans le HTML.
+      if (!video.getAttribute("onclick")) {
+        video.addEventListener("click", function () {
+          if (Date.now() < suppressVideoClickUntil) return;
+          window.toggleZoom(video);
+        });
+      }
+
+      // Empêche lecture auto en mobile si non zoomée.
+      if (!video.dataset.pauseGuardBound) {
+        video.dataset.pauseGuardBound = "1";
+        video.addEventListener("play", function () {
+          if (isMobileLikeNow() && !video.classList.contains("is-zoomed")) {
+            video.pause();
+            try {
+              video.currentTime = 0.01;
+            } catch (e) {}
+          }
+        });
+      }
+    });
+
+    if (!("IntersectionObserver" in window)) {
+      videos.forEach(function (video) {
+        prime(video);
+        if (isMobileLikeNow()) freezeOnFirstFrame(video);
+        else safePlay(video);
+      });
+      return;
+    }
+
+    var io = new IntersectionObserver(
+      function (entries) {
+        entries.forEach(function (entry) {
+          var video = entry.target;
+
+          if (entry.isIntersecting) {
+            prime(video);
+            if (isMobileLikeNow()) freezeOnFirstFrame(video);
+            else safePlay(video);
+          } else {
+            video.pause();
+            if (isMobileLikeNow()) {
+              try {
+                video.currentTime = 0.01;
+              } catch (e) {}
+            }
+          }
+        });
+      },
+      {
+        threshold: 0.35,
+        rootMargin: "150px 0px"
+      }
+    );
+
+    videos.forEach(function (video) {
+      io.observe(video);
+    });
+  });
+})();
+</script>
+
+<script>
+(function () {
+  if (window.__imagePinchGuardInit) return;
+  window.__imagePinchGuardInit = true;
+
+  var suppressUntil = 0;
+  var startX = 0;
+  var startY = 0;
+  var movedSingleTouch = false;
+  var multiTouchSeen = false;
+  var moveThreshold = 6;
+
+  function isImageZoomOpen() {
+    return !!document.querySelector(".medium-zoom-image--opened");
+  }
+
+  function arm(ms) {
+    var until = Date.now() + ms;
+    if (until > suppressUntil) suppressUntil = until;
+  }
+
+  function suppressActive() {
+    return Date.now() < suppressUntil;
+  }
+
+  document.addEventListener(
+    "touchstart",
+    function (e) {
+      if (!isImageZoomOpen()) return;
+
+      movedSingleTouch = false;
+
+      if (e.touches && e.touches.length === 1) {
+        startX = e.touches[0].clientX;
+        startY = e.touches[0].clientY;
+      }
+
+      if (e.touches && e.touches.length >= 2) {
+        multiTouchSeen = true;
+        arm(900);
+      }
+    },
+    { passive: true, capture: true }
+  );
+
+  document.addEventListener(
+    "touchmove",
+    function (e) {
+      if (!isImageZoomOpen()) return;
+
+      if (e.touches && e.touches.length >= 2) {
+        multiTouchSeen = true;
+        arm(900);
+        return;
+      }
+
+      if (e.touches && e.touches.length === 1) {
+        var dx = Math.abs(e.touches[0].clientX - startX);
+        var dy = Math.abs(e.touches[0].clientY - startY);
+
+        if (dx > moveThreshold || dy > moveThreshold) {
+          movedSingleTouch = true;
+          arm(1000);
+        }
+      }
+    },
+    { passive: true, capture: true }
+  );
+
+  document.addEventListener(
+    "touchend",
+    function (e) {
+      if (!isImageZoomOpen()) return;
+
+      if (multiTouchSeen) arm(800);
+      if (movedSingleTouch) arm(900);
+
+      if (!e.touches || e.touches.length < 2) multiTouchSeen = false;
+    },
+    { passive: true, capture: true }
+  );
+
+  document.addEventListener(
+    "touchcancel",
+    function () {
+      if (!isImageZoomOpen()) return;
+      if (multiTouchSeen || movedSingleTouch) arm(900);
+      multiTouchSeen = false;
+      movedSingleTouch = false;
+    },
+    { passive: true, capture: true }
+  );
+
+  ["click", "pointerup", "mouseup"].forEach(function (type) {
+    document.addEventListener(
+      type,
+      function (e) {
+        if (!isImageZoomOpen()) return;
+        if (!suppressActive()) return;
+
+        e.preventDefault();
+        e.stopPropagation();
+        if (typeof e.stopImmediatePropagation === "function") {
+          e.stopImmediatePropagation();
+        }
+      },
+      true
+    );
+  });
+})();
+</script>

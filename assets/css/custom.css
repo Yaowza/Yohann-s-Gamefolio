@@ -1,79 +1,61 @@
-/* Modifie l'intensité du flou sur le hero background */
+/* Modifie l'intensite du flou sur le hero background */
 .backdrop-blur-md {
-    backdrop-filter: blur(1px) !important; /* Ajuste les pixels (ex: 2px pour un flou léger, 12px pour un flou très fort) */
-    -webkit-backdrop-filter: blur(1px) !important; /* Pour la compatibilité Safari */
+  backdrop-filter: blur(1px) !important;
+  -webkit-backdrop-filter: blur(1px) !important;
 }
-
 
 .max-w-7xl {
-    max-width: 1500px !important;
-    width: 100% !important;
+  max-width: 1500px !important;
+  width: 100% !important;
 }
 
-/* Force le conteneur de l'article à prendre beaucoup plus de place */
-.prose, .dark\:prose-invert {
-    max-width: 1200px !important; /* Ajuste cette valeur selon tes goûts */
-    width: 100% !important;
+/* Force le conteneur de l'article a prendre beaucoup plus de place */
+.prose,
+.dark\:prose-invert {
+  max-width: 1200px !important;
+  width: 100% !important;
 }
 
-
-
-
-
-
-
-.prose img, .prose video {
-width: 100% !important;
-max-width: 100% !important;
-height: auto !important;
+.prose img,
+.prose video {
+  width: 100% !important;
+  max-width: 100% !important;
+  height: auto !important;
 }
 
 .prose iframe,
 lite-youtube,
 .lite-youtube {
-width: 100% !important;
-max-width: 100% !important;
-aspect-ratio: 16 / 9 !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  aspect-ratio: 16 / 9 !important;
 }
 
-
-
-
-
-
-
-/* Force l'image de profil de la page d'accueil à garder sa taille normale */
-.homepage-avatar, img[alt="Yohann Perrette"], .profile-avatar img {
-    width: 8rem !important;      /* Équivalent à w-48 (192px) */
-    height: 8rem !important;     /* Équivalent à h-48 */
-    max-width: 192px !important;
-    object-fit: cover !important;
-    border-radius: 9999px !important; /* Pour la garder bien ronde/ovale selon le style de base */
+/* Force l'image de profil de la page d'accueil a garder sa taille normale */
+.homepage-avatar,
+img[alt="Yohann Perrette"],
+.profile-avatar img {
+  width: 8rem !important;
+  height: 8rem !important;
+  max-width: 192px !important;
+  object-fit: cover !important;
+  border-radius: 9999px !important;
 }
 
-/* --- Fix des marges de l'article pour la production --- */
-
-/* 1. Force la section principale à ignorer le bridage par défaut de Blowfish */
+/* Fix des marges de l'article */
 article section.prose {
-    max-width: none !important;
-    width: 100% !important;
+  max-width: none !important;
+  width: 100% !important;
 }
-
-/* 2. Applique la largeur personnalisée de 50rem sur le header et le contenu */
-
-
-
 
 #single_header,
 .article-content,
 article footer {
-max-width: 50rem !important;
-width: 100% !important;
-margin-left: auto !important;
-margin-right: auto !important;
+  max-width: 50rem !important;
+  width: 100% !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
 }
-
-
 
 /* Version force brute pour Blowfish et youtubeLite */
 lite-youtube,
@@ -81,12 +63,10 @@ lite-youtube,
 iframe[src*="youtube"],
 .video-wrapper,
 .prose iframe {
-    border-radius: 8px !important;
-    overflow: hidden !important;
-    transform: translateZ(0); /* Correction bug Safari/Chrome sur les arrondis d'iframes */
+  border-radius: 8px !important;
+  overflow: hidden !important;
+  transform: translateZ(0);
 }
-
-
 
 /* Garde le blur fonctionnel: ne pas bloquer le scroll global */
 html,
@@ -101,28 +81,12 @@ article,
 .gallery,
 .gallery-carousel,
 .carousel {
-min-width: 0;
-max-width: 100%;
-overflow-x: visible;
+  min-width: 0;
+  max-width: 100%;
+  overflow-x: visible;
 }
 
-/* On protege le texte plutot que de clipper les conteneurs */
-.prose p,
-.prose li,
-.prose span,
-.prose a,
-.prose figcaption {
-overflow-wrap: anywhere;
-word-break: break-word;
-}
-
-/* Optionnel: securise l'image zoomee au-dessus des conteneurs */
-.medium-zoom-overlay,
-.medium-zoom-image--opened {
-z-index: 9999 !important;
-}
-
-/* Evite qu'un mot/chaine longue force la largeur */
+/* Protection du texte */
 .prose p,
 .prose li,
 .prose span,
@@ -130,6 +94,12 @@ z-index: 9999 !important;
 .prose figcaption {
   overflow-wrap: anywhere;
   word-break: break-word;
+}
+
+/* Optionnel: securise l'image zoomee au-dessus des conteneurs */
+.medium-zoom-overlay,
+.medium-zoom-image--opened {
+  z-index: 9999 !important;
 }
 
 /* Securite media */
@@ -140,9 +110,7 @@ z-index: 9999 !important;
   height: auto;
 }
 
-
-
-/*custom spacer*/
+/* Custom spacer */
 .spacer-70 {
   height: clamp(24px, 6vw, 70px);
 }
@@ -153,4 +121,151 @@ z-index: 9999 !important;
   margin: 0 !important;
   padding: 0 !important;
   pointer-events: none;
+}
+
+/* ===== Global video zoom styles (all pages) ===== */
+.zoomable-video {
+  border-radius: 8px;
+  overflow: hidden;
+  display: block;
+  cursor: zoom-in;
+  width: 100%;
+  position: relative;
+  z-index: 1;
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.4s ease;
+}
+
+.zoomable-video.is-unzooming {
+  z-index: 10000 !important;
+  pointer-events: none;
+}
+
+.zoomable-video.is-zoomed {
+  z-index: 9999;
+  cursor: zoom-out;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
+}
+
+/* Overlay used by global JS */
+.video-bg-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(10, 10, 10, 0.85);
+  z-index: 9998;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.4s ease-in-out;
+}
+
+.video-bg-overlay.is-active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* Carousel radius consistency */
+.gallery-carousel,
+.carousel,
+[id^="carousel-"],
+.glide,
+.glide__track,
+.glide__slides,
+.glide__slide {
+  border-radius: 8px !important;
+  overflow: hidden !important;
+  transform: translate3d(0, 0, 0) !important;
+  -webkit-transform: translate3d(0, 0, 0) !important;
+  backface-visibility: hidden !important;
+  -webkit-backface-visibility: hidden !important;
+  perspective: 1000 !important;
+  -webkit-perspective: 1000 !important;
+}
+
+.gallery-carousel *,
+.carousel *,
+[id^="carousel-"] * {
+  border-radius: 8px !important;
+}
+
+.gallery-carousel img,
+.carousel img,
+[id^="carousel-"] img,
+.glide__slide img,
+.carousel-item img {
+  border-radius: 8px !important;
+  overflow: hidden !important;
+  object-fit: cover !important;
+}
+
+/* Keep nav bullets/arrows shape */
+.glide__bullets,
+.glide__bullets *,
+.glide__arrows,
+.glide__arrows * {
+  border-radius: 9999px !important;
+}
+
+/* ===== Mobile cue: 2 liseres lumineux tournants ===== */
+@property --shine-angle {
+  syntax: "<angle>";
+  inherits: false;
+  initial-value: 0deg;
+}
+
+@media (max-width: 768px), (pointer: coarse) {
+  .zoomable-video {
+    outline: none;
+  }
+
+  .zoomable-video:not(.is-zoomed):not(.is-unzooming),
+  .zoomable-video.is-unzooming {
+    border: 2px solid transparent;
+    background:
+      linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0)) padding-box,
+      conic-gradient(
+        from calc(var(--shine-angle) + 90deg),
+        rgba(2, 153, 199, 0.08) 0deg,
+        rgba(2, 153, 199, 0.08) 14deg,
+        rgba(120, 220, 245, 0.22) 24deg,
+        rgba(1, 180, 224, 0.62) 38deg,
+        rgba(120, 220, 245, 0.22) 52deg,
+        rgba(2, 153, 199, 0.08) 66deg,
+        rgba(2, 153, 199, 0.08) 160deg,
+        rgba(2, 153, 199, 0.08) 180deg,
+        rgba(2, 153, 199, 0.08) 194deg,
+        rgba(120, 220, 245, 0.22) 204deg,
+        rgba(1, 180, 224, 0.62) 218deg,
+        rgba(120, 220, 245, 0.22) 232deg,
+        rgba(2, 153, 199, 0.08) 246deg,
+        rgba(2, 153, 199, 0.08) 360deg
+      ) border-box;
+    box-shadow:
+      0 0 0 0.5px rgba(2, 153, 199, 0.651),
+      0 0 5px rgba(2, 153, 199, 0.1);
+    animation: videoBorderShine 3.2s linear infinite;
+  }
+}
+
+@keyframes videoBorderShine {
+  to {
+    --shine-angle: -360deg;
+  }
+}
+
+/* Image non ouverte: priorité au scroll vertical */
+.medium-zoom-image {
+  touch-action: pan-y !important;
+}
+
+/* Image ouverte: pinch OK + scroll vertical */
+.medium-zoom-image--opened {
+  touch-action: pan-y pinch-zoom !important;
+  z-index: 9999 !important;
+}
+
+.medium-zoom-overlay {
+  touch-action: none !important;
+  z-index: 9999 !important;
 }
