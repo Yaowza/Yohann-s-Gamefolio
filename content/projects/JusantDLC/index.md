@@ -213,7 +213,7 @@ figure.decal-droite {
 
     - CONTROLLED Mode: When grounded, the player can manually pilot the drone to reposition it. This allows the player to fly the drone over obstacles or high ledges, lock it into place, and then use it as a custom anchor point to swing across otherwise impassable terrain.
 
-    *Note : All Drone movements are physic based. I was the one in charge to code this mechanic. I also did the 3D modellisation*
+    *All Drone movements are physic based. I was the one in charge to code this mechanic. I also did the 3D modellisation.*
 
 {{< gallery >}}
     <figure class="grid-w33">
@@ -237,9 +237,32 @@ figure.decal-droite {
 
 {{< /gallery >}}
 
-<!--
-### <h2><i>Level Design</i></h2>
--->
+
+## Balloon (Drone) Turnaround
+
+<div class="video-centree">
+    {{< youtubeLite id="430Vx6uMIgA" label="Pierre Qui Roule TRAILER" >}}
+</div>
+
+<style>
+  .video-centree > * {
+    margin: 0 auto !important;
+    display: block !important;
+  }
+  @media (max-width: 768px) {
+.gallery video {
+object-fit: contain !important;
+}
+}
+</style> 
+
+The animations depends on the player's actions.
+- To rotate it uses the spiral wing
+- To mover forward or backward it uses the small propeller
+- The flame burns more when to go upwards
+- The small flap opens to let it down
+
+*I used subsurface scattering on the balloon material to show the flame's glow through the white part.*
 
 
 ## <h1>ART</h1>
@@ -256,7 +279,7 @@ figure.decal-droite {
 {{< /gallery >}} 
 
 
-### <h2><i>Cinematics</i></h2>
+### <h2>Cinematics</h2>
 
 A ubiquitous element in Jusant is the short cinematic sequences found at various moments throughout the adventure. We reproduced two of these cinematics in our project.
 

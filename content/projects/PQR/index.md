@@ -166,7 +166,7 @@ Our goal was to let the gameplay breathe and avoid overloading the player with m
 
 Consequently, the majority of the game's mechanical depth and variety is driven directly by the level design
 _________________________________________
-### <h2><i><b>Level Design</b></i></h2>
+## <h2><b>Level Design</b></h2>
 
 The demo features three different levels.
 
@@ -342,6 +342,8 @@ The demo features three different levels.
         </figure>
     {{< /gallery >}}
 
+     <div style="height: 20px;"></div> 
+
     - Phase 2: This phase takes place right below the first area after the player breaks through the floor. It plays out like a classic "Whack-a-Mole" game, where the boss emerges from various molehills. The player must perform a Meteor Strike directly onto its head to deal damage. Repeating this process three times defeats the boss for good. To spice things up, the boss will start using feints after the player lands their first successful hit.
 
     {{< gallery >}}
@@ -392,7 +394,7 @@ Hidden throughout the levels are jokes and mini-games. Discovering these secrets
 {{< /gallery >}}
 
 _________________________________________
-### <h2><i><b>UX</b></i></h2>
+## <h2><b>UX</b></h2>
 
 To give more feeling and to make the world more alive, we implemented inecrations within the environement.
 
@@ -444,7 +446,7 @@ We have :
 
 
 _________________________________________
-## <h1><b>ART</b></h1>
+## <h1><b>Environment</b></h1>
 
 The Art Direction embraces the absurd. After all, we are in a kingdom of rolling stones ! Yet we still wanted players to be able to admire beautiful landscapes during moments of downtime.
 
@@ -476,11 +478,11 @@ Our post-processing shader enables the addition of outlines, cel shading, and st
 <div style="height: 70px;"></div> 
 
 _________________________________________
-### <h2><i><b>VFX</b></i></h2>
+## <h2><b>VFX</b></h2>
 
 The VFX with a "*" at the end of their name are the VFX I worked on.
 
-#### Environment :
+### Environment :
 
 {{< gallery >}}
     <figure class="grid-w100">
@@ -522,7 +524,7 @@ The VFX with a "*" at the end of their name are the VFX I worked on.
 
 
 _________________________________________
-#### Characters :
+### Characters :
 
 {{< gallery >}}
     <div class="text-center w-full">
@@ -565,7 +567,7 @@ _________________________________________
 {{< /gallery >}}
 
 _________________________________________
-#### Secrets :
+### Secrets :
 
 {{< gallery >}}
     <figure class="grid-w33">
@@ -593,21 +595,21 @@ _________________________________________
 
 _________________________________________
 
-### <h2><i><b>Cinematics</b></i></h2>
+## <h2><b>Cinematics</b></h2>
 
 To effectively tell our game's story, we opted for various cinematic sequences throughout the vertical slice to contextualize the narrative experience for the players.
 
-- #### Intro :
+- ### Intro :
     {{< youtubeLite id="3I-4gYCh59c" label="Introduction Cinematic" params="loop=1&controls=1" >}}
 
     <div style="height: 70px;"></div> 
 
-- #### Plot twist / transition :
+- ### Plot twist / transition :
     {{< youtubeLite id="KiG5Az0lmFE" label="Plot Twist Cinematic" params="loop=1&controls=1" >}}
 
     <div style="height: 70px;"></div> 
 
-- #### Boss Cinematics:
+- ### Boss Cinematics:
     {{< youtubeLite id="58U5nzUcDyY" label="Introduction Cinematic" params="loop=1&controls=1" >}}
 
 

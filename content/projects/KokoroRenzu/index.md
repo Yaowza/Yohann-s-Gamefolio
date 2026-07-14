@@ -112,7 +112,7 @@ We where a team of 13 students working on Kokoro Renzu (5 Game Artists, 4 Tech A
 
 - **Gameplay Programming**
 
-    - *Note: Responsible for nearly 100% of the scripting and systems implementation within the game's main level.*
+    - *I am responsible for nearly 100% of the scripting and systems implementation within the game's main level.*
 
     - Core Systems : Developed the 3Cs (Character, Camera, Controls with full controller support), the save/load system, and the inventory.
 

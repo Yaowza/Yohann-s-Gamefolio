@@ -367,7 +367,7 @@ Turning the background architecture into a slide bridges the gap between gamepla
     {{< figure src="r2/r2pacing.png" alt="Gallery image 1"  figureClass="grid-w100 mon-image-speciale2" >}}
 {{< /gallery >}} 
 
-A long decompression zone with very low intensity following the grueling boss fight to fully reset the player's adrenaline.
+*A long decompression zone with very low intensity following the grueling boss fight to fully reset the player's adrenaline.*
 
 <div style="height: 20px;"></div>
 
