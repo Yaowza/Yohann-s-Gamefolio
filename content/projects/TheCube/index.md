@@ -1,7 +1,7 @@
 ---
 title: "The Cube"
 summary: "This was a UX based tiny project where we had to create a game that transmitted something philosophical."
-categories: ["projects","schoolproject"]
+categories: ["projects","schoolproject","soloproject"]
 #tags: ["projects"]
 
 
@@ -63,11 +63,11 @@ _________________________________________
 
 
 
-## What is The Cube : A useless journey ?
+## **What is The Cube : A useless journey ?**
 
-This is a UX-focused mini-game centered around a unique, experimental mechanic. Developped in one month.
+This is a UX-focused mini-game centered around a unique, experimental mechanic. Developped in **one month by only me**.
 
-Developed as a solo project, the challenge was to build a simple yet fluid experience from scratch, using only a single mechanic that is intentionally ambiguous and hard to understand upon first playthrough. That should represent a "phillosophic" thought.
+The challenge was to build a simple yet fluid experience from scratch, using only a single mechanic that is intentionally ambiguous and hard to understand upon first playthrough. That should represent a "phillosophic" thought.
 
 The objective is to survive and travel as far as possible. Controlling a cube, the player must figure out the correct path through trial and error, relying purely on sensory feedback:
 
@@ -81,6 +81,7 @@ In this prochect everything was self made except the sky boxes in space and the 
 unreal.
 
 The path Generation is procedural and self made.
+
 
 {{< gallery >}}
     {{< figure src="img/2.png" alt="Gallery image 1"  figureClass="grid-w100" >}}

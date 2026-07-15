@@ -13,7 +13,7 @@ dateFormat = "2 January 2006"
   [params.author]
   name = "Yohann Perrette"
   image = "PDP.png"
-  headline = "Welcome to my Gamefolio !"
+  headline = "Welcome to my Gamefolio ! Here you will see your Dream Game come to life !"
   bio = "A Game Designer and VFX Lover."
 
 #    [[params.author.links]]
@@ -29,4 +29,6 @@ dateFormat = "2 January 2006"
 name = "Yohann Perrette"
 email = "yo.perrette@gmail.com"
 image = "PDP.png"
-headline = "Welcome to my Gamefolio !"
+headline = "Welcome to my Gamefolio ! The place to see your Dream Game come to reality !"
+
+

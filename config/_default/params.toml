@@ -30,7 +30,7 @@ showMoreLink = false
 showMoreLinkDest = "C:\\Users\\yoper\\MyGamefolio\\content\\projects"
 cardView = false
 cardViewScreenWidth = false
-layoutBackgroundBlur = false
+layoutBackgroundBlur = true
 
 [article]
 showDate = true
@@ -91,5 +91,4 @@ goldmarkRenderer = true
 
 [params]
 addSectionAttributes = true
-
 

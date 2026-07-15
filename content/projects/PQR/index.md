@@ -101,13 +101,46 @@ This is our graduation project. We had approximately <b>eight months</b> with a 
 
 The game is a <b>vertical slice</b> of a full game, focusing on the third and fourth levels. The demo features <b>three distinct environments</b> : The Hub, The level "Shrooms", and The level "Ruins"
 
+_________________________________________
+
+## <b>My Part of the Work</b>
+
 I am one of the two <b>original creators</b> of this project. A friend and I came up with the concept back in September. We wanted to break away from the walking simulator loop that dominates most student games, so we designed a <b>gameplay-focused</b> game featuring a rolling main character!
 
-As a Game Designer, I was also one of the two <b>main gameplay programmers</b>. I worked on the <b>core gameplay loops, main mechanics and sytem design</b>. While I contributed to <b>every level</b>, I focused mostly on the cave section in the "Shrooms" level, and the second half of the "Ruins" level starting from the rails after the fight, all the way to the boss fight, which I also designed.
+As one of the two <b>main gameplay programmers</b> in Unreal Engine, I co-developed :
+- The <b>core gameplay loops</b> and mechanics including :
+    - Player's movement and physics
+    - Meteor Strike ability
+    - Combat system
+    - Moss system
+    - A bit of the dialogue system
+- All the Levels Mechanics :
+    - Boosters
+    - Cannons
+    - Tubes adn rails (made with spline meshes) 
+    - The "Cannon Lighthouse"
+- And some other systems in the levels such as :
+    - The Railed camera system
+    - The checkpoint, death and revive systems
+    - And some "Secrets"
 
-I also made some <b>VFX</b> since I personally love doing them.
 
+I aslo worked on <b>the sytem design</b>.
+- The Amount of moss quantity per level, or given by ennemies
+- Ennemies and player damages
+- Movement speed and gravity
 
+I heavily worked on the **Level Desing** from start to end of the project.
+
+While I contributed to <b>every level</b>, I focused mostly on :
+- The Hub
+- The cave section in the "Shrooms" level
+- The "Ruins" level 
+- The Boss fight
+
+I also made some <b>VFX</b>. (a personnal passion of mine)
+
+And in the end I worked on a Steam Deck port, including performance optimisation.
 
 _________________________________________
 ## <h1><b>Gameplay</b></h1>
@@ -117,6 +150,9 @@ _________________________________________
 
 The movements of the characters are all physic based, wich allows us a nice boulder physics feeling.
 
+### Mechanics
+
+
 The main gameplay mechanics are simple, you can <b>roll</b>, <b>jump</b> and jump again in the air to do a <b>"meteor strike"</b> (a down dash).
 
 {{< gallery >}}
@@ -124,19 +160,19 @@ The main gameplay mechanics are simple, you can <b>roll</b>, <b>jump</b> and jum
             <video loop muted playsinline preload="none" class="zoomable-video" onclick="toggleZoom(this)">
             <source src="Gameplay/rolling.mp4" type="video/mp4">
             </video>
-            <figcaption><h4>Rolling</h4></figcaption>
+            <figcaption><b>Rolling</b></figcaption>
         </figure>
         <figure class="grid-w33">
             <video loop muted playsinline preload="none" class="zoomable-video" onclick="toggleZoom(this)">
             <source src="Gameplay/jump.mp4" type="video/mp4">
             </video>
-            <figcaption><h4>Jumping</h4></figcaption>
+            <figcaption><b>Jumping</b></figcaption>
         </figure>
         <figure class="grid-w33">
             <video loop muted playsinline preload="none" class="zoomable-video" onclick="toggleZoom(this)">
             <source src="Gameplay/meteor.mp4" type="video/mp4">
             </video>
-            <figcaption><h4>Meteor Strike</h4></figcaption>
+            <figcaption><b>Meteor Strike</b></figcaption>
         </figure>
     {{< /gallery >}}
 
@@ -155,7 +191,7 @@ The main objective ot our game is th "Gather moss". To do so you have several me
             <video loop muted playsinline preload="none" class="zoomable-video" onclick="toggleZoom(this)">
             <source src="Gameplay/fight.mp4" type="video/mp4">
             </video>
-            <figcaption><h4>Fight</h4></figcaption>
+            <figcaption><b>Fighting</b></figcaption>
         </figure>
     {{< /gallery >}}
 
@@ -175,24 +211,31 @@ The demo features three different levels.
         {{< figure src="Hub/Screen_MAIN.0020.jpeg" alt="Gallery image 1"  figureClass="grid-w80" >}}
     {{< /gallery >}}
 
-     This is where the player spawns and returns between each level to deposit their moss (similar to Super Mario 64). 
-     It’s a small zone that players can freely explore, featuring a few secrets and NPCs to talk to.
+This is where the player spawns and returns between each level to deposit their moss (similar to Super Mario 64). 
+It’s a small zone that players can freely explore, featuring a few secrets and NPCs to talk to.
 
-     It also hosts the 'Cannon Lighthouse', the hub's primary landmark that connects it to every level.
-     It allows the player to select and launch each level.
+It also hosts the 'Cannon Lighthouse', the hub's primary landmark that connects it to every level.
+It allows the player to select and launch each level.
 
-     {{< gallery >}}
-        {{< figure src="Hub/Screen_MAIN.0110.jpeg" alt="Gallery image 1"  figureClass="grid-w50" >}}
-        <figure class="grid-w50">
-            <video loop muted playsinline preload="none" class="zoomable-video" onclick="toggleZoom(this)">
-            <source src="Hub/ptp.mp4" type="video/mp4">
-            </video>
-            <figcaption><h4> </h4></figcaption>
-        </figure>
-     {{< /gallery >}}
+{{< gallery >}}
+{{< figure src="Hub/Screen_MAIN.0110.jpeg" alt="Gallery image 1"  figureClass="grid-w50" >}}
+<figure class="grid-w50">
+    <video loop muted playsinline preload="none" class="zoomable-video" onclick="toggleZoom(this)">
+    <source src="Hub/ptp.mp4" type="video/mp4">
+    </video>
+    <figcaption><b> </b></figcaption>
+</figure>
+{{< /gallery >}}
 
+This level is designed in a way that the player easely finds the main point of interrest that is the Cannon Lighthouse. However it is vast enough to let the player move around, explore and find Secrets.
 
+#### Hub top view :
 
+{{< gallery >}}
+{{< figure src="Hub/HubTopView.png" alt="Gallery image 1" figureClass="grid-w80" >}}
+{{< /gallery >}}
+
+<!--
     - #### Hub Highlight :
 
     {{< gallery >}}
@@ -200,42 +243,49 @@ The demo features three different levels.
             <video loop muted playsinline preload="none" class="zoomable-video" onclick="toggleZoom(this)">
             <source src="Hub/Hubhg.mp4" type="video/mp4">
             </video>
-            <figcaption><h4>Hub Peak</h4></figcaption>
+            <figcaption><b>Hub Peak</b></figcaption>
         </figure>
     {{< /gallery >}}
 
+Expliquer ce que c'est :
+
+-->
+
 <div style="height: 30px;"></div>
+
 
 - ### The Level "Shrooms" :
     {{< gallery >}}
         {{< figure src="Shrooms/shroom1.jpeg" alt="Gallery image 1" figureClass="grid-w80" >}}
     {{< /gallery >}}
 
-    This is the first level of the vertical slice. It allows the player to experience platforming with our unique movement style. This level introduces moss harvesting and combat, along with two new mechanics :
+This is the first level of the vertical slice. It allows the player to experience platforming with our unique movement style. This level introduces moss harvesting and combat, along with two new mechanics :
 
-    - Boosters : They grant a temporary, Mario Kart-style speed boost.
+- Boosters : They grant a temporary, Mario Kart-style speed boost.
 
-    - Meteor Strike : They serves here as both a platforming and combat tool.
+- Meteor Strike : They serves here as both a platforming and combat tool.
 
-    {{< gallery >}}
-        <figure class="grid-w50">
-            <video loop muted playsinline preload="none" class="zoomable-video" onclick="toggleZoom(this)">
-            <source src="Gameplay/booster.mp4" type="video/mp4">
-            </video>
-            <figcaption><h4>Boosters</h4></figcaption>
-        </figure>
-        <figure class="grid-w50">
-            <video loop muted playsinline preload="none" class="zoomable-video" onclick="toggleZoom(this)">
-            <source src="Gameplay/meteorparkour.mp4" type="video/mp4">
-            </video>
-            <figcaption><h4>Meteor Strike Platforming</h4></figcaption>
-        </figure>
-    {{< /gallery >}}
+{{< gallery >}}
+<figure class="grid-w50">
+    <video loop muted playsinline preload="none" class="zoomable-video" onclick="toggleZoom(this)">
+    <source src="Gameplay/booster.mp4" type="video/mp4">
+    </video>
+    <figcaption><b>Boosters</b></figcaption>
+</figure>
+<figure class="grid-w50">
+    <video loop muted playsinline preload="none" class="zoomable-video" onclick="toggleZoom(this)">
+    <source src="Gameplay/meteorparkour.mp4" type="video/mp4">
+    </video>
+    <figcaption><b>Meteor Strike Platforming</b></figcaption>
+</figure>
+{{< /gallery >}}
 
-    It also features a railed camera system during a 2D segment. This level has a fairly slow pace to allow players to easily get a feel for the game.
+It also features a railed camera system during a 2D segment. This level has a fairly slow pace to allow players to easily get a feel for the game.
 
-    The pacing of this level is mostly slow to let the player learn the mecanics at his own rythm. 
+The pacing of this level is mostly slow to let the player learn the mecanics at his own rythm. 
 
+
+<!--
     - #### Level Shrooms highlights :
 
 {{< gallery >}}
@@ -243,7 +293,7 @@ The demo features three different levels.
         <video loop muted playsinline preload="none" class="zoomable-video" onclick="toggleZoom(this)">
         <source src="Shrooms/boosterss.mp4" type="video/mp4">
         </video>
-        <figcaption><h4>Boosters road</h4></figcaption>
+        <figcaption><b>Boosters road</b></figcaption>
     </figure>
 {{< /gallery >}}
 
@@ -254,64 +304,75 @@ The demo features three different levels.
         <video loop muted playsinline preload="none" class="zoomable-video" onclick="toggleZoom(this)">
         <source src="Shrooms/village.mp4" type="video/mp4">
         </video>
-        <figcaption><h4>Village of Pierrequiroule</h4></figcaption>
+        <figcaption><b>Village of Pierrequiroule</b></figcaption>
     </figure>
 {{< /gallery >}}
 
+Expliquer ce que c'est :
+
+-->
 <div style="height: 70px;"></div> 
+
 
 - ### The Level "Ruins" :
     {{< gallery >}}
         {{< figure src="Ruins/ruin1.jpeg" alt="Gallery image 1" figureClass="grid-w80" >}}
     {{< /gallery >}}
 
-    This is the final level of our vertical slice. It is longer than the others and culminates in a boss fight. While it reuses previously learned mechanics, the level is much more linear and stretched out, allowing the player to build up massive speed on straightaways packed with boosters. This level also introduces two new mechanics:
+This is the final level of our vertical slice. It is longer than the others and culminates in a boss fight. While it reuses previously learned mechanics, the level is much more linear and stretched out, allowing the player to build up massive speed on straightaways packed with boosters. This level also introduces two new mechanics:
 
-    - Cannons : Once inside, they automatically launch the player in the direction they are facing after a short delay.
+- Cannons : Once inside, they automatically launch the player in the direction they are facing after a short delay.
 
-    - Pipes : They act as ramps and slides.
-    
-    {{< gallery >}}
-        <figure class="grid-w50">
-            <video loop muted playsinline preload="none" class="zoomable-video" onclick="toggleZoom(this)">
-            <source src="Gameplay/tub.mp4" type="video/mp4">
-            </video>
-            <figcaption><h4>Tubes</h4></figcaption>
-        </figure>
-        <figure class="grid-w50">
-            <!-- Ta vidéo avec la classe personnalisée et l'action au clic -->
-            <video loop muted playsinline preload="none" class="zoomable-video" onclick="toggleZoom(this)">
-            <source src="Gameplay/cannon.mp4" type="video/mp4">
-            </video>
-            <figcaption><h4>Cannon</h4></figcaption>
-        </figure>
+- Pipes : They act as ramps and slides.
 
-    {{< /gallery >}}
+{{< gallery >}}
+<figure class="grid-w50">
+    <video loop muted playsinline preload="none" class="zoomable-video" onclick="toggleZoom(this)">
+    <source src="Gameplay/tub.mp4" type="video/mp4">
+    </video>
+    <figcaption><b>Tubes</b></figcaption>
+</figure>
+<figure class="grid-w50">
+    <!-- Ta vidéo avec la classe personnalisée et l'action au clic -->
+    <video loop muted playsinline preload="none" class="zoomable-video" onclick="toggleZoom(this)">
+    <source src="Gameplay/cannon.mp4" type="video/mp4">
+    </video>
+    <figcaption><b>Cannon</b></figcaption>
+</figure>
+
+{{< /gallery >}}
 
 
-    The pacing of this level is much more energetic, driven entirely by a rhythm of boosters and speed bursts. 
+The pacing of this level is much more energetic, driven entirely by a rhythm of boosters and speed bursts. 
 
+<!--
     - #### Level Ruins highlights :
+
+
 
     {{< gallery >}}
         <figure class="grid-w100">
             <video loop muted playsinline preload="none" class="zoomable-video" onclick="toggleZoom(this)">
             <source src="Ruins/ruinfight.mp4" type="video/mp4">
             </video>
-            <figcaption><h4>Tower Fight</h4></figcaption>
+            <figcaption><b>Tower Fight</b></figcaption>
         </figure>
     {{< /gallery >}}
     <div style="height: 70px;"></div>
     {{< gallery >}}
         <figure class="grid-w100">
-            <!-- Ta vidéo avec la classe personnalisée et l'action au clic -->
             <video loop muted playsinline preload="none" class="zoomable-video" onclick="toggleZoom(this)">
             <source src="Ruins/ruinplanes.mp4" type="video/mp4">
             </video>
-            <figcaption><h4>Last Cannons</h4></figcaption>
+            <figcaption><b>Last Cannons</b></figcaption>
         </figure>
     {{< /gallery >}}
 
+
+
+Expliquer ce que c'est :
+
+-->
 
 <div style="height: 70px;"></div> 
 
@@ -321,47 +382,47 @@ The demo features three different levels.
         {{< figure src="boss/boss1.jpeg" alt="Gallery image 1"  figureClass="grid-w80" >}}
     {{< /gallery >}}
 
-    To close out the vertical slice, we created a boss fight. The boss is a massive rolling rock located in a unique, half-ruined structure. The fight is split into two major phases:
+To close out the vertical slice, we created a boss fight. The boss is a massive rolling rock located in a unique, half-ruined structure. The fight is split into two major phases:
 
-    - Phase 1 : The boss stays in the center of the arena, periodically sending out shockwaves to push the player into the void. Meanwhile, the player must climb up two paths wrapping around the arena to reach a cannon. This cannon launches the player into the air above the boss, allowing them to execute a Meteor Strike to deal damage.
+- Phase 1 : The boss stays in the center of the arena, periodically sending out shockwaves to push the player into the void. Meanwhile, the player must climb up two paths wrapping around the arena to reach a cannon. This cannon launches the player into the air above the boss, allowing them to execute a Meteor Strike to deal damage.
 
-    {{< gallery >}}
-        <figure class="grid-w50">
-            <!-- Ta vidéo avec la classe personnalisée et l'action au clic -->
-            <video loop muted playsinline preload="none" class="zoomable-video" onclick="toggleZoom(this)">
-            <source src="boss/bossattack.mp4" type="video/mp4">
-            </video>
-            <figcaption><h4>Boss choc wave</h4></figcaption>
-        </figure>
-        <figure class="grid-w50">
-            <!-- Ta vidéo avec la classe personnalisée et l'action au clic -->
-            <video loop muted playsinline preload="none" class="zoomable-video" onclick="toggleZoom(this)">
-            <source src="boss/phase11.mp4" type="video/mp4">
-            </video>
-            <figcaption><h4>Boss Damage</h4></figcaption>
-        </figure>
-    {{< /gallery >}}
+{{< gallery >}}
+<figure class="grid-w50">
+    <!-- Ta vidéo avec la classe personnalisée et l'action au clic -->
+    <video loop muted playsinline preload="none" class="zoomable-video" onclick="toggleZoom(this)">
+    <source src="boss/bossattack.mp4" type="video/mp4">
+    </video>
+    <figcaption><b>Boss choc wave</b></figcaption>
+</figure>
+<figure class="grid-w50">
+    <!-- Ta vidéo avec la classe personnalisée et l'action au clic -->
+    <video loop muted playsinline preload="none" class="zoomable-video" onclick="toggleZoom(this)">
+    <source src="boss/phase11.mp4" type="video/mp4">
+    </video>
+    <figcaption><b>Boss Damage</b></figcaption>
+</figure>
+{{< /gallery >}}
 
-     <div style="height: 20px;"></div> 
+<div style="height: 20px;"></div> 
 
-    - Phase 2 : This phase takes place right below the first area after the player breaks through the floor. It plays out like a classic "Whack-a-Mole" game, where the boss emerges from various molehills. The player must perform a Meteor Strike directly onto its head to deal damage. Repeating this process three times defeats the boss for good. To spice things up, the boss will start using feints after the player lands their first successful hit.
+- Phase 2 : This phase takes place right below the first area after the player breaks through the floor. It plays out like a classic "Whack-a-Mole" game, where the boss emerges from various molehills. The player must perform a Meteor Strike directly onto its head to deal damage. Repeating this process three times defeats the boss for good. To spice things up, the boss will start using feints after the player lands their first successful hit.
 
-    {{< gallery >}}
-        <figure class="grid-w50">
-            <!-- Ta vidéo avec la classe personnalisée et l'action au clic -->
-            <video loop muted playsinline preload="none" class="zoomable-video" onclick="toggleZoom(this)">
-            <source src="boss/phase22.mp4" type="video/mp4">
-            </video>
-            <figcaption><h4>Normal</h4></figcaption>
-        </figure>
-        <figure class="grid-w50">
-            <!-- Ta vidéo avec la classe personnalisée et l'action au clic -->
-            <video loop muted playsinline preload="none" class="zoomable-video" onclick="toggleZoom(this)">
-            <source src="boss/phase21.mp4" type="video/mp4">
-            </video>
-            <figcaption><h4>Finth</h4></figcaption>
-        </figure>
-    {{< /gallery >}}
+{{< gallery >}}
+<figure class="grid-w50">
+    <!-- Ta vidéo avec la classe personnalisée et l'action au clic -->
+    <video loop muted playsinline preload="none" class="zoomable-video" onclick="toggleZoom(this)">
+    <source src="boss/phase22.mp4" type="video/mp4">
+    </video>
+    <figcaption><b>Normal</b></figcaption>
+</figure>
+<figure class="grid-w50">
+    <!-- Ta vidéo avec la classe personnalisée et l'action au clic -->
+    <video loop muted playsinline preload="none" class="zoomable-video" onclick="toggleZoom(this)">
+    <source src="boss/phase21.mp4" type="video/mp4">
+    </video>
+    <figcaption><b>Finth</b></figcaption>
+</figure>
+{{< /gallery >}}
  
  <div style="height: 10px;"></div> 
 
@@ -369,82 +430,84 @@ The demo features three different levels.
 Hidden throughout the levels are jokes and mini-games. Discovering these secrets rewards the player with achievements, which can be tracked on the 'Stickers' page in the pause menu.
 
 {{< gallery >}}
-    {{< figure src="secrets/secrets.png" alt="Gallery image 2" caption="Stickers Menu" figureClass="grid-w75" >}}
+    {{< figure src="secrets/secrets.png" alt="Gallery image 2" caption="<b>Stickers Menu</b>" figureClass="grid-w75" >}}
         <figure class="grid-w33">
             <!-- Ta vidéo avec la classe personnalisée et l'action au clic -->
             <video loop muted playsinline preload="none" class="zoomable-video" onclick="toggleZoom(this)">
             <source src="vfx/trounoirpqr.mp4" type="video/mp4">
             </video>
-            <figcaption><h4>Black Hole Secret</h4></figcaption>
+            <figcaption><b>Black Hole Secret</b></figcaption>
         </figure>
         <figure class="grid-w33">
             <!-- Ta vidéo avec la classe personnalisée et l'action au clic -->
             <video loop muted playsinline preload="none" class="zoomable-video" onclick="toggleZoom(this)">
             <source src="secrets/dunk.mp4" type="video/mp4">
             </video>
-            <figcaption><h4>Basket Secret</h4></figcaption>
+            <figcaption><b>Basket Secret</b></figcaption>
         </figure>
         <figure class="grid-w33">
             <!-- Ta vidéo avec la classe personnalisée et l'action au clic -->
             <video loop muted playsinline preload="none" class="zoomable-video" onclick="toggleZoom(this)">
             <source src="secrets/billard.mp4" type="video/mp4">
             </video>
-            <figcaption><h4>Billard secret</h4></figcaption>
+            <figcaption><b>Billard secret</b></figcaption>
         </figure>                    
 {{< /gallery >}}
 
 _________________________________________
 ## <h2><b>UX</b></h2>
 
-To give more feeling and to make the world more alive, we implemented inecrations within the environement.
-
-We have :
+To give more feeling and to make the world more alive, we implemented inecrations within the environement. We have :
 - Mushrooms :
-    {{< gallery >}}
-        <figure class="grid-w33">
-            <!-- Ta vidéo avec la classe personnalisée et l'action au clic -->
-            <video loop muted playsinline preload="none" class="zoomable-video" onclick="toggleZoom(this)">
-            <source src="ux/sh0.mp4" type="video/mp4">
-            </video>
-            <figcaption><h4>Boing Shroom</h4></figcaption>
-        </figure>
-        <figure class="grid-w33">
-            <!-- Ta vidéo avec la classe personnalisée et l'action au clic -->
-            <video loop muted playsinline preload="none" class="zoomable-video" onclick="toggleZoom(this)">
-            <source src="ux/sh1.mp4" type="video/mp4">
-            </video>
-            <figcaption><h4>Splat Shroom</h4></figcaption>
-        </figure>
-        <figure class="grid-w33">
-            <!-- Ta vidéo avec la classe personnalisée et l'action au clic -->
-            <video loop muted playsinline preload="none" class="zoomable-video" onclick="toggleZoom(this)">
-            <source src="ux/sh.mp4" type="video/mp4">
-            </video>
-            <figcaption><h4>Puff Shrooms</h4></figcaption>
-        </figure> 
-    {{< /gallery >}}
 
-    <div style="height: 50px;"></div> 
+
+{{< gallery >}}
+<figure class="grid-w33">
+    <!-- Ta vidéo avec la classe personnalisée et l'action au clic -->
+    <video loop muted playsinline preload="none" class="zoomable-video" onclick="toggleZoom(this)">
+    <source src="ux/sh0.mp4" type="video/mp4">
+    </video>
+    <figcaption><b>Boing Shroom</b></figcaption>
+</figure>
+<figure class="grid-w33">
+    <!-- Ta vidéo avec la classe personnalisée et l'action au clic -->
+    <video loop muted playsinline preload="none" class="zoomable-video" onclick="toggleZoom(this)">
+    <source src="ux/sh1.mp4" type="video/mp4">
+    </video>
+    <figcaption><b>Splat Shroom</b></figcaption>
+</figure>
+<figure class="grid-w33">
+    <!-- Ta vidéo avec la classe personnalisée et l'action au clic -->
+    <video loop muted playsinline preload="none" class="zoomable-video" onclick="toggleZoom(this)">
+    <source src="ux/sh.mp4" type="video/mp4">
+    </video>
+    <figcaption><b>Puff Shrooms</b></figcaption>
+</figure> 
+{{< /gallery >}}
+
+<div style="height: 50px;"></div> 
 
 - Destructibles :
-    {{< gallery >}}
-        <figure class="grid-w50">
-            <!-- Ta vidéo avec la classe personnalisée et l'action au clic -->
-            <video loop muted playsinline preload="none" class="zoomable-video" onclick="toggleZoom(this)">
-            <source src="ux/pl1.mp4" type="video/mp4">
-            </video>
-            <figcaption><h4>Small Fences</h4></figcaption>
-        </figure>
-        <figure class="grid-w50">
-            <!-- Ta vidéo avec la classe personnalisée et l'action au clic -->
-            <video loop muted playsinline preload="none" class="zoomable-video" onclick="toggleZoom(this)">
-            <source src="ux/pl.mp4" type="video/mp4">
-            </video>
-            <figcaption><h4>Bigger Barriers</h4></figcaption>
-        </figure>
-    {{< /gallery >}}
 
 
+{{< gallery >}}
+<figure class="grid-w50">
+    <!-- Ta vidéo avec la classe personnalisée et l'action au clic -->
+    <video loop muted playsinline preload="none" class="zoomable-video" onclick="toggleZoom(this)">
+    <source src="ux/pl1.mp4" type="video/mp4">
+    </video>
+    <figcaption><b>Small Fences</b></figcaption>
+</figure>
+<figure class="grid-w50">
+    <!-- Ta vidéo avec la classe personnalisée et l'action au clic -->
+    <video loop muted playsinline preload="none" class="zoomable-video" onclick="toggleZoom(this)">
+    <source src="ux/pl.mp4" type="video/mp4">
+    </video>
+    <figcaption><b>Bigger Barriers</b></figcaption>
+</figure>
+{{< /gallery >}}
+
+<!--
 _________________________________________
 ## <h1><b>Environment</b></h1>
 
@@ -476,142 +539,66 @@ Our post-processing shader enables the addition of outlines, cel shading, and st
 {{< carousel images="ruinart/*" aspectRatio="16-10" interval="2500">}}
 
 <div style="height: 70px;"></div> 
-
+-->
 _________________________________________
 ## <h2><b>VFX</b></h2>
 
-The VFX in *turquoise* are the VFX I worked on.
-
-### Environment :
-
-{{< gallery >}}
-    <figure class="grid-w100">
-        <!-- Ta vidéo avec la classe personnalisée et l'action au clic -->
-        <video loop muted playsinline preload="none" class="zoomable-video" onclick="toggleZoom(this)">
-        <source src="vfx/wind.mp4" type="video/mp4">
-        </video>
-        <figcaption><h4>Wind</h4></figcaption>
-    </figure>
-{{< /gallery >}}
-
-<div style="height: 20px;"></div>
-
-{{< gallery >}}
-    <figure class="grid-w33">
-        <!-- Ta vidéo avec la classe personnalisée et l'action au clic -->
-        <video loop muted playsinline preload="none" class="zoomable-video" onclick="toggleZoom(this)">
-        <source src="vfx/lucioles.mp4" type="video/mp4">
-        </video>
-        <figcaption><h4>Fireflies</h4></figcaption>
-    </figure>
-    <figure class="grid-w33">
-        <!-- Ta vidéo avec la classe personnalisée et l'action au clic -->
-        <video loop muted playsinline preload="none" class="zoomable-video" onclick="toggleZoom(this)">
-        <source src="vfx/thunder.mp4" type="video/mp4">
-        </video>
-        <figcaption><h4><i>Thunder</i></h4></figcaption>
-    </figure>
-    <figure class="grid-w33 ">
-        <!-- Ta vidéo avec la classe personnalisée et l'action au clic -->
-        <video loop muted playsinline preload="none" class="zoomable-video" onclick="toggleZoom(this)">
-        <source src="vfx/bee.mp4" type="video/mp4">
-        </video>
-        <figcaption><h4>Bees</h4></figcaption>
-    </figure>
-{{< /gallery >}}
-
-<style> .format-carre video { aspect-ratio: 1 / 1.5 !important; } .format-rect video { aspect-ratio: 1 / 1 !important; } .gallery video { width: 100% !important; height: auto !important; object-fit: cover !important; } @media (max-width: 768px) { .gallery video { object-fit: contain !important; } } </style>
-
-
-_________________________________________
-### Characters :
-
-{{< gallery >}}
-    <div class="text-center w-full">
-        <figure class="grid-w100">
-        <!-- Ta vidéo avec la classe personnalisée et l'action au clic -->
-        <video loop muted playsinline preload="none" class="zoomable-video" onclick="toggleZoom(this)">
-        <source src="Gameplay/meteor.mp4" type="video/mp4">
-        </video>
-        <figcaption><h4><i>Meteor Strike</i></h4></figcaption>
-    </figure>
-    <figure class="grid-w75">
-        <!-- Ta vidéo avec la classe personnalisée et l'action au clic -->
-        <video loop muted playsinline preload="none" class="zoomable-video" onclick="toggleZoom(this)">
-        <source src="vfx/boss.mp4" type="video/mp4">
-        </video>
-        <figcaption><h4><i>Boss Attack</i></h4></figcaption>
-    </figure>
-    </div>
-{{< /gallery >}}
-
-
-<div style="height: 60px;"></div>
-
+Here are the VFX I worked on for Pierre Qui Roule.
 
 {{< gallery >}}
     <figure class="grid-w50">
         <!-- Ta vidéo avec la classe personnalisée et l'action au clic -->
         <video loop muted playsinline preload="none" class="zoomable-video" onclick="toggleZoom(this)">
-        <source src="vfx/ennemideath.mp4" type="video/mp4">
+        <source src="Gameplay/meteor.mp4" type="video/mp4">
         </video>
-        <figcaption><h4>Ennemies Death</h4></figcaption>
+        <figcaption><b>Meteor Strike</b></figcaption>
+    </figure>
+    <figure class="grid-w50">
+        <!-- Ta vidéo avec la classe personnalisée et l'action au clic -->
+        <video loop muted playsinline preload="none" class="zoomable-video" onclick="toggleZoom(this)">
+        <source src="vfx/boss.mp4" type="video/mp4">
+        </video>
+        <figcaption><b>Boss Attack</b></figcaption>
+    </figure>
+{{< /gallery >}}
+
+###   
+
+{{< gallery >}}
+    <figure class="grid-w50">
+        <!-- Ta vidéo avec la classe personnalisée et l'action au clic -->
+        <video loop muted playsinline preload="none" class="zoomable-video" onclick="toggleZoom(this)">
+        <source src="vfx/thunder.mp4" type="video/mp4">
+        </video>
+        <figcaption><b>Thunder</b></figcaption>
     </figure>
     <figure class="grid-w50">
         <!-- Ta vidéo avec la classe personnalisée et l'action au clic -->
         <video loop muted playsinline preload="none" class="zoomable-video" onclick="toggleZoom(this)">
         <source src="vfx/trail.mp4" type="video/mp4">
         </video>
-        <figcaption><h4><i>Player Trail</i></h4></figcaption>
+        <figcaption><b>Basket Secret</b><h4Player Trail</b></figcaption>
     </figure>
 {{< /gallery >}}
 
-_________________________________________
-### Secrets :
+#
 
-{{< gallery >}}
-    <figure class="grid-w33">
+{{< gallery >}}    
+    <figure class="grid-w50">
         <!-- Ta vidéo avec la classe personnalisée et l'action au clic -->
         <video loop muted playsinline preload="none" class="zoomable-video" onclick="toggleZoom(this)">
         <source src="vfx/trounoirpqr.mp4" type="video/mp4">
         </video>
-        <figcaption><h4><i>BlackHole Secret</i></h4></figcaption>
+        <figcaption><b>Basket Secret</b><h4BlackHole Secret</b></figcaption>
     </figure>
-    <figure class="grid-w33">
+    <figure class="grid-w50">
         <!-- Ta vidéo avec la classe personnalisée et l'action au clic -->
         <video loop muted playsinline preload="none" class="zoomable-video" onclick="toggleZoom(this)">
         <source src="secrets/dunk.mp4" type="video/mp4">
         </video>
-        <figcaption><h4><i>Basket Secret</i></h4></figcaption>
-    </figure>
-    <figure class="grid-w33">
-        <!-- Ta vidéo avec la classe personnalisée et l'action au clic -->
-        <video loop muted playsinline preload="none" class="zoomable-video" onclick="toggleZoom(this)">
-        <source src="vfx/confetti.mp4" type="video/mp4">
-        </video>
-        <figcaption><h4>Confettis</h4></figcaption>
+        <figcaption><b>Basket Secret</b></figcaption>
     </figure>
 {{< /gallery >}}
-
-_________________________________________
-
-## <h2><b>Cinematics</b></h2>
-
-To effectively tell our game's story, we opted for various cinematic sequences throughout the vertical slice to contextualize the narrative experience for the players.
-
-- ### Intro :
-    {{< youtubeLite id="3I-4gYCh59c" label="Introduction Cinematic" params="loop=1&controls=1" >}}
-
-    <div style="height: 70px;"></div> 
-
-- ### Plot twist / transition :
-    {{< youtubeLite id="KiG5Az0lmFE" label="Plot Twist Cinematic" params="loop=1&controls=1" >}}
-
-    <div style="height: 70px;"></div> 
-
-- ### Boss Cinematics:
-    {{< youtubeLite id="58U5nzUcDyY" label="Introduction Cinematic" params="loop=1&controls=1" >}}
-
 
 _________________________________________
 

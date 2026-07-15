@@ -460,3 +460,32 @@ article footer .pt-8 > hr + .flex.justify-between.pt-3 a {
   text-overflow: clip !important;
 }
 }
+
+/* Neutralise le full-width global dans les galeries et harmonise les tailles */
+.prose .gallery img,
+.prose .gallery video {
+  width: 100% !important;
+  max-width: 100% !important;
+  aspect-ratio: 16 / 9 !important; /* Force le format paysage standard */
+  object-fit: cover !important;    /* Rempli le cadre sans déformer l'image */
+  height: auto !important;
+}
+
+/* Si le media est dans un figure grid-wXX, il remplit parfaitement ce conteneur */
+.prose .gallery figure[class*="grid-w"] > img,
+.prose .gallery figure[class*="grid-w"] > video {
+  width: 100% !important;
+  max-width: 100% !important;
+  aspect-ratio: 16 / 9 !important;
+  object-fit: cover !important;
+  display: block !important;
+}
+
+
+/* Centre les captions sous les videos ET les images */
+.gallery figure > figcaption,
+.gallery figure > figcaption * {
+  text-align: center !important;
+  width: 100%;
+}
+

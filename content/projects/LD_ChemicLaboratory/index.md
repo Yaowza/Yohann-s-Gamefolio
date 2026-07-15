@@ -5,7 +5,7 @@ categories: ["projects","schoolproject"]
 #tags: ["projects"]
 #externalUrl: ""
 #showSummary: true
-date: 2025-11-28
+date: 2025-11-19
 draft: false
 
 featureimage: "card.png"   # fond de la page

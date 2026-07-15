@@ -350,11 +350,21 @@
     return 400;
   }
 
-  function getScale(firstRect) {
-    var targetWidthRatio = isMobileLikeNow() ? 0.95 : 0.72;
-    var targetWidth = window.innerWidth * targetWidthRatio;
-    return targetWidth / firstRect.width;
+  function getScale(firstRect, img) {
+  var isSpecial = img && img.classList.contains("mon-image-speciale-img");
+
+  var targetWidthRatio;
+  if (isSpecial) {
+    // Plus petit uniquement pour cette image
+    targetWidthRatio = isMobileLikeNow() ? 0.50 : 0.30;
+  } else {
+    // Comportement normal pour toutes les autres
+    targetWidthRatio = isMobileLikeNow() ? 0.95 : 0.72;
   }
+
+  var targetWidth = window.innerWidth * targetWidthRatio;
+  return targetWidth / firstRect.width;
+}
 
   function ensureImageOverlay() {
     var overlay = document.getElementById("imageOverlay");
@@ -411,7 +421,7 @@
     var imgCenterY = first.top + first.height / 2;
     var moveX = centerX - imgCenterX;
     var moveY = centerY - imgCenterY;
-    var dynamicScale = getScale(first);
+    var dynamicScale = getScale(first, img);
 
     img.style.transform =
       "translate(" + moveX + "px, " + moveY + "px) scale(" + dynamicScale + ")";

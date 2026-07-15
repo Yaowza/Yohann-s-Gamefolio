@@ -16,7 +16,7 @@ _________________________________________
  {{< youtubeLite id="wlgu1v7E2go" label="FixDatGame" >}}
 
 
-## What is Fix Dat Game ?
+## **What is Fix Dat Game ?**
 This was a project assigned by our prototyping teacher to be completed over a few weeks.
 
 First, we had to debug the existing project, fixing deliberately implemented issues such as collision and VFX bugs. After that, we implemented several new features to transform the game:
@@ -29,17 +29,18 @@ First, we had to debug the existing project, fixing deliberately implemented iss
 
 Sur ce projet nous étions en groupe de 2. 
 
-## I took care of :
+## **My Part of the Work**
 
-- <b> Core Gameplay & Mechanics : </b> Designed and implemented the core loop around the main mechanic, the "Black Hole Grapple." Developed a two-step objective system: collecting fuses and repairing the rocket.
 
-- <b>Player Systems & UI :</b> Created a drone companion that dynamically displays health and grapple charges, integrated 50% of the UI, and implemented a functional minimap with custom fuse trackers.
+- <b> Core Gameplay & Mechanics : </b> I Designed and implemented the core loop around the main mechanic, the "Black Hole Grapple." Developed a two-step objective system: collecting fuses and repairing the rocket.
 
-- <b>Health & Hazard Systems :</b> Built the health system, featuring collectible healing potions and multiple damage types (fall, fire, and electrical damage).
+- <b>Player Systems & UI :</b> I Created a drone companion that dynamically displays health and grapple charges, integrated 50% of the UI, and implemented a functional minimap with custom fuse trackers.
 
-- <b>Atmosphere, VFX & Cinematics:</b> Scripted the in-game cinematics and designed a creepy aesthetic using custom VFX, fog, lighting, and a specialized Post-Process volume.
+- <b>Health & Hazard Systems :</b> I Built the health system, featuring collectible healing potions and multiple damage types (fall, fire, and electrical damage).
 
-- <b>Audio Integration :</b> Set up the game's audio design, integrating eerie ambient sounds (inspired by Minecraft), a dynamic soundtrack (using themes from Zelda: BOTW and Undertale), and custom damage sound effects edited via Audacity and external sources.
+- <b>Atmosphere, VFX & Cinematics:</b> I Scripted the in-game cinematics and designed a creepy aesthetic using custom VFX, fog, lighting, and a specialized Post-Process volume.
+
+- <b>Audio Integration :</b> I designed and implemented the game's audio, integrating eerie ambient sounds (inspired by Minecraft), a dynamic soundtrack (featuring themes from Zelda: BOTW and Undertale), and custom damage sound effects created and edited via Audacity and external sources.
 
 
 {{< gallery >}}

@@ -219,3 +219,57 @@
     });
 </script>
 
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        function replacesoloprojectBadges() {
+            // 1. On cherche tous les liens vers schoolprojects (tags ou catégories)
+            const badges = document.querySelectorAll('a[href*="/tags/soloproject/"], a[href*="/categories/soloproject/"]');
+            
+            badges.forEach(oldBadge => {
+                // Si on l'a déjà remplacé, on passe au suivant
+                if (oldBadge.getAttribute('data-replaced') === 'true') return;
+
+                // 2. On crée un tout nouvel élément <a> tout neuf
+                const newBadge = document.createElement('a');
+                newBadge.href = oldBadge.href;
+                newBadge.textContent = "Solo Project";
+                newBadge.setAttribute('data-replaced', 'true');
+                
+                // 3. On lui applique notre style en ligne strict (Inattaquable par Tailwind)
+                newBadge.style.display = "inline-block";
+                newBadge.style.verticalAlign = "middle";
+                newBadge.style.margin = "0.5rem 0.1rem";
+                newBadge.style.padding = "0.125rem 0.5rem";
+                newBadge.style.fontSize = "0.75rem";
+                newBadge.style.fontWeight = "600";
+                newBadge.style.borderRadius = "0.25rem";
+                newBadge.style.textDecoration = "none";
+                newBadge.style.boxShadow = "none";
+                newBadge.style.outline = "none";
+                
+                // Gestion des couleurs jour / nuit
+                const isDark = document.documentElement.classList.contains('dark') || document.body.classList.contains('dark');
+                if (isDark) {
+                    /*newBadge.style.backgroundColor = "#713f12";*/
+                    newBadge.style.color = "#ff1269";
+                    newBadge.style.border = "1px solid #ff1269";
+                } else {
+                    newBadge.style.backgroundColor = "#ff1269";
+                    newBadge.style.color = "#ff1269";
+                    newBadge.style.border = "1px solid #ff1269";
+                }
+
+                // 4. On remplace l'ancien badge par le nouveau dans la page
+                oldBadge.parentNode.replaceChild(newBadge, oldBadge);
+            });
+        }
+
+        // On l'exécute immédiatement
+        replacesoloprojectBadges();
+        
+        // On le réexécute un tout petit peu après au cas où Blowfish charge ses scripts en décalé
+        setTimeout(replacesoloprojectBadges, 100);
+        setTimeout(replacesoloprojectBadges, 500);
+    });
+</script>

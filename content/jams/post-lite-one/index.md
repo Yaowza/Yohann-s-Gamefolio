@@ -81,7 +81,7 @@ _________________________________________
 </div>
 
 
-## What is Spooder Dance ?
+## **What is Spooder Dance ?**
 
 Spooder Dance is a game we made during a 48-hour game jam. You control a spider who has to take breaks on a dance floor and keep the rhythm with a breathtaking pyrotechnic spectacle.
 
@@ -91,4 +91,6 @@ To control the legs, you press either the triggers or the bumpers of the control
 
 *Spooder Dance was developed in 48 hours by a team of 7 people.*
 
-For this project, I mostly worked on the VFX, light effects, and camera effects.
+## **My Part of the Work**
+
+For this project, I mostly worked on the VFX and their timings, the light effects, and camera effects.

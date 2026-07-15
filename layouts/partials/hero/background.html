@@ -46,6 +46,8 @@
 
 {{ $scope := .Scratch.Get "scope" }}
 {{ $darkenSections := in (slice "projects" "vfx" "jams") .Section }}
+{{ $enableSectionParallax := in (slice "projects" "vfx" "jams") .Section }}
+{{ $isPortfolioSection := in (slice "projects" "vfx" "jams") .Section }}
 {{ $shouldBlur := $.Params.layoutBackgroundBlur | default (or
   (and ($.Site.Params.article.layoutBackgroundBlur | default true) (eq $scope "single"))
   (and ($.Site.Params.list.layoutBackgroundBlur | default true) (eq $scope "list"))
@@ -78,7 +80,7 @@
       loading="eager"
       decoding="async"
       fetchpriority="high"
-      class="absolute inset-0 w-full h-full object-cover"
+      class="absolute inset-0 w-full h-full object-cover {{ if $enableSectionParallax }}will-change-transform{{ end }}"
       {{ if $style }}style="{{ $style | safeCSS }}"{{ end }}>
 
 
@@ -99,24 +101,65 @@
     {{ if $darkenSections }}
     <div class="absolute inset-0" style="background: rgba(0, 0, 0, 0.35);"></div>
     {{ end }}
-
+    
 
 
       
   </div>
 
   {{ if $shouldBlur | default false }}
-    <div
-      id="background-blur"
-      class="fixed opacity-0 inset-x-0 top-0 h-full single_hero_background nozoom backdrop-blur-xl bg-neutral-100/75 dark:bg-neutral-800/60"></div>
-    {{ $backgroundBlur := resources.Get "js/background-blur.js" }}
-    {{ $backgroundBlur = $backgroundBlur | resources.Minify | resources.Fingerprint ($.Site.Params.fingerprintAlgorithm | default "sha512") }}
-    <script
-      type="text/javascript"
-      src="{{ $backgroundBlur.RelPermalink }}"
-      integrity="{{ $backgroundBlur.Data.Integrity }}"
-      data-blur-id="background-blur"
-      data-image-id="background-image"
-      data-image-url="{{ . }}"></script>
-  {{ end }}
+  <div
+    id="background-blur"
+    class="fixed opacity-0 inset-x-0 top-0 h-full single_hero_background nozoom
+    {{ if $isPortfolioSection }}
+      backdrop-blur-sm bg-neutral-100/35 dark:bg-neutral-800/25
+    {{ else }}
+      backdrop-blur-xl bg-neutral-100/75 dark:bg-neutral-800/70
+    {{ end }}"></div>
+  {{ $backgroundBlur := resources.Get "js/background-blur.js" }}
+  {{ $backgroundBlur = $backgroundBlur | resources.Minify | resources.Fingerprint ($.Site.Params.fingerprintAlgorithm | default "sha512") }}
+  <script
+    type="text/javascript"
+    src="{{ $backgroundBlur.RelPermalink }}"
+    integrity="{{ $backgroundBlur.Data.Integrity }}"
+    data-blur-id="background-blur"
+    data-image-id="background-image"
+    data-scroll-divisor="{{ if $isPortfolioSection }}700{{ else }}420{{ end }}"
+    data-image-url="{{ . }}"></script>
+{{ end }}
+
+  {{ if $enableSectionParallax }}
+  <script>
+    (() => {
+      const bg = document.getElementById("background-image");
+      if (!bg) return;
+
+      const blurScript = document.querySelector('script[data-blur-id="background-blur"]');
+      const blurMaxScroll = Number(blurScript?.getAttribute("data-scroll-divisor") || 300);
+
+      let ticking = false;
+      const speed = 0.12; // scroll leger
+
+      const update = () => {
+        const rawY = window.scrollY || window.pageYOffset || 0;
+        const y = Math.min(rawY, blurMaxScroll); // stop quand le flou est max
+        bg.style.transform = `translate3d(0, ${-y * speed}px, 0)`;
+        ticking = false;
+      };
+
+      window.addEventListener(
+        "scroll",
+        () => {
+          if (!ticking) {
+            window.requestAnimationFrame(update);
+            ticking = true;
+          }
+        },
+        { passive: true }
+      );
+
+      update();
+    })();
+  </script>
+{{ end }}
 {{- end -}}

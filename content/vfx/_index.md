@@ -20,6 +20,4 @@ sharingLinks : false
 
 ---
 
-<h3>Here are the VFX I've made, some where used in school projects, some in personnal projets or simply juste made without context for me.
-
-VFXs are one of my passions. I love creating them just for me but the best feeling is seeing them take life in projects I'm working on.</h3>
+<h3>Here are the VFX I've made, some where used in school projects, some in personnal projets.</h3>

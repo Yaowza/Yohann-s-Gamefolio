@@ -5,7 +5,7 @@ categories: ["projects","schoolproject"]
 #tags: ["projects"]
 #externalUrl: ""
 #showSummary: true
-date: 2025-11-28
+date: 2025-11-20
 draft: false
 
 featureimage: "card.png"   # fond de la page
@@ -14,11 +14,11 @@ thumbnail: "cover.png"     # image de la carte
 _________________________________________
 
 
-## What is the Stellar Library ?
+## **What is the Stellar Library ?**
 
 This project was focused on mastering procedural generation architectures within Unreal Engine. The objective was to build something fully procedural from scratch. My group chose to make a  "Library Tower".
 
-The core challenge of this project lay in its dual implementation: the entire procedural logic was first prototyped and validated using Unreal Blueprints, and then entirely refactored and optimized into native production-ready C++.
+The core challenge of this project lay in its dual implementation : the entire procedural logic was first prototyped and validated using Unreal Blueprints, and then entirely refactored and optimized into native production-ready C++.
 
 - <h3>Procedural Modular Features</h3>
 
@@ -54,8 +54,24 @@ The core challenge of this project lay in its dual implementation: the entire pr
 
     - **Designer-Friendly Tooling :** To bridge the gap between programming and level design, the entire generation system exposes an extensive set of exposed variables (parameters). A level designer can easily tweak and customize parameters such as tower height, radius, asset density, or the alternation rules of the walls in real-time, offering total creative control over the final shape and mood of the tower without writing a single line of code.
 
+
+## **My Part of the Work**
+
+- **Blueprint**
+    - Book piles & bookshelves
+
+    - Circular object generation tool
+
+    - Chandeliers
+ - **C++**
+    - Blueprint-to-C++ Migration: Planned and initiated the C++ translation early in development to ensure optimal performance.
+
+    - Developed and migrated roughly 80% of the project's C++ codebase (including gameplay systems and procedural generation), with the sole exception of the stairs system.
+
+<div style="height: 40px;"></div>
+
 {{< gallery >}}
-    {{< figure src="img/8.png" alt="Gallery image 1"  figureClass="grid-w25 mon-image-speciale" >}}
+    {{< figure src="img/8.png" alt="Gallery image 1" figureClass="grid-w25 mon-image-speciale" class="mon-image-speciale-img" >}}
         {{< figure src="img/1.png" alt="Gallery image 1"  figureClass="grid-w75" >}}
 {{< /gallery >}}
 
@@ -71,12 +87,32 @@ The core challenge of this project lay in its dual implementation: the entire pr
 {{< /gallery >}}
 
 <style>
-    /* On cible uniquement l'image contenue dans la figure spéciale */
-    .mon-image-speciale img {
-        /* Exemples de modifications de format : */
-        aspect-ratio: 10 / 17.2 !important; /* Force un format paysage 16:9 */
-        object-fit: cover !important;    /* Remplis le cadre proprement sans déformer */
-        border-radius: 8px !important;  /* Optionnel : ajoute des bords arrondis */
-    }
+  /* On cible avec précision pour dépasser la force de la règle globale */
+  .prose .gallery figure.mon-image-speciale > img,
+  .prose .gallery figure.mon-image-speciale > video {
+    aspect-ratio: auto !important;  /* Annule le 16/9 et restaure le ratio d'origine */
+    object-fit: contain !important; /* S'assure que l'image entière est visible */
+    height: auto !important;        /* Laisse la hauteur s'adapter naturellement */
+    border-radius: 8px !important;  /* Garde les bords arrondis */
+  }
+
 </style>
 
+<style>
+  .prose .gallery figure.mon-image-speciale > img,
+  .prose .gallery figure.mon-image-speciale > video {
+    aspect-ratio: auto !important;
+    object-fit: contain !important;
+    height: auto !important;
+    border-radius: 8px !important;
+  }
+
+  /* Limite la taille quand l'image est ouverte en zoom */
+  .medium-zoom-image--opened.mon-image-speciale-img {
+    max-width: min(72vw, 1100px) !important;
+    max-height: 82vh !important;
+    width: auto !important;
+    height: auto !important;
+    object-fit: contain !important;
+  }
+</style>

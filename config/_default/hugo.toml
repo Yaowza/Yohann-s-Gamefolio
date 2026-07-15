@@ -40,6 +40,7 @@ canonifyURLs = false
 [params.article]
   constrainWidth = false
 
+
 # googleAnalytics = "G-XXXXXXXXX"
 
 #[taxonomies]

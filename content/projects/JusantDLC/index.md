@@ -94,8 +94,10 @@ We had to recreate the base game experience and visuals as close as possible to 
 
 While my group focused on "Abyss" and the second group handled "Embrun," we established a highly efficient cross-team pipeline to share code and assets. For instance, a member from the Embrun team developed the climbing system, while I programmed the rope mechanics used by both groups.
 
+## **My Part of the Work**
 
-### **Narration**
+
+## **Narration**
 
 Both DLCs serve as a speculative sequel to the main game. Gravity has been restored, and water has finally begun to fall once again.
 
@@ -116,13 +118,15 @@ Players embody a survivor of a forgotten, subterranean civilization. Generations
 
 *I will not explain it further as I have not worked on this chapter.*
 
-## <h1>Gameplay</h1>
+## **Gameplay**
 
  {{< youtubeLite id="6PFvjuGW7SQ" label="Jusant DLC - Abyss Gameplay Video" >}}
 
 
 - ### Climbing
-    To create an experience close to Jusant, it was essential to replicate their climbing mechanic. This is what we did, and apart from a few character animation bugs, we succeeded. The climbing in our game works exactly like in the original game.
+
+
+To create an experience close to Jusant, it was essential to replicate their climbing mechanic. This is what we did, and apart from a few character animation bugs, we succeeded. The climbing in our game works exactly like in the original game.
 
 {{< gallery >}}
     <figure class="grid-w50 decal-droite">
@@ -141,45 +145,111 @@ figure.decal-droite {
 
 - ### The Rope
 
-    Then there is "The Rope" that connects the player to the pitons. It is an integral part of Jusant's experience, but a technical nightmare to develop. Managing the rope's physics, collisions, environmental interactions, how it pulls the character, and the swinging mechanics in mid-air is incredibly complex.
 
-    We were strongly advised against implementing it, as it reportedly took Don't Nod two years to perfect it without bugs.
+Then there is "The Rope" that connects the player to the pitons. It is an integral part of Jusant's experience, but a technical nightmare to develop. Managing the rope's physics, collisions, environmental interactions, how it pulls the character, and the swinging mechanics in mid-air is incredibly complex.
 
-    HOWEVER, I really wanted to recreate this rope, especially since it was necessary for our new custom mechanic, "The Drone". So, I took on the challenge and built it anyway. While my version isn't as flawless as the one in Jusant, it comes very close. Considering I only had two months to develop it alongside my other tasks, I am very proud of the result !
+We were strongly advised against implementing it, as it reportedly took Don't Nod two years to perfect it without bugs.
+
+HOWEVER, I really wanted to recreate this rope, especially since it was necessary for our new custom mechanic, "The Drone". So, I took on the challenge and built it anyway. While my version isn't as flawless as the one in Jusant, it comes very close. Considering I only had two months to develop it alongside my other tasks, I am very proud of the result !
 
 
-    <details class="mon-menu-deroulant">
-    <summary>→ For further explainations clic here ! ←</summary>
-    <div class="contenu-texte">
-        <p>
+<details class="mon-menu-deroulant">
+<summary>
+  <span>Clic HERE for further explainations!</span>
+</summary>
+<div class="contenu-texte">
+    <p>
 
-    To build it, I started with Unreal Engine’s Cable Component, which gave me a solid starting point. However, its built-in physics collisions were terrible, the cable constantly clipped through every single piece of geometry. (At that moment, I knew I was in for a long and painful journey...)
+To build it, I started with Unreal Engine’s Cable Component, which gave me a solid starting point. However, its built-in physics collisions were terrible, the cable constantly clipped through every single piece of geometry. (At that moment, I knew I was in for a long and painful journey...)
 
-    First, I tweaked its length, segment count, and stiffness to dial in a satisfying, natural rope feel.
+First, I tweaked its length, segment count, and stiffness to dial in a satisfying, natural rope feel.
 
-    To fix the collision issues, I enabled Substepping to increase the precision of the physics calculations, alongside other specific parameters. Through continuous trial and error, I finally managed to achieve reliable collisions on the rope itself.
+To fix the collision issues, I enabled Substepping to increase the precision of the physics calculations, alongside other specific parameters. Through continuous trial and error, I finally managed to achieve reliable collisions on the rope itself.
 
-    Now that the visual rope was behaving, the code responsible for pulling the player toward the drone (or vice versa) was still completely broken. Mathematically, the connection between the player and a piton or the drone was still just a rigid, straight 3D vector that completely ignored walls. If I walked around a pillar, the rope would clip right through it once it reached its maximum length, failing to pull the drone or restrict the player's movement.
+Now that the visual rope was behaving, the code responsible for pulling the player toward the drone (or vice versa) was still completely broken. Mathematically, the connection between the player and a piton or the drone was still just a rigid, straight 3D vector that completely ignored walls. If I walked around a pillar, the rope would clip right through it once it reached its maximum length, failing to pull the drone or restrict the player's movement.
 
-    To solve this, I implemented a dynamic point-tracking system :
+To solve this, I implemented a dynamic point-tracking system :
 
-    - I fetched the world positions of a set number of points along the active Cable Component.
+- I fetched the world positions of a set number of points along the active Cable Component.
 
-    - I calculated the average distance between adjacent points to track the rope's tension across its entire length.
+- I calculated the average distance between adjacent points to track the rope's tension across its entire length.
 
-    - When the distance between two points exceeded a specific threshold, the system applied a force pulling either the player or the drone toward the nearest point on the rope rather than the anchor itself.
+- When the distance between two points exceeded a specific threshold, the system applied a force pulling either the player or the drone toward the nearest point on the rope rather than the anchor itself.
 
-    Thanks to this system, the physics now accurately wrap around corners and wall edges. No more invisible straight lines clipping through geometry. The result is a fully functional, physically reactive rope system, very close to Jusant's behavior!
-    </p>
-    </div>
-    </details>
+Thanks to this system, the physics now accurately wrap around corners and wall edges. No more invisible straight lines clipping through geometry. The result is a fully functional, physically reactive rope system, very close to Jusant's behavior!
+</p>
+</div>
+</details>
 
-<style> .mon-menu-deroulant summary { cursor: pointer; font-weight: bold; padding: 10px; background-color: #00000000; border-radius: 4px; list-style: none; color: #c4fa45; } .mon-menu-deroulant summary:hover { color: #fad045; } .mon-menu-deroulant .contenu-texte { padding: 15px; border: 1px solid #e0e0e000; border-top: none; background-color: #ffffff00; color: #d4d4d4; } 
+<style>
+/* Masque la flèche par défaut du navigateur */
+.mon-menu-deroulant summary::-webkit-details-marker {
+  display: none !important;
+}
+.mon-menu-deroulant summary {
+  list-style: none !important;
+  outline: none;
+}
 
+/* Style principal du bouton (Agrandissement) */
+.mon-menu-deroulant summary {
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 1.25rem; /* Bouton plus grand sur desktop (avant ~1rem) */
+  padding: 14px 18px; /* Plus d'espace cliquable */
+  background-color: rgba(255, 255, 255, 0.03); /* Léger fond pour matérialiser le bouton */
+  border-radius: 8px;
+  color: #c4fa45;
+  display: flex;
+  align-items: center;
+  gap: 12px; /* Espace entre la flèche et le texte */
+  transition: color 0.2s ease, background-color 0.2s ease;
+}
+
+/* Hover style */
+.mon-menu-deroulant summary:hover {
+  color: #fad045;
+  background-color: rgba(255, 255, 255, 0.07);
+}
+
+/* Création de la flèche personnalisée à gauche */
+.mon-menu-deroulant summary::before {
+  content: "";
+  display: inline-block;
+  width: 0;
+  height: 0;
+  /* Crée un triangle pointant vers la droite */
+  border-top: 6px solid transparent;
+  border-bottom: 6px solid transparent;
+  border-left: 10px solid currentColor; 
+  
+  transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  transform-origin: 35% 50%; /* Centre de rotation optimal pour un triangle */
+  flex-shrink: 0;
+}
+
+/* Animation de la flèche quand le menu s'ouvre */
+.mon-menu-deroulant[open] summary::before {
+  transform: rotate(90deg); /* Pivote vers le bas */
+}
+
+/* Contenu textuel */
+.mon-menu-deroulant .contenu-texte {
+  padding: 20px;
+  border: 1px solid rgba(224, 224, 224, 0.05);
+  border-top: none;
+  background-color: rgba(255, 255, 255, 0.01);
+  color: #d4d4d4;
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+}
+
+/* --- Adaptabilité Mobile --- */
 @media (max-width: 768px) {
   .mon-menu-deroulant summary {
+    font-size: clamp(14px, 4vw, 18px); /* Reste lisible et gros même sur mobile */
+    padding: 12px 14px;
     white-space: nowrap;
-    font-size: clamp(11px, 3.4vw, 14px);
     overflow-x: auto;
     overflow-y: hidden;
     -webkit-overflow-scrolling: touch;
@@ -189,9 +259,10 @@ figure.decal-droite {
     display: none;
   }
 }
-
-</style> 
+</style>
   
+
+<div style="height: 20px;"></div> 
 
 {{< gallery >}}
     <figure class="grid-w50 decal-droite">
@@ -205,15 +276,15 @@ figure.decal-droite {
 
 - ### The Drone
 
-    The core mechanic we introduced to innovate on the climbing loop is the repurposed cargo drone. It bridges the gap between a mobile companion and a dynamic anchor, operating across three distinct states:
+The core mechanic we introduced to innovate on the climbing loop is the repurposed cargo drone. It bridges the gap between a mobile companion and a dynamic anchor, operating across three distinct states :
 
-    - IDLE Mode: While the player is climbing normally, the drone follows passively, being pulled along smoothly by the physical tension of the rope.
+- IDLE Mode: While the player is climbing normally, the drone follows passively, being pulled along smoothly by the physical tension of the rope.
 
-    - FALLING Mode: The moment the player falls, the drone instantly locks its position in mid-air, acting as a mobile, floating piton. However, because it cannot fully support the protagonist’s weight in this high-density atmosphere, it steadily loses altitude. While suspended, the player can climb up or down the rope and use momentum to swing across gaps.
+- FALLING Mode: The moment the player falls, the drone instantly locks its position in mid-air, acting as a mobile, floating piton. However, because it cannot fully support the protagonist’s weight in this high-density atmosphere, it steadily loses altitude. While suspended, the player can climb up or down the rope and use momentum to swing across gaps.
 
-    - CONTROLLED Mode: When grounded, the player can manually pilot the drone to reposition it. This allows the player to fly the drone over obstacles or high ledges, lock it into place, and then use it as a custom anchor point to swing across otherwise impassable terrain.
+- CONTROLLED Mode: When grounded, the player can manually pilot the drone to reposition it. This allows the player to fly the drone over obstacles or high ledges, lock it into place, and then use it as a custom anchor point to swing across otherwise impassable terrain.
 
-    *All Drone movements are physic based. I was the one in charge to code this mechanic. I also did the 3D modellisation.*
+*All Drone movements are physic based. I was the one in charge to code this mechanic. I also did the 3D modellisation.*
 
 {{< gallery >}}
     <figure class="grid-w33">
@@ -238,7 +309,7 @@ figure.decal-droite {
 {{< /gallery >}}
 
 
-## Balloon (Drone) Turnaround
+#### Balloon (Drone) Turnaround
 
 <div class="video-centree">
     {{< youtubeLite id="430Vx6uMIgA" label="Pierre Qui Roule TRAILER" >}}
@@ -264,7 +335,7 @@ The animations depends on the player's actions.
 
 *I used subsurface scattering on the balloon material to show the flame's glow through the white part.*
 
-
+<!--
 ## <h1>ART</h1>
 
 {{< gallery >}}
@@ -277,9 +348,9 @@ The animations depends on the player's actions.
     {{< figure src="img/7.png" alt="Gallery image 1"  figureClass="grid-w50" >}}
     {{< figure src="img/8.png" alt="Gallery image 1"  figureClass="grid-w50" >}}
 {{< /gallery >}} 
+-->
 
-
-### <h2>Cinematics</h2>
+## **Cinematics**
 
 A ubiquitous element in Jusant is the short cinematic sequences found at various moments throughout the adventure. We reproduced two of these cinematics in our project.
 

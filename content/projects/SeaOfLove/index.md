@@ -18,7 +18,7 @@ _________________________________________
  {{< youtubeLite id="CPHNIxMcoUw" label="FixDatGame" >}}
 
 
-## What is Sea of love ?
+## **What is Sea of love ?**
 
 <b> Sea of Love</b> is a short project made by a team of two. While we had a few constraints to respect, we were given total creative freedom for the rest. The guidelines required the game to be narrative-driven, feature heavy game feel and feedback, use an interaction system, and incorporate UI-based point-and-click mechanics.
 
@@ -29,17 +29,17 @@ However, you are not alone. A monster roams freely through the facility, hunting
 As a team of two, we divided the project into two roles. Although we focused on different areas, we collaborated closely, met frequently to help each other, and smoothly merged our work.
 
 
-## My responsibilities :
+## **My Part of the Work**
 
-- <b>3C & Character Mechanics :</b> Developed the character's movement, controls, stamina system, camera, flashlight, and the core mask mechanic.
+- <b>3C & Character Mechanics :</b> I Developed the character's movement, controls, stamina system, camera, flashlight, and the core mask mechanic.
 
-- <b>AI & Monster Systems :</b> Integrated the monster's mesh and Mixamo animations, implemented the stun mechanics, and set up its dedicated sound effects and lighting.
+- <b>AI & Monster Systems :</b> I Integrated the monster's mesh and Mixamo animations, implemented the stun mechanics, and set up its dedicated sound effects and lighting.
 
-- <b>Interactions & Level Hazards :</b> Created the full interaction system, including interactive objects, readable paper notes, doors, the elevator, and functional landmines.
+- <b>Interactions & Level Hazards :</b> I Created the full interaction system, including interactive objects, outlines, readable paper notes, doors, the elevator, and functional landmines.
 
-- <b>UI & Minigames :</b> Designed and scripted the UI, as well as the point-and-click minigames (digicodes and a Simon Says puzzle on a Freddy plush).
+- <b>UI & Minigames :</b> I Designed and scripted the UI, as well as the point-and-click minigames (digicodes and a Simon Says puzzle on a Freddy plush).
 
-- <b>Audio, Visuals & Integration :</b> Wrote the entire narrative lore, set up the general environment lighting, and integrated all external assets (animations, music, sound effects, and YouTube video screamers).
+- <b>Audio, Visuals & Integration :</b> I Wrote the entire narrative lore, set up the general environment lighting, and integrated all external assets (animations, music, sound effects, and YouTube video screamers).
 
 {{< gallery >}}
     {{< figure src="img/1.png" alt="Gallery image 1"  figureClass="grid-w50" >}}

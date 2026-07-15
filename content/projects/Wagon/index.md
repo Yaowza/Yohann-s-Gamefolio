@@ -1,7 +1,7 @@
 ---
 title: "Save System"
 summary: "This was a small Narrative project where we had to create a understandable scene with a maximum of environemental storytelling as possible and without any dialogs."
-categories: ["projects","schoolproject"]
+categories: ["projects","schoolproject","soloproject"]
 #tags: ["projects"]
 
 
@@ -61,10 +61,10 @@ _________________________________________
 <div style="height: 20px;"></div> 
 
 
-## What is Save System ?
+## **What is Save System ?**
 
 
-This project focuses entirely on environmental storytelling.
+This is a **solo project** that focuses entirely on environmental storytelling.
 
 The brief was to create a short experience without any dialogue or upfront explanations in one month. Through pure exploration, the player must deduce who they are, understand where they are, and figure out their ultimate objective. To focus heavily on the design and narrative, we utilized pre-existing environment asset packs. And composed our environement with them. 
 
@@ -77,6 +77,7 @@ The brief was to create a short experience without any dialogue or upfront expla
     - Diegetic UI : The user interface was meticulously crafted to act as a primary pillar of the environmental narrative, guiding the player implicitly without breaking immersion.
 
     - Drone Movement : Character movement is designed to be highly fluid, utilizing smooth acceleration and deceleration curves to reinforce the weightless, mechanical feel of the drone.
+
 
 ### Concept & Narrative Background :
 

@@ -76,11 +76,23 @@ _________________________________________
 
 
 
-## What is Tockard Tournament ?
+## **What is Tockard Tournament ?**
 
 Tockar Tournament is an online PvP Deathmatch game heavily inspired by *Unreal Tournament* and *Straftat*. This project was developed over the course of one month in a team of three.
 
 We created this project out of a shared passion to build something that was as fun to play as it was to develop. This project was a major milestone for us, as we learned how to implement network replication to make the game fully multiplayer online, utilizing Steam Sessions for hosting and matchmaking.
+
+## **My Part of the Work** 
+
+- **Character Art & Design :** I Modeled and integrated my very first custom 3D character and a laser gun.
+
+- **VFX Art :** I Created a wide variety of visual effects, including designing my most advanced and visually striking laser beam VFX to date.
+
+- **Level Design & Content :** I Designed and built two maps, and implemented a diverse arsenal of weapons to maximize gameplay variety and tactical possibilities.
+
+- **Programmation :** I programmed some of the environment mechanics (bumpers, mooving platforms...) and some of the weapons (laser-beam,throwing knife...).
+
+## **Gameplay** 
 
 ### High-Speed Movement & Fluidity
 
@@ -96,13 +108,7 @@ We wanted the gameplay to feature fast-paced, satisfying, and highly responsive 
 
 To fully leverage these mechanics, we tailored our level design to accommodate and reward high-speed momentum. Maps were built with specific environmental layout pieces such as jump pads (bumpers), ramps, and strategic slopes to keep players flowing seamlessly through the arena.
 
-### My contributions to the project where :
 
-- **Character Art & Design :** Modeled and integrated my very first custom 3D character.
-
-- **VFX Art :** Created a wide variety of visual effects, including designing my most advanced and visually striking laser beam VFX to date.
-
-- **Level Design & Content :** Designed and built two maps, and implemented a diverse arsenal of weapons to maximize gameplay variety and tactical possibilities.
 
 {{< gallery >}}
     {{< figure src="img/3.png" alt="Gallery image 1"  figureClass="grid-w100" >}}

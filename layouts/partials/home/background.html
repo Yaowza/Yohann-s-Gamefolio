@@ -31,7 +31,7 @@
             {{ end }}
             <img
               id="background-image"
-              class="nozoom mt-0 mr-0 mb-0 ml-0 h-[1000px] w-full object-cover"
+              class="nozoom mt-0 mr-0 mb-0 ml-0 h-[130vh] min-h-[1200px] w-full object-cover will-change-transform"
               src="{{ $homepageImage.RelPermalink }}"
               role="presentation"
               {{ if $style }}style="{{ $style | safeCSS }}"{{ end }}>
@@ -123,10 +123,36 @@
   {{ $backgroundBlur := resources.Get "js/background-blur.js" }}
   {{ $backgroundBlur = $backgroundBlur | resources.Minify | resources.Fingerprint (.Site.Params.fingerprintAlgorithm | default "sha512") }}
   <script
-    type="text/javascript"
-    src="{{ $backgroundBlur.RelPermalink }}"
-    integrity="{{ $backgroundBlur.Data.Integrity }}"
-    data-blur-id="background-blur"
-    data-image-id="background-image"
-    {{ if $homepageImage }}data-image-url="{{ $homepageImage.RelPermalink }}"{{ end }}></script>
+  type="text/javascript"
+  src="{{ $backgroundBlur.RelPermalink }}"
+  integrity="{{ $backgroundBlur.Data.Integrity }}"
+  data-blur-id="background-blur"
+  data-image-id="background-image"
+  data-scroll-divisor="950"
+  {{ if $homepageImage }}data-image-url="{{ $homepageImage.RelPermalink }}"{{ end }}></script>
+
+<script>
+  (() => {
+    const bg = document.getElementById("background-image","projects");
+    if (!bg) return;
+
+    let ticking = false;
+    const speed = 0.12; // leger: 12% de la vitesse du scroll
+
+    const update = () => {
+      const y = window.scrollY || window.pageYOffset || 0;
+      bg.style.transform = `translate3d(0, ${-y * speed}px, 0)`;
+      ticking = false;
+    };
+
+    window.addEventListener("scroll", () => {
+      if (!ticking) {
+        window.requestAnimationFrame(update);
+        ticking = true;
+      }
+    }, { passive: true });
+
+    update();
+  })();
+</script>
 {{ end }}

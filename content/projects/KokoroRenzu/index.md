@@ -91,7 +91,7 @@ _________________________________________
 
 
 
-## What is Kokoro Renzu ?
+## **What is Kokoro Renzu ?**
 Kokoro Renzu takes place on the Japanese fictional island of Kokoro during the Edo period.
 
 The game mixes third person exploration and card game. 
@@ -102,7 +102,7 @@ On this mystical island, everything you take a picture of with your edo-steampun
 
  {{< youtubeLite id="m0P7ABK71vA" label="Kokoro Gameplay Video" >}}
 
-## My Roles on this project :
+## **My Part of the Work**
 
 We where a team of 13 students working on Kokoro Renzu (5 Game Artists, 4 Tech Artists, and 4 Game Designers). As the Lead Tech, I also serve as one of the 2 gameplay programmers for the project.
 
@@ -132,8 +132,10 @@ We where a team of 13 students working on Kokoro Renzu (5 Game Artists, 4 Tech A
 
 - **Lore Creation :** Participated in writing the overarching narrative lore and the worldbuilding of Kokoro.
 
-- **VFX Art & Integration :** Designed and implemented all current in-game visual effects to support gameplay feedback and atmosphere.
+- **VFX Art & Integration :** Designed and implemented nearly all current in-game visual effects to support gameplay feedback and atmosphere in the open world in the and card game.
 
+
+<!--
 ## Environment :
 
 {{< gallery >}}
@@ -149,8 +151,8 @@ We where a team of 13 students working on Kokoro Renzu (5 Game Artists, 4 Tech A
     {{< figure src="img/11.png" alt="Gallery image 1"  figureClass="grid-w50" >}}
     {{< figure src="img/12.png" alt="Gallery image 1"  figureClass="grid-w50" >}}
 {{< /gallery >}} 
-
-## Yokai no Kake :
+-->
+## **Yokai no Kake :**
 
 {{< gallery >}}
     {{< figure src="img/10.png" alt="Gallery image 1"  figureClass="grid-w100" >}}
