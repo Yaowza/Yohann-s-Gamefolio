@@ -178,10 +178,50 @@
     if (!videos.length) return;
 
     function prime(video) {
-      if (video.dataset.primed === "1") return;
-      video.dataset.primed = "1";
-      video.preload = "metadata";
-      video.load();
+    if (video.dataset.primed === "1" || video.dataset.loading === "1") return;
+
+    video.dataset.loading = "1";
+    video.preload = "metadata";
+
+    var done = false;
+    var timeoutId;
+
+    function cleanup() {
+    video.removeEventListener("loadedmetadata", onReady);
+    video.removeEventListener("error", onFail);
+    video.removeEventListener("stalled", onFail);
+    video.removeEventListener("abort", onFail);
+    if (timeoutId) clearTimeout(timeoutId);
+    }
+
+    function onReady() {
+    if (done) return;
+    done = true;
+    video.dataset.primed = "1";
+    video.dataset.loading = "0";
+    cleanup();
+    }
+
+    function onFail() {
+    if (done) return;
+    done = true;
+    video.dataset.loading = "0";
+    delete video.dataset.primed;
+    cleanup();
+    }
+
+    video.addEventListener("loadedmetadata", onReady, { once: true });
+    video.addEventListener("error", onFail, { once: true });
+    video.addEventListener("stalled", onFail, { once: true });
+    video.addEventListener("abort", onFail, { once: true });
+
+    video.load();
+
+    timeoutId = setTimeout(function () {
+    if (done) return;
+    if (video.readyState >= 1) onReady();
+    else onFail();
+    }, 4000);
     }
 
     function freezeOnFirstFrame(video) {
@@ -268,8 +308,8 @@
         });
       },
       {
-        threshold: 0.35,
-        rootMargin: "150px 0px"
+        threshold: 0.01,
+        rootMargin: "700px 0px"
       }
     );
 

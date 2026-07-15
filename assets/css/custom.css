@@ -273,3 +273,190 @@ article,
 .prose i {
   color: #34c086;
 }
+
+
+
+/* Header plus grand (desktop) */
+@media (min-width: 768px) {
+  /* Augmente la hauteur globale de la barre */
+  .main-menu {
+    padding-top: 0.45rem !important;
+    padding-bottom: 0.45rem !important;
+  }
+
+  /* Augmente la zone du menu desktop */
+  .main-menu .hidden.md\:flex nav {
+    height: 4rem !important;       /* avant h-12 = 3rem */
+    gap: 1.1rem !important;
+  }
+
+  /* Agrandit les liens/icones de la barre */
+  .main-menu .hidden.md\:flex nav > a,
+  .main-menu .hidden.md\:flex nav > .nested-menu > .cursor-pointer > a,
+  .main-menu .hidden.md\:flex #search-button,
+  .main-menu .hidden.md\:flex #appearance-switcher {
+    font-size: 1.2rem !important;
+    line-height: 1 !important;
+  }
+
+  /* Agrandit les SVG (github, linkedin, youtube, etc.) */
+  .main-menu .hidden.md\:flex .icon svg {
+    width: 1.35em !important;
+    height: 1.35em !important;
+  }
+
+  /* Texte des liens principaux (Projects, Jams, VFX...) */
+  .main-menu .hidden.md\:flex nav > a .text-base,
+  .main-menu .hidden.md\:flex nav > .nested-menu > .cursor-pointer > a .text-bg,
+  .main-menu .hidden.md\:flex nav > .nested-menu > .cursor-pointer > a .text-base {
+    font-size: 1.35rem !important;
+    line-height: 1.15 !important;
+    font-weight: 600 !important;
+  }
+
+  /* Texte des sous-menus si tu en as */
+  .main-menu .hidden.md\:flex nav .text-sm {
+    font-size: 1.05rem !important;
+  }
+
+  /* Texte de gauche (titre du site) */
+  .main-menu > a.text-base.font-medium.truncate.min-w-0.shrink {
+    font-size: 1.5rem !important;
+    line-height: 1.15 !important;
+    font-weight: 700 !important;
+  }
+
+  /* Si tu as aussi la ligne d'icones/texte en dessous du header */
+  .main-menu .text-xs.font-light {
+    font-size: 1.05rem !important;
+    line-height: 1.2 !important;
+  }
+}
+
+
+
+/* Zoom léger sur toutes les cartes (projects, vfx, jams, recent) */
+@media (hover: hover) and (pointer: fine) {
+  .article-link--card {
+    transition: transform 220ms ease, box-shadow 220ms ease;
+    transform-origin: center center;
+    will-change: transform;
+  }
+
+  .article-link--card:hover {
+    transform: scale(1.02);
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.14);
+  }
+
+  /* Petit zoom image interne pour un effet plus propre */
+  .article-link--card .thumbnail_card img {
+    transition: transform 260ms ease;
+  }
+
+  .article-link--card:hover .thumbnail_card img {
+    transform: scale(1.04);
+  }
+}
+
+/* Accessibilité: pas d'animation si l'utilisateur réduit les mouvements */
+@media (prefers-reduced-motion: reduce) {
+  .article-link--card,
+  .article-link--card .thumbnail_card img {
+    transition: none !important;
+  }
+}
+
+
+/* Zoom léger aussi sur les cards "simple" (homepage recent en mode liste) */
+@media (hover: hover) and (pointer: fine) {
+  .article-link--simple {
+    transition: transform 220ms ease, box-shadow 220ms ease;
+    transform-origin: center center;
+    will-change: transform;
+  }
+
+  .article-link--simple:hover {
+    transform: scale(1.02);
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.14);
+  }
+
+  .article-link--simple .thumbnail img {
+    transition: transform 260ms ease;
+  }
+
+  .article-link--simple:hover .thumbnail img {
+    transform: scale(1.04);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .article-link--simple,
+  .article-link--simple .thumbnail img {
+    transition: none !important;
+  }
+}
+
+
+
+
+article footer {
+max-width: 72rem !important;
+}
+
+article footer .pt-8 > hr + .flex.justify-between.pt-3 {
+display: flex !important;
+justify-content: center !important;
+align-items: flex-start !important;
+gap: clamp(7rem, 32vw, 32rem) !important;
+width: 100% !important;
+}
+
+article footer .pt-8 > hr + .flex.justify-between.pt-3 > span {
+flex: 0 0 30% !important;
+max-width: 30% !important;
+min-width: 0 !important;
+}
+
+article footer .pt-8 > hr + .flex.justify-between.pt-3 > span.items-end {
+text-align: right !important;
+}
+
+@media (max-width: 640px) {
+article footer .pt-8 > hr + .flex.justify-between.pt-3 {
+display: grid !important;
+grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) !important;
+column-gap: 0.5rem !important;
+align-items: start !important;
+}
+
+article footer .pt-8 > hr + .flex.justify-between.pt-3 > span,
+article footer .pt-8 > hr + .flex.justify-between.pt-3 > span.items-end {
+min-width: 0 !important;
+max-width: 100% !important;
+overflow: hidden !important;
+}
+
+article footer .pt-8 > hr + .flex.justify-between.pt-3 > span.items-end {
+text-align: right !important;
+align-items: flex-end !important;
+}
+
+article footer .pt-8 > hr + .flex.justify-between.pt-3 small {
+  display: block !important;
+  font-size: clamp(0.68rem, 2.1vw, 0.82rem) !important;
+  line-height: 1.15 !important;
+  white-space: nowrap !important;
+  overflow: hidden !important;
+}
+
+article footer .pt-8 > hr + .flex.justify-between.pt-3 a {
+  display: block !important;
+  width: 100% !important;
+  min-width: 0 !important;
+  font-size: clamp(0.78rem, 2.8vw, 0.98rem) !important;
+  line-height: 1.2 !important;
+  white-space: nowrap !important;
+  overflow: hidden !important;
+  text-overflow: clip !important;
+}
+}

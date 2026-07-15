@@ -50,6 +50,24 @@ Given the extreme time constraints of managing three major projects simultaneous
 
 Some early layout schemes and blockouts remained intentionally minimal, and occasionally evolved during the production pipeline. We purposely bypassed heavy detailing in the initial design stages to prioritize a "fail fast, iterate faster" workflow. This agile approach allowed us to quickly playtest the core mechanics, hand off the layout to the art team for dressing, and refine the gameplay loops on the fly.
 
+## **My Part of the Work**
+
+In therm of level design I worked on the following levels :
+- C1 : First Combat
+- R1 : First Rest
+- C2 : Second Combat
+- R2 : Second Rest
+- R3 : Third Rest
+- B2 : Second Boss
+
+I also programmed those : 
+- The player's gun and health system
+- The ennemies AI
+- The world events (like fallings parts of the laboratory)
+- The checkpoints
+
+*I also made the ennemies and player vfx*
+
 
 ## **Level Design**
 

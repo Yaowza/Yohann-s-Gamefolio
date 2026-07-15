@@ -45,6 +45,7 @@
 {{ end }}
 
 {{ $scope := .Scratch.Get "scope" }}
+{{ $darkenSections := in (slice "projects" "vfx" "jams") .Section }}
 {{ $shouldBlur := $.Params.layoutBackgroundBlur | default (or
   (and ($.Site.Params.article.layoutBackgroundBlur | default true) (eq $scope "single"))
   (and ($.Site.Params.list.layoutBackgroundBlur | default true) (eq $scope "list"))
@@ -94,6 +95,10 @@
      rgba(23,23,23,0.7) 40%,
      transparent 100%);">
     </div>
+
+    {{ if $darkenSections }}
+    <div class="absolute inset-0" style="background: rgba(0, 0, 0, 0.35);"></div>
+    {{ end }}
 
 
 

@@ -17,3 +17,5 @@ sharingLinks : false
 
 ---
 
+
+<h3>Here are my main projects, the one I did during my school years and the ones more personnal I did with a team or alone.</h3>
