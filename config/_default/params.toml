@@ -35,7 +35,7 @@ layoutBackgroundBlur = true
 [article]
 showDate = true
 showDateUpdated = false
-showAuthor = true
+showAuthor = false
 showHero = true
 heroStyle = "background"
 showBreadcrumbs = true
