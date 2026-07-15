@@ -125,7 +125,7 @@ As one of the two <b>main gameplay programmers</b> in Unreal Engine, I co-develo
     - And some "Secrets"
 
 
-I aslo worked on <b>the sytem design</b>.
+I aslo worked on the <b>sytem design</b>.
 - The Amount of moss quantity per level, or given by ennemies
 - Ennemies and player damages
 - Movement speed and gravity
