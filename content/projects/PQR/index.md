@@ -401,8 +401,8 @@ It also features a railed camera system during a 2D segment. This level has a fa
 - <h3>The Boosters Road</h3>
 
 {{< gallery >}}
-    {{< figure src="Shrooms/I1.png" alt="Gallery image 1"  figureClass="grid-w40" >}}
-    {{< figure src="Shrooms/I1-2.png" alt="Gallery image 1"  figureClass="grid-w40" >}}
+    {{< figure src="Shrooms/I1.png" alt="Gallery image 1"  figureClass="grid-w50" >}}
+    {{< figure src="Shrooms/I1-2.png" alt="Gallery image 1"  figureClass="grid-w50" >}}
 {{< /gallery >}}
 
 The opening section of the **Shrooms** level was created to introduce **speed and booster** mechanics. We opted for a **straightforward**, linear layout here to let players get comfortable with the controls and the speed without facing frustrating obstacles.
@@ -412,8 +412,8 @@ ___________________________________________________
 - <h3>Giant Shrooms platforming</h3>
 
 {{< gallery >}}
-    {{< figure src="Shrooms/P1.png" alt="Gallery image 1"  figureClass="grid-w40" >}}
-    {{< figure src="Shrooms/P1-2.png" alt="Gallery image 1"  figureClass="grid-w40" >}}
+    {{< figure src="Shrooms/P1.png" alt="Gallery image 1"  figureClass="grid-w50" >}}
+    {{< figure src="Shrooms/P1-2.png" alt="Gallery image 1"  figureClass="grid-w50" >}}
 {{< /gallery >}}
 
 This section introduces the game's first **platforming** challenge, teaching players how to jump from platform to platform, while also introducing the **checkpoint and respawn mechanics** if they fall. Since it is their very first trial, we designed it to be **simple and forgiving** to avoid frustration.
@@ -425,7 +425,7 @@ The entire section is **set close to the void**, which adds a **subtle layer of 
 <h4> Bloc-Out </h4>
 
 {{< gallery >}}
-    {{< figure src="Shrooms/Blc1.png" alt="Gallery image 1"  figureClass="grid-w40" >}}
+    {{< figure src="Shrooms/Blc1.png" alt="Gallery image 1"  figureClass="grid-w50" >}}
 {{< /gallery >}}
 
 ___________________________________________________
@@ -433,8 +433,8 @@ ___________________________________________________
 - <h3>Meteor Strike Tutorial</h3>
 
 {{< gallery >}}
-    {{< figure src="Shrooms/R1.png" alt="Gallery image 1"  figureClass="grid-w40" >}}
-    {{< figure src="Shrooms/R1-2.png" alt="Gallery image 1"  figureClass="grid-w40" >}}
+    {{< figure src="Shrooms/R1.png" alt="Gallery image 1"  figureClass="grid-w50" >}}
+    {{< figure src="Shrooms/R1-2.png" alt="Gallery image 1"  figureClass="grid-w50" >}}
 {{< /gallery >}}
 
 After the challenging mushroom section, players enter a **calmer zone** designed to introduce the **meteor strike platforming mechanic**. This is taught through an **in-game demonstration** : a "Pierrequiroule" NPC performs the strike to leap over a giant wall blocking the path.
@@ -448,8 +448,8 @@ ___________________________________________________
 - <h3>First Combat</h3>
 
 {{< gallery >}}
-    {{< figure src="Shrooms/C1.png" alt="Gallery image 1"  figureClass="grid-w40" >}}
-    {{< figure src="Shrooms/C1-2.png" alt="Gallery image 1"  figureClass="grid-w40" >}}
+    {{< figure src="Shrooms/C1.png" alt="Gallery image 1"  figureClass="grid-w50" >}}
+    {{< figure src="Shrooms/C1-2.png" alt="Gallery image 1"  figureClass="grid-w50" >}}
 {{< /gallery >}}
 
 Shortly after learning the meteor strike, players encounter their **first enemy**. They can either **rush directly into it** or apply their newly acquired mechanic to **crush the enemy from above**.
@@ -459,8 +459,8 @@ Once defeated, the only way forward is a vertical path featuring three wall-moun
 <h4> Bloc-Out </h4>
 
 {{< gallery >}}
-    {{< figure src="Shrooms/Blc2.png" alt="Gallery image 1"  figureClass="grid-w40" >}}
-    {{< figure src="Shrooms/Blc2-2.png" alt="Gallery image 1"  figureClass="grid-w40" >}}
+    {{< figure src="Shrooms/Blc2.png" alt="Gallery image 1"  figureClass="grid-w50" >}}
+    {{< figure src="Shrooms/Blc2-2.png" alt="Gallery image 1"  figureClass="grid-w50" >}}
 {{< /gallery >}}
 
 
@@ -469,8 +469,8 @@ ___________________________________________________
 - <h3>The Cave</h3>
 
 {{< gallery >}}
-    {{< figure src="Shrooms/P2.png" alt="Gallery image 1"  figureClass="grid-w40" >}}
-    {{< figure src="Shrooms/P2-2.png" alt="Gallery image 1"  figureClass="grid-w40" >}}
+    {{< figure src="Shrooms/P2.png" alt="Gallery image 1"  figureClass="grid-w50" >}}
+    {{< figure src="Shrooms/P2-2.png" alt="Gallery image 1"  figureClass="grid-w50" >}}
 {{< /gallery >}}
 
 After two consecutive challenges, players can **catch their breath** at the cave entrance before tackling the **level’s climax** : the '2D Wall'. Before entering this phase, players must cross a small chasm using a single platform.
@@ -480,8 +480,8 @@ For the 2D segment, the **camera locks onto a rail** to transition the gameplay 
 <h4> Bloc-Out </h4>
 
 {{< gallery >}}
-    {{< figure src="Shrooms/Blc3.png" alt="Gallery image 1"  figureClass="grid-w40" >}}
-    {{< figure src="Shrooms/Blc3-2.png" alt="Gallery image 1"  figureClass="grid-w40" >}}
+    {{< figure src="Shrooms/Blc3.png" alt="Gallery image 1"  figureClass="grid-w50" >}}
+    {{< figure src="Shrooms/Blc3-2.png" alt="Gallery image 1"  figureClass="grid-w50" >}}
 {{< /gallery >}}
 
 
@@ -490,8 +490,8 @@ ___________________________________________________
 - <h3>The Village</h3>
 
 {{< gallery >}}
-    {{< figure src="Shrooms/R2.png" alt="Gallery image 1"  figureClass="grid-w40" >}}
-    {{< figure src="Shrooms/R2-2.png" alt="Gallery image 1"  figureClass="grid-w40" >}}
+    {{< figure src="Shrooms/R2.png" alt="Gallery image 1"  figureClass="grid-w50" >}}
+    {{< figure src="Shrooms/R2-2.png" alt="Gallery image 1"  figureClass="grid-w50" >}}
 {{< /gallery >}}
 
 To end the level on a high note, players exit the cave and arrive at the **Village of "Pierre qui Roule"**, welcomed by a **fireworks** display positioned near the lighthouse cannon to naturally **draw their attention**.
@@ -510,7 +510,7 @@ This area acts as a **mini-open world** where players can explore freely, steal 
 
 - ### The Level "Ruins" :
     {{< gallery >}}
-        {{< figure src="Ruins/ruin1.jpeg" alt="Gallery image 1" figureClass="grid-w80" >}}
+        {{< figure src="Ruins/ruin1.jpeg" alt="Gallery image 1" figureClass="grid-100" >}}
     {{< /gallery >}}
 
 This is the final level of our vertical slice. It is longer than the others and culminates in a boss fight. While it reuses previously learned mechanics, the level is much more linear and stretched out, allowing the player to build up massive speed on straightaways packed with boosters. This level also introduces two new mechanics:
@@ -555,8 +555,8 @@ This is the final level of our vertical slice. It is longer than the others and 
 - <h3>Tubes</h3>
 
 {{< gallery >}}
-    {{< figure src="Ruins/P1.png" alt="Gallery image 1"  figureClass="grid-w40" >}}
-    {{< figure src="Ruins/P1-2.png" alt="Gallery image 1"  figureClass="grid-w40" >}}
+    {{< figure src="Ruins/P1.png" alt="Gallery image 1"  figureClass="grid-w50" >}}
+    {{< figure src="Ruins/P1-2.png" alt="Gallery image 1"  figureClass="grid-w50" >}}
 {{< /gallery >}}
 
 The opening section introduces pipe traversal (tubes) and immediately dives into the level's high-speed pacing, while also introducing cannons to the player.
@@ -564,16 +564,16 @@ The opening section introduces pipe traversal (tubes) and immediately dives into
 <h4> Bloc-Out </h4>
 
 {{< gallery >}}
-    {{< figure src="Ruins/Blc1.png" alt="Gallery image 1"  figureClass="grid-w40" >}}
-    {{< figure src="Ruins/Blc1-2.png" alt="Gallery image 1"  figureClass="grid-w40" >}}
+    {{< figure src="Ruins/Blc1.png" alt="Gallery image 1"  figureClass="grid-w50" >}}
+    {{< figure src="Ruins/Blc1-2.png" alt="Gallery image 1"  figureClass="grid-w50" >}}
 {{< /gallery >}}
 ___________________________________________________
 
 - <h3>The secret intersection</h3>
 
 {{< gallery >}}
-    {{< figure src="Ruins/R1.png" alt="Gallery image 1"  figureClass="grid-w40" >}}
-    {{< figure src="Ruins/R1-2.png" alt="Gallery image 1"  figureClass="grid-w40" >}}
+    {{< figure src="Ruins/R1.png" alt="Gallery image 1"  figureClass="grid-w50" >}}
+    {{< figure src="Ruins/R1-2.png" alt="Gallery image 1"  figureClass="grid-w50" >}}
 {{< /gallery >}}
 
 This short straightaway gives players a choice : they can either maintain their momentum and keep rushing forward with their stored speed, or slow down to discover a hidden secret.
@@ -583,8 +583,8 @@ ___________________________________________________
 - <h3>The Tower Fight</h3>
 
 {{< gallery >}}
-    {{< figure src="Ruins/C1.png" alt="Gallery image 1"  figureClass="grid-w40" >}}
-    {{< figure src="Ruins/C1-2.png" alt="Gallery image 1"  figureClass="grid-w40" >}}
+    {{< figure src="Ruins/C1.png" alt="Gallery image 1"  figureClass="grid-w50" >}}
+    {{< figure src="Ruins/C1-2.png" alt="Gallery image 1"  figureClass="grid-w50" >}}
 {{< /gallery >}}
 
 
@@ -593,8 +593,8 @@ In the first combat encounter, players must use the two cannons in the center to
 <h4> Bloc-Out </h4>
 
 {{< gallery >}}
-    {{< figure src="Ruins/Blc2.png" alt="Gallery image 1"  figureClass="grid-w40" >}}
-    {{< figure src="Ruins/Blc2-2.png" alt="Gallery image 1"  figureClass="grid-w40" >}}
+    {{< figure src="Ruins/Blc2.png" alt="Gallery image 1"  figureClass="grid-w50" >}}
+    {{< figure src="Ruins/Blc2-2.png" alt="Gallery image 1"  figureClass="grid-w50" >}}
 {{< /gallery >}}
 
 ___________________________________________________
@@ -602,8 +602,8 @@ ___________________________________________________
 - <h3>The Long Rail</h3>
 
 {{< gallery >}}
-    {{< figure src="Ruins/R2.png" alt="Gallery image 1"  figureClass="grid-w40" >}}
-    {{< figure src="Ruins/R2-2.png" alt="Gallery image 1"  figureClass="grid-w40" >}}
+    {{< figure src="Ruins/R2.png" alt="Gallery image 1"  figureClass="grid-w50" >}}
+    {{< figure src="Ruins/R2-2.png" alt="Gallery image 1"  figureClass="grid-w50" >}}
 {{< /gallery >}}
 
 After that high-energy combat, we designed a brief moment of downtime. It serves as a highly relaxing transition while subtly introducing players to potential giant rolling stones in the distance.
@@ -612,8 +612,8 @@ ___________________________________________________
 - <h3>The Speeding Road</h3>
 
 {{< gallery >}}
-    {{< figure src="Ruins/P2.png" alt="Gallery image 1"  figureClass="grid-w40" >}}
-    {{< figure src="Ruins/P2-2.png" alt="Gallery image 1"  figureClass="grid-w40" >}}
+    {{< figure src="Ruins/P2.png" alt="Gallery image 1"  figureClass="grid-w50" >}}
+    {{< figure src="Ruins/P2-2.png" alt="Gallery image 1"  figureClass="grid-w50" >}}
 {{< /gallery >}}
 
 Here, we designed a long stretch with two paths : one is a straightforward route filled with boosters to maintain high speed, while the other requires players to chain meteor strikes across a series of pillars to reach a hidden secret.
@@ -621,8 +621,8 @@ Here, we designed a long stretch with two paths : one is a straightforward route
 <h4> Bloc-Out </h4>
 
 {{< gallery >}}
-    {{< figure src="Ruins/Blc3.png" alt="Gallery image 1"  figureClass="grid-w40" >}}
-    {{< figure src="Ruins/Blc3-2.png" alt="Gallery image 1"  figureClass="grid-w40" >}}
+    {{< figure src="Ruins/Blc3.png" alt="Gallery image 1"  figureClass="grid-w50" >}}
+    {{< figure src="Ruins/Blc3-2.png" alt="Gallery image 1"  figureClass="grid-w50" >}}
 {{< /gallery >}}
 
 ___________________________________________________
@@ -630,9 +630,9 @@ ___________________________________________________
 - <h3>The Roller Coaster</h3>
 
 {{< gallery >}}
-    {{< figure src="Ruins/P3.png" alt="Gallery image 1"  figureClass="grid-w80" >}}
-    {{< figure src="Ruins/P3-2.png" alt="Gallery image 1"  figureClass="grid-w40" >}}
-    {{< figure src="Ruins/P3-3.png" alt="Gallery image 1"  figureClass="grid-w40" >}}
+    {{< figure src="Ruins/P3.png" alt="Gallery image 1"  figureClass="grid-w100" >}}
+    {{< figure src="Ruins/P3-2.png" alt="Gallery image 1"  figureClass="grid-w50" >}}
+    {{< figure src="Ruins/P3-3.png" alt="Gallery image 1"  figureClass="grid-w50" >}}
 {{< /gallery >}}
 
 This section features a fast-paced sequence of pipes that delivers an intense, high-energy rhythm, while remaining highly satisfying thanks to the smooth and fluid movement physics inside the tubes.
@@ -640,8 +640,8 @@ This section features a fast-paced sequence of pipes that delivers an intense, h
 <h4> Bloc-Out </h4>
 
 {{< gallery >}}
-    {{< figure src="Ruins/Blc4.png" alt="Gallery image 1"  figureClass="grid-w40" >}}
-    {{< figure src="Ruins/Blc4-2.png" alt="Gallery image 1"  figureClass="grid-w40" >}}
+    {{< figure src="Ruins/Blc4.png" alt="Gallery image 1"  figureClass="grid-w50" >}}
+    {{< figure src="Ruins/Blc4-2.png" alt="Gallery image 1"  figureClass="grid-w50" >}}
 {{< /gallery >}}
 
 ___________________________________________________
@@ -649,8 +649,8 @@ ___________________________________________________
 - <h3>The Last Cannons & Final Bridge</h3>
 
 {{< gallery >}}
-    {{< figure src="Ruins/R3.png" alt="Gallery image 1"  figureClass="grid-w40" >}}
-    {{< figure src="Ruins/R3-2.png" alt="Gallery image 1"  figureClass="grid-w40" >}}
+    {{< figure src="Ruins/R3.png" alt="Gallery image 1"  figureClass="grid-w50" >}}
+    {{< figure src="Ruins/R3-2.png" alt="Gallery image 1"  figureClass="grid-w50" >}}
 {{< /gallery >}}
 
 This serves as the final cinematic moment and downtime before the boss fight. As the player crosses the bridge, the camera pans back to emphasize the striking difference in scale between the player and the colossal boss.
@@ -658,8 +658,8 @@ This serves as the final cinematic moment and downtime before the boss fight. As
 <h4> Bloc-Out </h4>
 
 {{< gallery >}}
-    {{< figure src="Ruins/Blc5.png" alt="Gallery image 1"  figureClass="grid-w40" >}}
-    {{< figure src="Ruins/Blc5-2.png" alt="Gallery image 1"  figureClass="grid-w40" >}}
+    {{< figure src="Ruins/Blc5.png" alt="Gallery image 1"  figureClass="grid-w50" >}}
+    {{< figure src="Ruins/Blc5-2.png" alt="Gallery image 1"  figureClass="grid-w50" >}}
 {{< /gallery >}}
 
 </p>
@@ -671,7 +671,7 @@ This serves as the final cinematic moment and downtime before the boss fight. As
 - ### The Final Boss : 
 
     {{< gallery >}}
-        {{< figure src="boss/boss1.jpeg" alt="Gallery image 1"  figureClass="grid-w80" >}}
+        {{< figure src="boss/boss1.jpeg" alt="Gallery image 1"  figureClass="grid-w100" >}}
     {{< /gallery >}}
 
 To close out the vertical slice, we created a boss fight. The boss is a massive rolling rock located in a unique, half-ruined structure. The fight is split into two major phases:
@@ -698,8 +698,8 @@ To close out the vertical slice, we created a boss fight. The boss is a massive 
  <h4> Bloc-Out </h4>
 
 {{< gallery >}}
-    {{< figure src="Ruins/Blc6.png" alt="Gallery image 1"  figureClass="grid-w40" >}}
-    {{< figure src="Ruins/Blc6-2.png" alt="Gallery image 1"  figureClass="grid-w40" >}}
+    {{< figure src="Ruins/Blc6.png" alt="Gallery image 1"  figureClass="grid-w50" >}}
+    {{< figure src="Ruins/Blc6-2.png" alt="Gallery image 1"  figureClass="grid-w50" >}}
 {{< /gallery >}}
 
 <div style="height: 20px;"></div> 
