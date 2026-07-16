@@ -489,3 +489,47 @@ article footer .pt-8 > hr + .flex.justify-between.pt-3 a {
   width: 100%;
 }
 
+
+
+
+/* ==========================================================================
+   CORRECTION DE L'IMAGE D'ARRRIÈRE-PLAN (PC & MOBILE)
+   ========================================================================== */
+
+/* Pour les écrans d'ordinateur (PC/Mac) - Évite la barre noire en haut */
+@media (min-width: 1024px) {
+  #background-image {
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+    /* On force l'image à démarrer exactement tout en haut de l'écran */
+    height: 130vh !important;
+    min-height: 1200px !important;
+    z-index: -10 !important;
+  }
+
+  /* On s'assure que le conteneur parent ne pousse pas l'image vers le bas */
+  .sm\:overflow-hidden,
+  .relative.sm\:overflow-hidden {
+    position: static !important;
+  }
+}
+
+/* Uniquement pour les mobiles et tablettes (écrans inférieurs à 1024px) */
+@media (max-width: 1023px) {
+  #background-image {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100vw !important;
+    height: 100vh !important;
+    height: 100dvh !important; /* Hauteur dynamique sur mobile */
+    object-fit: cover !important;
+    transform-origin: center center !important;
+    /* Léger zoom pour éviter les bandes noires lors des rebonds du scroll mobile */
+    transform: scale(1.1) !important; 
+    z-index: -10 !important;
+  }
+}

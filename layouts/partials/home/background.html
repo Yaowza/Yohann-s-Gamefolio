@@ -30,11 +30,11 @@
               {{ $style = printf "object-position: %s;" . }}
             {{ end }}
             <img
-              id="background-image"
-              class="nozoom mt-0 mr-0 mb-0 ml-0 h-[130vh] min-h-[1200px] w-full object-cover will-change-transform"
-              src="{{ $homepageImage.RelPermalink }}"
-              role="presentation"
-              {{ if $style }}style="{{ $style | safeCSS }}"{{ end }}>
+            id="background-image"
+            class="nozoom fixed inset-0 -z-10 m-0 h-screen w-screen object-cover will-change-transform"
+            src="{{ $homepageImage.RelPermalink }}"
+            role="presentation"
+            {{ if $style }}style="{{ $style | safeCSS }}"{{ end }}>
             <div class="absolute inset-0"
               style="background: linear-gradient(to top,
               rgb(23 23 23) 0%,

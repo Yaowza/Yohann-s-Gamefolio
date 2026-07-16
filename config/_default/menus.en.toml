@@ -56,9 +56,23 @@
   url = "yo.perrette@gmail.com"
   weight = 10
 
-  [[footer]]
-  name = "07 84 94 19 17"
-  identifier = "phone"
-  pre = "phone"
-  url = "tel:+33784941917"
+[[footer]]
+  name = "Linkedin"
+  identifier = "Linkedin"
+  pre = "linkedin"
+  url = "https://www.linkedin.com/in/yohann-perrette-8436bb161/"
   weight = 20
+
+[[footer]]
+  name = "Github"
+  identifier = "github"
+  pre = "github"
+  url = "https://github.com/Yaowza"
+  weight = 30
+
+[[footer]]
+  name = "Youtube"
+  identifier = "Youtube"
+  pre = "youtube"
+  url = "https://www.youtube.com/@UltimateYaowza"
+  weight = 40

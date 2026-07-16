@@ -135,6 +135,20 @@ We where a team of 13 students working on Kokoro Renzu (5 Game Artists, 4 Tech A
 - **VFX Art & Integration :** Designed and implemented nearly all current in-game visual effects to support gameplay feedback and atmosphere in the open world in the and card game.
 
 
+### Early Proto Videos
+
+#### Kokoro Pre-Alpha
+<div class="video-centree">
+    {{< youtubeLite id="JoXRyUM3-e4" label="Kokoro Pre-Alpha" >}}
+</div>
+
+
+#### Kokoro early photo mode and thunder print
+<div class="video-centree">
+    {{< youtubeLite id="UsNLMoM_vcM" label="Kokoro early photo mode and thunder print" >}}
+</div>
+
+
 <!--
 ## Environment :
 
@@ -152,8 +166,3 @@ We where a team of 13 students working on Kokoro Renzu (5 Game Artists, 4 Tech A
     {{< figure src="img/12.png" alt="Gallery image 1"  figureClass="grid-w50" >}}
 {{< /gallery >}} 
 -->
-## **Yokai no Kake :**
-
-{{< gallery >}}
-    {{< figure src="img/10.png" alt="Gallery image 1"  figureClass="grid-w100" >}}
-{{< /gallery >}} 

@@ -97,6 +97,19 @@ While my group focused on "Abyss" and the second group handled "Embrun," we esta
 ## **My Part of the Work**
 
 
+For this project, I focused primarily on gameplay mechanics:
+
+- The Drone : I Conceived the original concept and fully programmed its mechanics and behavior.
+
+- The Rope : I Programmed the physics and interaction systems.
+
+Additionally, I contributed to:
+
+- Onboarding : I Designed introductory sections to smoothly guide players through the mechanics.
+
+- Cinematics : I Created and integrated in-game cinematic sequences.
+
+
 ## **Narration**
 
 Both DLCs serve as a speculative sequel to the main game. Gravity has been restored, and water has finally begun to fall once again.
@@ -155,7 +168,7 @@ HOWEVER, I really wanted to recreate this rope, especially since it was necessar
 
 <details class="mon-menu-deroulant">
 <summary>
-  <span>Clic HERE for further explainations!</span>
+  <span>Clic HERE for further explainations !</span>
 </summary>
 <div class="contenu-texte">
     <p>
@@ -348,6 +361,34 @@ The animations depends on the player's actions.
     {{< figure src="img/7.png" alt="Gallery image 1"  figureClass="grid-w50" >}}
     {{< figure src="img/8.png" alt="Gallery image 1"  figureClass="grid-w50" >}}
 {{< /gallery >}} 
+-->
+<!--
+## **Level Design**
+
+### Entrance
+
+#### Bloc-out
+
+#### Enviro
+
+### Main Pillar
+
+#### Bloc-out
+
+#### Enviro
+
+### Insect Cave
+
+#### Bloc-out
+
+#### Enviro
+
+### The last dive
+
+#### Bloc-out
+
+#### Enviro
+
 -->
 
 ## **Cinematics**
