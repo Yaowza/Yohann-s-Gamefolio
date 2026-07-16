@@ -356,9 +356,11 @@ Expliquer ce que c'est :
 
 
 - ### The Level "Shrooms" :
-    {{< gallery >}}
-        {{< figure src="Shrooms/shroom1.jpeg" alt="Gallery image 1" figureClass="grid-w80" >}}
-    {{< /gallery >}}
+
+
+{{< gallery >}}
+{{< figure src="Shrooms/shroom1.jpeg" alt="Gallery image 1" figureClass="grid-w80" >}}
+{{< /gallery >}}
 
 This is the first level of the vertical slice. It allows the player to experience platforming with our unique movement style. This level introduces moss harvesting and combat, along with two new mechanics :
 
@@ -509,9 +511,11 @@ This area acts as a **mini-open world** where players can explore freely, steal 
 
 
 - ### The Level "Ruins" :
-    {{< gallery >}}
-        {{< figure src="Ruins/ruin1.jpeg" alt="Gallery image 1" figureClass="grid-100" >}}
-    {{< /gallery >}}
+
+
+{{< gallery >}}
+    {{< figure src="Ruins/ruin1.jpeg" alt="Gallery image 1" figureClass="grid-w80" >}}
+{{< /gallery >}}
 
 This is the final level of our vertical slice. It is longer than the others and culminates in a boss fight. While it reuses previously learned mechanics, the level is much more linear and stretched out, allowing the player to build up massive speed on straightaways packed with boosters. This level also introduces two new mechanics:
 
