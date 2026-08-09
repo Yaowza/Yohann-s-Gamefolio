@@ -2,6 +2,10 @@
 title: "Kokoro Renzu"
 summary: "Kokoro Renzu is an open world card playing game. The player has to explore and take photos to create his own deck and beath the elders of the village."
 categories: ["projects","schoolproject"]
+
+finalistBadge: true
+finalistBadgeLink: "https://www.therookies.co/entries/36141"
+
 #tags: ["projects"]
 #externalUrl: ""
 #showSummary: true

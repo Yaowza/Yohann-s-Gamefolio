@@ -533,3 +533,122 @@ article footer .pt-8 > hr + .flex.justify-between.pt-3 a {
     z-index: -10 !important;
   }
 }
+
+
+/* ==========================================================================
+   BADGE FINALISTE (Pierre + Kokoro)
+   ========================================================================== */
+
+.project-title-with-badge {
+  position: relative;
+  display: inline-block;
+  line-height: 1.2;
+  padding-right: 0; /* pas d'impact sur la largeur de la carte */
+}
+
+.project-finalist-badge-floating {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 120px;      /* ajuste la taille */
+  height: auto;
+  object-fit: contain;
+  pointer-events: none;
+  transform: translate(140px, -25px); /* droite, bas */
+  z-index: 2;
+}
+
+/* Ajustement uniquement Kokoro */
+.article-link--card .project-finalist-badge-kokoro {
+  right: -20px !important; /* plus a gauche: -20 ; plus a droite: -40 */
+  top: 2px !important;     /* plus haut: -4 ; plus bas: 8 */
+}
+
+
+
+/* Badge dans le titre des pages single (Pierre + Kokoro via finalistBadge: true) */
+/* Badge dans le titre des pages single */
+.single-title-with-badge {
+  position: relative;
+  display: inline-block;
+  line-height: 1.1;
+}
+
+/* Badge image */
+.single-title-badge {
+  position: absolute;
+  top: var(--single-badge-top, -30px);
+  left: var(--single-badge-left, calc(100% - 80px));
+  width: var(--single-badge-size, 200px);
+  height: auto;
+  object-fit: contain;
+  pointer-events: none;
+  z-index: 2;
+}
+
+/* Lien cliquable (porte la vraie position quand le badge est cliquable) */
+.single-title-badge-link {
+  position: absolute;
+  top: var(--single-badge-top, -30px);
+  left: var(--single-badge-left, calc(100% - 80px));
+  width: var(--single-badge-size, 200px);
+  line-height: 0;
+  display: block;
+  z-index: 3;
+  pointer-events: auto;
+}
+
+.single-title-badge-link .single-title-badge {
+  position: static;
+  width: 100%;
+  height: auto;
+  pointer-events: auto;
+}
+
+/* Base mobile */
+@media (max-width: 768px) {
+  .single-title-badge,
+  .single-title-badge-link {
+    --single-badge-size: 95px;
+    --single-badge-top: 15px;
+    --single-badge-left: calc(100% - 90px);
+  }
+}
+
+/* Hover/focus du badge cliquable */
+.single-title-badge-link {
+  transition: transform 180ms ease, filter 180ms ease;
+  transform-origin: center;
+}
+
+.single-title-badge-link:hover {
+  transform: scale(1.08);
+  filter: drop-shadow(0 6px 14px rgba(0, 0, 0, 0.28));
+}
+
+.single-title-badge-link:active {
+  transform: scale(1.03);
+}
+
+.single-title-badge-link:focus-visible {
+  outline: 2px solid rgba(59, 130, 246, 0.7);
+  outline-offset: 4px;
+  border-radius: 6px;
+}
+
+
+
+/* Kokoro mobile
+   - cas 1: classe sur le lien
+   - cas 2: classe seulement sur l'image (template actuel) */
+@media (max-width: 768px) {
+  .single-title-badge-link.single-title-badge-kokoro,
+  .single-title-badge-kokoro,
+  .single-title-with-badge:has(.single-title-badge-kokoro) .single-title-badge-link {
+    --single-badge-left: calc(100% - 70px);
+    --single-badge-top: 15px;
+    --single-badge-size: 95px;
+  }
+}
+
+

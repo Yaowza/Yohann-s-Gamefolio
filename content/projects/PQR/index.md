@@ -2,6 +2,10 @@
 title: "Pierre Qui Roule"
 summary: "PierreQuiRoule is a third-person platformer physic-based game developed on UE5. You play as a rock tax collector gathering moss from the other rolling stones in the kingdom of Rouleroche."
 categories: ["projects","schoolproject"]
+
+finalistBadge: true
+finalistBadgeLink: "https://www.therookies.co/entries/48586"
+
 #tags: ["projects"]
 extendedWidth: true
 

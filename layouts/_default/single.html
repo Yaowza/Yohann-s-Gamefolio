@@ -21,9 +21,48 @@
       {{ if .Params.showBreadcrumbs | default (site.Params.article.showBreadcrumbs | default false) }}
         {{ partial "breadcrumbs.html" . }}
       {{ end }}
+
+
+
       <h1 class="mt-0 text-4xl font-extrabold text-neutral-900 dark:text-neutral" {{ if $isLeftAlignSection }}style="text-align: left !important;"{{ end }}>
-        {{ .Title | emojify }}
+        <span class="single-title-with-badge">
+          <span>{{ .Title | emojify }}</span>
+
+          {{ if .Params.finalistBadge }}
+            {{ $badgeSrc := "" }}
+            {{ with .Resources.GetMatch "*adge*.png" }}
+              {{ $badgeSrc = .RelPermalink }}
+            {{ else }}
+              {{ $badgeSrc = ("/img/badges/badge.png" | relURL) }}
+            {{ end }}
+
+            {{ if .Params.finalistBadgeLink }}
+              <a
+                href="{{ .Params.finalistBadgeLink }}"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="single-title-badge-link">
+                <img
+                  src="{{ $badgeSrc }}"
+                  alt=""
+                  class="single-title-badge-link{{ if in .RelPermalink "/projects/kokororenzu/" }} single-title-badge-kokoro{{ end }}"
+                  loading="lazy"
+                  decoding="async">
+              </a>
+            {{ else }}
+              <img
+                src="{{ $badgeSrc }}"
+                alt=""
+                class="single-title-badge-link{{ if in .RelPermalink "/projects/kokororenzu/" }} single-title-badge-kokoro{{ end }}"
+                loading="lazy"
+                decoding="async">
+            {{ end }}
+          {{ end }}
+        </span>
       </h1>
+
+
+
       <div class="mt-1 mb-6 text-base text-neutral-500 dark:text-neutral-400 print:hidden">
         {{ partial "article-meta/basic.html" (dict "context" . "scope" "single") }}
       </div>

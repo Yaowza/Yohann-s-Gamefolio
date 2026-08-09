@@ -96,8 +96,30 @@
           href="{{ $page.RelPermalink }}"
         {{ end }}
         class="not-prose before:absolute before:inset-0 decoration-primary-500 dark:text-neutral text-xl font-bold text-neutral-800 hover:underline hover:underline-offset-2">
-        <h2>
+        
+        {{ $isKokoro := eq $page.File.Dir "projects/KokoroRenzu/" }}
+        <h2 class="project-title-with-badge">
           {{ .Title | emojify }}
+
+          {{ if .Params.finalistBadge }}
+            {{ with .Resources.GetMatch "Badge.png" }}
+              <img
+                src="{{ .RelPermalink }}"
+                alt=""
+                class="project-finalist-badge-floating{{ if in $page.RelPermalink "/projects/kokororenzu/" }} project-finalist-badge-kokoro{{ end }}"
+                loading="lazy"
+                decoding="async">
+            {{ else }}
+              <img
+                src='{{ "/img/badges/badge.png" | relURL }}'
+                alt=""
+                class="project-finalist-badge-floating{{ if in $page.RelPermalink "/projects/kokororenzu/" }} project-finalist-badge-kokoro{{ end }}"
+                loading="lazy"
+                decoding="async">
+            {{ end }}
+          {{ end }}
+
+
           {{ if .Params.externalUrl }}
             <span class="cursor-default align-top text-xs text-neutral-400 dark:text-neutral-500">
               <span class="rtl:hidden">&#8599;</span>
@@ -118,3 +140,6 @@
   </div>
   <div class="px-6 pt-4 pb-2"></div>
 </article>
+
+
+
