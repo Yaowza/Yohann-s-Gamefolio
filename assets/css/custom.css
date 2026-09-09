@@ -636,8 +636,6 @@ article footer .pt-8 > hr + .flex.justify-between.pt-3 a {
   border-radius: 6px;
 }
 
-
-
 /* Kokoro mobile
    - cas 1: classe sur le lien
    - cas 2: classe seulement sur l'image (template actuel) */
