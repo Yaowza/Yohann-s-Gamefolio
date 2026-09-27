@@ -22,7 +22,7 @@ enableRobotsTXT = true
 summaryLength = 30
 
 buildDrafts = false
-buildFuture = false
+buildFuture = true
 
 [imaging]
   resampleFilter = "Box"

@@ -2,7 +2,7 @@
 title: "Project not announced"
 summary: "..."
 categories: ["projects","professionnalproject"]
-inProgress: true
+inprogress: true
 #tags: ["projects"]
 
 
