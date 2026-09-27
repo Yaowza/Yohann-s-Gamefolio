@@ -650,3 +650,116 @@ article footer .pt-8 > hr + .flex.justify-between.pt-3 a {
 }
 
 
+
+/* foto de profil interractible*/
+
+
+.profile-avatar-trigger {
+  cursor: pointer;
+}
+
+.profile-avatar-trigger:focus-visible {
+  outline: 3px solid #e8794a;
+  outline-offset: 4px;
+}
+
+.profile-dialog {
+  width: min(92vw, 28rem);
+  max-height: 85vh;
+  margin: auto;
+  padding: 0;
+  border: 1px solid #d4d4d4;
+  border-radius: 8px;
+  color: #262626;
+  background: #fff;
+  box-shadow: 0 16px 48px rgb(0 0 0 / 25%);
+}
+
+.profile-dialog::backdrop {
+  background: rgb(0 0 0 / 65%);
+  backdrop-filter: blur(3px);
+}
+
+.profile-dialog__content {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  padding: 36px 24px 28px;
+  text-align: center;
+}
+
+.profile-dialog__close {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  padding: 6px 10px;
+  border: 1px solid currentColor;
+  border-radius: 4px;
+  color: inherit;
+  background: transparent;
+  cursor: pointer;
+}
+
+.profile-dialog__avatar {
+  width: 112px;
+  height: 112px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.dark .profile-dialog {
+  border-color: #525252;
+  color: #f5f5f5;
+  background: #262626;
+}
+
+/* Zoom au survol de la photo de profil */
+.profile-avatar-trigger {
+  transition: transform 260ms ease, box-shadow 260ms ease;
+}
+
+.profile-avatar-trigger:hover {
+  transform: scale(1.08);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.25);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .profile-avatar-trigger {
+    transition: none !important;
+  }
+
+  .profile-avatar-trigger:hover {
+    transform: none !important;
+  }
+}
+
+.profile-dialog {
+  width: min(92vw, 28rem);
+  max-height: 85vh;
+  margin: auto;
+  padding: 0;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 8px;
+  color: #262626;
+  background: rgba(255, 255, 255, 0.35);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  box-shadow: 0 16px 48px rgb(0 0 0 / 25%);
+}
+
+.dark .profile-dialog {
+  border-color: rgba(255, 255, 255, 0.12);
+  color: #f5f5f5;
+  background: rgba(38, 38, 38, 0.45);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
+
+
+.profile-dialog {
+  width: min(92vw, 44rem);
+  max-height: 90dvh;
+  overflow-y: auto;
+}

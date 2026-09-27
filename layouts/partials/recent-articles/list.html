@@ -1,0 +1,9 @@
+{{ $recentArticles := .Site.Params.homepage.showRecentItems }}
+{{ $recentPages := where .Site.RegularPages "Params.inprogress" "!=" true }}
+{{ $recentPages = where $recentPages "Type" "in" .Site.Params.mainSections }}
+
+<section class="space-y-10 w-full">
+  {{ range first $recentArticles (.Paginate $recentPages).Pages }}
+    {{ partial "article-link/simple.html" . }}
+  {{ end }}
+</section>

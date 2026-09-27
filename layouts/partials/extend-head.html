@@ -167,6 +167,50 @@
 
 <script>
     document.addEventListener("DOMContentLoaded", function () {
+        function replaceProfessionalProjectBadges() {
+            const badges = document.querySelectorAll('a[href*="/tags/professionnalproject/"], a[href*="/categories/professionnalproject/"]');
+
+            badges.forEach(oldBadge => {
+                if (oldBadge.getAttribute('data-replaced') === 'true') return;
+
+                const newBadge = document.createElement('a');
+                newBadge.href = oldBadge.href;
+                newBadge.textContent = "Professional Project";
+                newBadge.setAttribute('data-replaced', 'true');
+
+                newBadge.style.display = "inline-block";
+                newBadge.style.verticalAlign = "middle";
+                newBadge.style.margin = "0.5rem 0.5rem";
+                newBadge.style.padding = "0.125rem 0.5rem";
+                newBadge.style.fontSize = "0.75rem";
+                newBadge.style.fontWeight = "600";
+                newBadge.style.borderRadius = "0.25rem";
+                newBadge.style.textDecoration = "none";
+                newBadge.style.boxShadow = "none";
+                newBadge.style.outline = "none";
+
+                const isDark = document.documentElement.classList.contains('dark') || document.body.classList.contains('dark');
+                if (isDark) {
+                    newBadge.style.color = "#ff8c42";
+                    newBadge.style.border = "1px solid #ff8c42";
+                } else {
+                    newBadge.style.backgroundColor = "#ff8c42";
+                    newBadge.style.color = "#ff8c42";
+                    newBadge.style.border = "1px solid #ff8c42";
+                }
+
+                oldBadge.parentNode.replaceChild(newBadge, oldBadge);
+            });
+        }
+
+        replaceProfessionalProjectBadges();
+        setTimeout(replaceProfessionalProjectBadges, 100);
+        setTimeout(replaceProfessionalProjectBadges, 500);
+    });
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
         function replaceschoolprojectBadges() {
             // 1. On cherche tous les liens vers schoolprojects (tags ou catégories)
             const badges = document.querySelectorAll('a[href*="/tags/schoolproject/"], a[href*="/categories/schoolproject/"]');

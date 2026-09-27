@@ -2,6 +2,7 @@
 title: "The Cube"
 summary: "This was a UX based tiny project where we had to create a game that transmitted something philosophical."
 categories: ["projects","schoolproject","soloproject"]
+inProgress: false
 #tags: ["projects"]
 
 

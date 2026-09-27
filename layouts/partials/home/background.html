@@ -113,6 +113,18 @@
     </div>
   </div>
 </article>
+{{/* "In Progress" projects, rendered outside the hero article so it matches the "Recent" section's layout/contrast. */}}
+{{ $inProgressPages := where .Site.RegularPages "Params.inprogress" true }}
+{{ if $inProgressPages }}
+  <section>
+    <h2 class="mt-8 text-2xl font-extrabold mb-10">Ongoing</h2>
+    <section class="space-y-10 w-full">
+      {{ range $inProgressPages }}
+        {{ partial "article-link/simple.html" . }}
+      {{ end }}
+    </section>
+  </section>
+{{ end }}
 <section>
   {{ partial "recent-articles/main.html" . }}
 </section>
