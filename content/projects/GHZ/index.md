@@ -19,12 +19,7 @@ thumbnail: "cover.png"     # image de la carte
 
 _________________________________________
 
-
-
-
-
-
-# **\\More infos Coming Soon/**
+## **CLASSIFIED**
 
 
 
