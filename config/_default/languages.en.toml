@@ -12,7 +12,7 @@ dateFormat = "2 January 2006"
 
   [params.author]
   name = "Yohann Perrette"
-  image = "PDP.png"
+  image = "PDP.jpg"
   headline = "Welcome to my Gamefolio ! Here you will see your Dream Game come to reality !"
   bio = "A Game Designer and VFX Lover."
 
@@ -28,7 +28,7 @@ dateFormat = "2 January 2006"
 ["params.author"]
 name = "Yohann Perrette"
 email = "yo.perrette@gmail.com"
-image = "PDP.png"
+image = "PDP.jpg"
 headline = "Welcome to my Gamefolio ! The place to see your Dream Game come to reality !"
 
 

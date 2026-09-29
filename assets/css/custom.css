@@ -35,11 +35,51 @@ lite-youtube,
 .homepage-avatar,
 img[alt="Yohann Perrette"],
 .profile-avatar img {
-  width: 8rem !important;
-  height: 8rem !important;
+  width: 10rem !important;
+  height: 10rem !important;
   max-width: 192px !important;
   object-fit: cover !important;
+  object-position: 10% 30% !important; /* décale le sujet vers la droite */
   border-radius: 9999px !important;
+  cursor: zoom-in;
+  border: 3px solid transparent !important;
+  background:
+    linear-gradient(transparent, transparent) padding-box,
+    conic-gradient(
+      from var(--shine-angle),
+      rgba(2, 153, 199, 0.08) 0deg,
+      rgba(120, 220, 245, 0.22) 12deg,
+      rgba(1, 180, 224, 0.85) 38deg,
+      rgba(120, 220, 245, 0.22) 90deg,
+      rgba(2, 153, 199, 0.08) 120deg,
+      rgba(2, 153, 199, 0.08) 180deg,
+      rgba(120, 220, 245, 0.22) 192deg,
+      rgba(1, 180, 224, 0.85) 218deg,
+      rgba(120, 220, 245, 0.22) 270deg,
+      rgba(2, 153, 199, 0.08) 300deg,
+      rgba(2, 153, 199, 0.08) 360deg
+    ) border-box;
+  box-shadow:
+    0 0 0 3px rgba(2, 153, 199, 0.18),
+    0 0 14px rgba(1, 180, 224, 0.42) !important;
+  transition: transform 220ms ease, box-shadow 220ms ease;
+  animation: videoBorderShine 3.2s linear infinite;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  img[alt="Yohann Perrette"]:hover {
+    transform: scale(1.04);
+    box-shadow:
+      0 0 0 4px rgba(2, 153, 199, 0.24),
+      0 0 22px rgba(1, 180, 224, 0.65) !important;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  img[alt="Yohann Perrette"] {
+    animation: none;
+    transition: none;
+  }
 }
 
 /* Fix des marges de l'article */

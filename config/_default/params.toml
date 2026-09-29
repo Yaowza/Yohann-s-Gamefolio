@@ -8,6 +8,7 @@ firebase = { }
 fathomAnalytics = { }
 verification = { }
 defaultBackgroundImage = "BG.png"
+disableImageOptimization = true
 
 
 [header]
