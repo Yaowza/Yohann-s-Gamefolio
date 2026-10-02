@@ -39,7 +39,8 @@ img[alt="Yohann Perrette"],
   height: 10rem !important;
   max-width: 192px !important;
   object-fit: cover !important;
-  object-position: 10% 30% !important; /* décale le sujet vers la droite */
+  object-position: 20% 30% !important; /* décale le sujet vers la droite */
+
   border-radius: 9999px !important;
   cursor: zoom-in;
   border: 3px solid transparent !important;

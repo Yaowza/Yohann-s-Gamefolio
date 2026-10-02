@@ -215,7 +215,7 @@ As one of the two <b>main gameplay programmers</b> in Unreal Engine, I co-develo
 - All the Levels Mechanics :
     - Boosters
     - Cannons
-    - Tubes adn rails (made with spline meshes) 
+    - Tubes and rails (made with spline meshes) 
     - The "Cannon Lighthouse"
 - And some other systems in the levels such as :
     - The Railed camera system
